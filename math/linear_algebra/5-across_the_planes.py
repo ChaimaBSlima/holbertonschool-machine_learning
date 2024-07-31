@@ -4,25 +4,6 @@ Task 5: 5. Across The Planes
 """
 
 
-def matrix_shape(matrix):
-    """
-    Calculate the shape of a matrix.
-
-    Args:
-        matrix (list): A nested list representing the matrix.
-
-    Returns:
-        list: A list of integers representing the shape of the matrix.
-              The length of this list represents the number of dimensions.
-    """
-    shape = []
-    vector = matrix
-    while type(vector) is list:
-        shape.append(len(vector))
-        vector = vector[0]
-    return shape
-
-
 def add_matrices2D(mat1, mat2):
     """
      Add two matrices element-wise.
@@ -35,8 +16,10 @@ def add_matrices2D(mat1, mat2):
         None: if mat1 and mat2 are not the same shape.
         SommedArr: the new matrice with sommed values.
     """
-    if matrix_shape(mat1) != matrix_shape(mat2):
-        return (None)
+    if not mat1 or not mat2 or not mat1[0] or not mat2[0]:
+        return
+    if len(mat1) != len(mat2) or len(mat1[0]) != len(mat2[1]):
+        return(None)
     SommedMat = []
     for i in range(len(mat1)):
         SommedMat.append([])
