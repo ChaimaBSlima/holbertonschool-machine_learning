@@ -20,7 +20,6 @@ def add_matrices2D(mat1, mat2):
         return (None)
     SommedMat = []
     if len(mat1[0]) == 0:
-        SommedMat.append([])
         return SommedMat
     for i in range(len(mat1)):
         SommedMat.append([])
