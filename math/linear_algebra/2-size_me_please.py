@@ -2,6 +2,8 @@
 """
 Task 2: 2. Size Me Please
 """
+
+
 def matrix_shape(matrix):
     """
     Calculate the shape of a matrix.
