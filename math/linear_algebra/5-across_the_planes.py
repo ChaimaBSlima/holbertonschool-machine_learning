@@ -18,7 +18,7 @@ def add_matrices2D(mat1, mat2):
     """
     if not mat1 or not mat2 or not mat1[0] or not mat2[0]:
         return
-    if len(mat1) != len(mat2) or len(mat1[0]) != len(mat2[1]):
+    if len(mat1) != len(mat2) or len(mat1[0]) != len(mat2[0]):
         return(None)
     SommedMat = []
     for i in range(len(mat1)):
