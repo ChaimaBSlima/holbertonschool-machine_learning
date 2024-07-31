@@ -18,7 +18,4 @@ def np_cat(mat1, mat2, axis=0):
     Returns:
         The concatenated matrix.
     """
-    if axis == 1:
-        return (np.column_stack((mat1, mat2)))
-    else:
-        return (np.vstack((mat1, mat2)))
+    return (np.concatenate((mat1, mat2), axis))
