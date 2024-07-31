@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-import numpy as np
 """
 Task 14:Saddle Up
 """
+import numpy as np
 
 
 def np_matmul(mat1, mat2):
