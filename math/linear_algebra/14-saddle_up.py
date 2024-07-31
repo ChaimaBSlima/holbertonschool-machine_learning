@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import numpy as np
 """
 Task 14:Saddle Up
 """
