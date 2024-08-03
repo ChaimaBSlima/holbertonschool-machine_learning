@@ -58,7 +58,7 @@ def cat_matrices_recursion(mat1, mat2, axis):
     Returns:
         None: if the 2 matrix have not the same shape
         ConcatinatedMat: The result of the matrix
-                        concatination of mat1 and mat2.
+                        concatination of mat1 and mat2 .
     """
     ConcatinatedMat = []
     if axis == 0:
