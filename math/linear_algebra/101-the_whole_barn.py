@@ -19,14 +19,14 @@ def add_matrices(mat1, mat2):
         The result of the matrix addition of mat1 and mat2.
     """
     if len(mat1) != len(mat2):
-        return(None)
+        return (None)
     AddedMat = []
     for i in range(len(mat1)):
-        if type(mat1[i]) == list and type(mat2[i] == list):
+        if type(mat1[i]) is list and type(mat2[i] is list):
             item = add_matrices(mat1[i], mat2[i])
             if item is None:
                 return (None)
             AddedMat.append(item)
         else:
             AddedMat.append(mat1[i]+mat2[i])
-    return(AddedMat)
+    return (AddedMat)
