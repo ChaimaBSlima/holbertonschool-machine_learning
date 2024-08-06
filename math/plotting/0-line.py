@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
+"""Task 0: 0. Line Graph"""
 import numpy as np
 import matplotlib.pyplot as plt
-"""Task 0: 0. Line Graph"""
 
 
 def line():
