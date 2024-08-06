@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
+""" Task 1: 1. Scatter """
 import numpy as np
 import matplotlib.pyplot as plt
-""" Task 1: 1. Scatter """
 
 
 def scatter():
