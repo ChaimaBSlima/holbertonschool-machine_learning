@@ -7,8 +7,8 @@ def poly_derivative(poly):
      Calculate the derivative of a polynomial.
 
     Args:
-        n (int): The upper limit of the summation.oly (list): A list of numbers
-        (int or float) representing the polynomial coefficients.
+        poly (list): A list of numbers (int or float)
+        representing the polynomial coefficients.
 
     Returns:
         list: A list of numbers representing the derivative of the polynomial.
