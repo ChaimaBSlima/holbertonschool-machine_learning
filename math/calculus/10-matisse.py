@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """task 10: 10. Derive happiness in oneself from a good day's work"""
-import numpy as np
 
 
 def poly_derivative(poly):
@@ -18,6 +17,6 @@ def poly_derivative(poly):
     if not isinstance(poly, list):
         return None
     result = []
-    for i in poly[1:]:
+    for i in range(1, len(poly)):
         result.append(poly[i]*i)
     return result
