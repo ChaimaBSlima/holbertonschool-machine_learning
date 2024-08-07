@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+improt numpy as np
 """task 9: 9. Our life is the sum total of all the decisions
 we make every day, and those decisions are determined by our priorities"""
 
@@ -16,7 +17,6 @@ def summation_i_squared(n):
     """
     if type(n) is not int:
         return (None)
-    sum = 0
-    for i in range(1, n+1):
-        sum = sum + (i**2)
-    return sum
+    elements = np.square(np.arrange(1,n+1))
+    print (elements)
+    return 0
