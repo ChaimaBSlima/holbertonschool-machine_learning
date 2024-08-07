@@ -18,7 +18,7 @@ def poly_integral(poly, C=0):
     if not isinstance(poly, list) or poly == [] or not isinstance(C, int):
         return None
 
-    result = [0]
+    result = [C]
     for i in range(len(poly)):
         element = poly[i]/(i+1)
         if element.is_integer():
