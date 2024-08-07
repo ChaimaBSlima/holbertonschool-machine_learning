@@ -17,7 +17,7 @@ def summation_i_squared(n):
     """
     if type(n) is not int:
         return (None)
-    if (n>0)
+    if (n > 0):
         elements = np.square(np.arange(1, n+1))
         Sum = sum(elements)
     return Sum
