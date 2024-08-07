@@ -14,9 +14,9 @@ def poly_derivative(poly):
         list: A list of numbers representing the derivative of the polynomial.
         None: If the input is not a list.
     """
-    if not isinstance(poly, list):
+    if not isinstance(poly, list) or poly == []:
         return None
-    if len(poly) == 1 :
+    if len(poly) == 1:
         result = [0]
     else:
         result = []
