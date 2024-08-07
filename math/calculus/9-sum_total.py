@@ -15,8 +15,9 @@ def summation_i_squared(n):
         int: The summation of squares from 1 to n.
         None: If the input is not an integer.
     """
-    if type(n) is not int and n <= 1:
+    if type(n) is not int:
         return (None)
-    elements = np.square(np.arange(1, n+1))
-    Sum = sum(elements)
+    if (n>0)
+        elements = np.square(np.arange(1, n+1))
+        Sum = sum(elements)
     return Sum
