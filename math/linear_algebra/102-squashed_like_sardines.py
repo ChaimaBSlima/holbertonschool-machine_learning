@@ -48,7 +48,7 @@ def cat_matrices(mat1, mat2, axis=0):
     for i in range(len(shape1)):
         if i != axis and shape1[i] != shape2[i]:
             return None
-
+    ConcatinatedMat = cat_matrices_recursion(mat1, mat2, axis)
     return (ConcatinatedMat)
 
 
