@@ -16,10 +16,12 @@ def matrix_shape(matrix):
               The length of this list represents the number of dimensions.
     """
     shape = []
-    vector = matrix
-    while type(vector) is list:
-        shape.append(len(vector))
-        vector = vector[0]
+    while isinstance(matrix, list):
+        shape.append(len(matrix))
+        if matrix:
+            matrix = matrix[0]
+        else:
+            break
     return shape
 
 
@@ -38,9 +40,14 @@ def cat_matrices(mat1, mat2, axis=0):
         ConcatinatedMat: The result of the matrix
                         concatination of mat1 and mat2.
     """
-    if len(matrix_shape(mat1)) != len(matrix_shape(mat2)):
-        return (None)
-    ConcatinatedMat = cat_matrices_recursion(mat1, mat2, axis)
+    shape1 = matrix_shape(mat1)
+    shape2 = matrix_shape(mat2)
+
+    if len(shape1) != len(shape2):
+        return None
+    for i in range(len(shape1)):
+        if i != axis and shape1[i] != shape2[i]:
+            return None
 
     return (ConcatinatedMat)
 
