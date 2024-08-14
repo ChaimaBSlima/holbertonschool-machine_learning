@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-
-import numpy as np
 """ Task 0: 0. Depth of a decision tree """
+import numpy as np
 
 
 class Node:
