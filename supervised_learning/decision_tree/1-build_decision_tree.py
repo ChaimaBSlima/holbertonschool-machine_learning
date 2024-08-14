@@ -78,6 +78,32 @@ class Node:
             right_depth = self.depth
         return max(left_depth, right_depth)
 
+    def count_nodes_below(self, only_leaves=False):
+        """
+        Counts the number of nodes in the subtree rooted at this node.
+
+        Parameters:
+        only_leaves : bool, optional
+            If True, count only the leaf nodes (default is False).
+
+        Returns:
+        int
+            The number of nodes in the subtree.
+        """
+        if self.is_leaf:
+            return 1
+        if self.left_child:
+            left_count = self.left_child.count_nodes_below(only_leaves)
+        else:
+            left_count = 0
+        if self.right_child:
+            right_count = self.right_child.count_nodes_below(only_leaves)
+        else:
+            right_count = 0
+        if only_leaves:
+            return left_count + right_count
+        return 1 + left_count + right_count
+
 
 class Leaf(Node):
     """
