@@ -232,7 +232,7 @@ class Leaf(Node):
         str
             The string representation of the leaf node.
         """
-        return f"-> leaf [value={self.value}]"
+        return (f"-> leaf [value={self.value}]")
 
 
 class Decision_Tree():
