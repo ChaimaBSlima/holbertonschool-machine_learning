@@ -350,7 +350,7 @@ class Decision_Tree():
         str
             The string representation of the decision tree.
         """
-        return self.root.__str__()
+        return self.root.__str__() + "\n"
 
     def get_leaves(self):
         """
