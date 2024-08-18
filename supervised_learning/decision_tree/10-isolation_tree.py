@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
+""" Task 10: 10. IRF 1 : isolation random trees """
 import numpy as np
 Node = __import__('8-build_decision_tree').Node
 Leaf = __import__('8-build_decision_tree').Leaf
-""" Task 10: 10. IRF 1 : isolation random trees """
 
 
 class Isolation_Random_Tree:
