@@ -103,6 +103,8 @@ class Isolation_Random_Forest():
         None
         """
         self.explanatory = explanatory
+        if self.target is None:
+            self.target = np.zeros(explanatory.shape[0])
         self.numpy_preds = []
         depths = []
         nodes = []
@@ -141,3 +143,24 @@ class Isolation_Random_Forest():
         depths = self.predict(explanatory)
         suspect_indices = np.argsort(depths)[:n_suspects]
         return explanatory[suspect_indices], depths[suspect_indices]
+
+        def set_target(self, target):
+            """
+            Sets the target variable for color mapping in plots.
+
+            Parameters:
+            target : numpy.ndarray
+                The target variable data to set.
+            """
+            self.target = target
+
+        def get_target(self):
+            """
+            Returns the target variable for color mapping in plots.
+
+            Returns:
+            --------
+            numpy.ndarray or None
+                The target variable data, or None if not set.
+            """
+            return self.target
