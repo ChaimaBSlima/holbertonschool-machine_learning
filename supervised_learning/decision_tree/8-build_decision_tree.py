@@ -3,46 +3,6 @@
 import numpy as np
 
 
-def left_child_add_prefix(text):
-    """
-    Adds a prefix to each line of the text to
-    indicate it is the left child in the tree structure.
-
-    Parameters:
-    text : str
-        The text to which the prefix will be added.
-
-    Returns:
-    str
-        The text with the left child prefix added to each line.
-    """
-    lines = text.split("\n")
-    new_text = "    +--" + lines[0] + "\n"
-    for x in lines[1:]:
-        new_text += ("    |  "+x) + "\n"
-    return new_text
-
-
-def right_child_add_prefix(text):
-    """
-    Adds a prefix to each line of the text to indicate
-    it is the right child in the tree structure.
-
-    Parameters:
-    text : str
-        The text to which the prefix will be added.
-
-    Returns:
-    str
-        The text with the right child prefix added to each line.
-    """
-    lines = text.split("\n")
-    new_text = "    +--" + lines[0] + "\n"
-    for x in lines[1:]:
-        new_text += ("       " + x) + "\n"
-    return new_text
-
-
 class Node:
     """
     A class representing a node in a decision tree.
@@ -144,6 +104,44 @@ class Node:
             return left_count + right_count
         return 1 + left_count + right_count
 
+    def left_child_add_prefix(self, text):
+        """
+        Adds a prefix to each line of the text to
+        indicate it is the left child in the tree structure.
+
+        Parameters:
+        text : str
+            The text to which the prefix will be added.
+
+        Returns:
+        str
+            The text with the left child prefix added to each line.
+        """
+        lines = text.split("\n")
+        new_text = "    +--"+lines[0]+"\n"
+        for x in lines[1:]:
+            new_text += ("    |  "+x)+"\n"
+        return (new_text)
+
+    def right_child_add_prefix(self, text):
+        """
+        Adds a prefix to each line of the text to indicate
+        it is the right child in the tree structure.
+
+        Parameters:
+        text : str
+            The text to which the prefix will be added.
+
+        Returns:
+        str
+            The text with the right child prefix added to each line.
+        """
+        lines = text.split("\n")
+        new_text = "    +--"+lines[0]+"\n"
+        for x in lines[1:]:
+            new_text += ("       "+x)+"\n"
+        return (new_text.rstrip())
+
     def __str__(self):
         """
         Returns a string representation of the node and its children.
@@ -153,21 +151,12 @@ class Node:
             The string representation of the node.
         """
         if self.is_root:
-            Type = "root "
-        elif self.is_leaf:
-            return f"-> leaf [value={self.value}]"
+            t = "root"
         else:
-            Type = "-> node "
-        if self.left_child:
-            left_str = left_child_add_prefix(str(self.left_child))
-        else:
-            left_str = ""
-        if self.right_child:
-            right_str = right_child_add_prefix(str(self.right_child))
-        else:
-            right_str = ""
-        return f"{Type}[feature={self.feature}, threshold=\
-{self.threshold}]\n{left_str}{right_str}".rstrip()
+            t = "-> node"
+        return f"{t} [feature={self.feature}, threshold={self.threshold}]\n"\
+            + self.left_child_add_prefix(str(self.left_child))\
+            + self.right_child_add_prefix(str(self.right_child))
 
     def get_leaves_below(self):
         """
@@ -177,14 +166,9 @@ class Node:
         list
             The list of all leaves below this node.
         """
-        if self.is_leaf:
-            return [self]
-        leaves = []
-        if self.left_child:
-            leaves.extend(self.left_child.get_leaves_below())
-        if self.right_child:
-            leaves.extend(self.right_child.get_leaves_below())
-        return leaves
+        left_leaves = self.left_child.get_leaves_below()
+        right_leaves = self.right_child.get_leaves_below()
+        return left_leaves + right_leaves
 
     def update_bounds_below(self):
         """
@@ -264,8 +248,6 @@ class Node:
         int
             The predicted class for the individual.
         """
-        if self.is_leaf:
-            return self.value
         if x[self.feature] > self.threshold:
             return self.left_child.pred(x)
         else:
@@ -484,32 +466,10 @@ class Decision_Tree():
         leaves = self.get_leaves()
         for leaf in leaves:
             leaf.update_indicator()
-
-        def predict(A):
-            """
-            Predict the class for each individual in the input
-            array A using the decision tree.
-
-            Parameters:
-            A : np.ndarray
-                A 2D NumPy array of shape (n_individuals,
-                n_features), where each row
-                represents an individual with its features.
-
-            Returns:
-            np.ndarray
-                A 1D NumPy array of shape (n_individuals,),
-                where each element is the predicted
-                class for the corresponding individual in A.
-            """
-            predictions = np.zeros(A.shape[0], dtype=int)
-            for i, x in enumerate(A):
-                for leaf in leaves:
-                    if leaf.indicator(np.array([x])):
-                        predictions[i] = leaf.value
-                        break
-            return predictions
-        self.predict = predict
+        self.predict = lambda A: np.sum(
+            np.array([leaf.indicator(A) * leaf.value for leaf in leaves]),
+            axis=0
+        )
 
     def pred(self, x):
         """

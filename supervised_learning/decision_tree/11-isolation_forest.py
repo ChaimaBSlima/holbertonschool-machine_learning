@@ -140,5 +140,5 @@ class Isolation_Random_Forest():
         """
         depths = self.predict(explanatory)
         sorted_indices = np.argsort(depths)
-        return explanatory[sorted_indices[:n_suspects]], \
-            depths[sorted_indices[:n_suspects]]
+        suspects = sorted_indices[:n_suspects]
+        return explanatory[suspects], depths[suspects]

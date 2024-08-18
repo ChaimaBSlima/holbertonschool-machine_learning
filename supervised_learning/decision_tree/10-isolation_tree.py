@@ -78,7 +78,10 @@ class Isolation_Random_Tree:
             Root node of the tree (default is None, which creates a new Node).
         """
         self.rng = np.random.default_rng(seed)
-        self.root = root if root else Node(is_root=True)
+        if root:
+            self.root = root
+        else:
+            self.root = Node(is_root=True)
         self.explanatory = None
         self.max_depth = max_depth
         self.predict = None
@@ -92,7 +95,7 @@ class Isolation_Random_Tree:
         str
             The string representation of the decision tree.
         """
-        return self.root.__str__() + "\n"
+        return self.root.__str__
 
     def depth(self):
         """
@@ -123,7 +126,7 @@ class Isolation_Random_Tree:
         Update the bounds for the entire
         tree starting from the root node.
         """
-        self.root.update_bounds_below()
+        return self.root.update_bounds_below()
 
     def get_leaves(self):
         """
@@ -143,32 +146,10 @@ class Isolation_Random_Tree:
         leaves = self.get_leaves()
         for leaf in leaves:
             leaf.update_indicator()
-
-        def predict(A):
-            """
-            Predict the class for each individual in the input
-            array A using the decision tree.
-
-            Parameters:
-            A : np.ndarray
-                A 2D NumPy array of shape (n_individuals,
-                n_features), where each row
-                represents an individual with its features.
-
-            Returns:
-            np.ndarray
-                A 1D NumPy array of shape (n_individuals,),
-                where each element is the predicted
-                class for the corresponding individual in A.
-            """
-            predictions = np.zeros(A.shape[0], dtype=int)
-            for i, x in enumerate(A):
-                for leaf in leaves:
-                    if leaf.indicator(np.array([x])):
-                        predictions[i] = leaf.value
-                        break
-            return predictions
-        self.predict = predict
+        self.predict = lambda A: np.sum(
+            np.array([leaf.indicator(A) * leaf.value for leaf in leaves]),
+            axis=0
+        )
 
     def np_extrema(self, arr):
         """
@@ -254,30 +235,29 @@ class Isolation_Random_Tree:
         node : Node
             The node to fit.
         """
+        node.feature, node.threshold = self.random_split_criterion(node)
 
-        node.feature, node.threshold = self.split_criterion(node)
-
-        left_population = node.sub_population & \
+        left_population = node.sub_population &\
             (self.explanatory[:, node.feature] > node.threshold)
-        right_population = node.sub_population & ~left_population
+        right_population = node.sub_population &\
+            ~(self.explanatory[:, node.feature] > node.threshold)
 
-        is_left_leaf = (node.depth == self.max_depth - 1 or
-                        np.sum(left_population) <= self.min_pop)
-        is_right_leaf = (node.depth == self.max_depth - 1 or
-                         np.sum(right_population) <= self.min_pop)
+        is_left_leaf = (node.depth == self.max_depth - 1)\
+            or (np.sum(left_population) <= self.min_pop)
 
         if is_left_leaf:
             node.left_child = self.get_leaf_child(node, left_population)
         else:
             node.left_child = self.get_node_child(node, left_population)
-            node.left_child.depth = node.depth + 1
             self.fit_node(node.left_child)
+
+        is_right_leaf = (node.depth == self.max_depth - 1)\
+            or (np.sum(right_population) <= self.min_pop)
 
         if is_right_leaf:
             node.right_child = self.get_leaf_child(node, right_population)
         else:
             node.right_child = self.get_node_child(node, right_population)
-            node.right_child.depth = node.depth + 1
             self.fit_node(node.right_child)
 
     def fit(self, explanatory, verbose=0):
