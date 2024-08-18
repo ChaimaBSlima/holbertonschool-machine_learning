@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import numpy as np
 Node = __import__('8-build_decision_tree').Node
 Leaf = __import__('8-build_decision_tree').Leaf
