@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
+"""Task 9: 9. Random forests"""
 import numpy as np
 from scipy import stats
 Decision_Tree = __import__('8-build_decision_tree').Decision_Tree
-"""Task 9: 9. Random forests"""
 
 
 class Random_Forest:
