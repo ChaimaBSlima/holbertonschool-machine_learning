@@ -108,13 +108,13 @@ class Isolation_Random_Forest():
         nodes = []
         leaves = []
         for i in range(n_trees):
-            T = Isolation_Random_Tree(max_depth=self.max_depth, seed=self.seed + i)
+            T = Isolation_Random_Tree(max_depth=self.max_depth,
+                                      seed=self.seed + i)
             T.fit(explanatory)
             self.numpy_preds.append(T.predict)
             depths.append(T.depth())
             nodes.append(T.count_nodes())
             leaves.append(T.count_nodes(only_leaves=True))
-        self.target = self.predict(explanatory)
         if verbose == 1:
             print(f"""  Training finished.
     - Mean depth                     : {np.array(depths).mean()}
@@ -139,5 +139,6 @@ class Isolation_Random_Forest():
             with the smallest mean depth.
         """
         depths = self.predict(explanatory)
-        suspect_indices = np.argsort(depths)[:n_suspects]
-        return explanatory[suspect_indices], depths[suspect_indices]
+        sorted_indices = np.argsort(depths)
+        return explanatory[sorted_indices[:n_suspects]], \
+            depths[sorted_indices[:n_suspects]]
