@@ -103,25 +103,23 @@ class Isolation_Random_Forest():
         None
         """
         self.explanatory = explanatory
-        if self.target is None:
-            self.target = np.zeros(explanatory.shape[0])
         self.numpy_preds = []
         depths = []
         nodes = []
         leaves = []
         for i in range(n_trees):
-            T = Isolation_Random_Tree(max_depth=self.max_depth,
-                                      seed=self.seed+i)
+            T = Isolation_Random_Tree(max_depth=self.max_depth, seed=self.seed + i)
             T.fit(explanatory)
             self.numpy_preds.append(T.predict)
             depths.append(T.depth())
             nodes.append(T.count_nodes())
             leaves.append(T.count_nodes(only_leaves=True))
+        self.target = self.predict(explanatory)
         if verbose == 1:
             print(f"""  Training finished.
-    - Mean depth                     : { np.array(depths).mean()      }
-    - Mean number of nodes           : { np.array(nodes).mean()       }
-    - Mean number of leaves          : { np.array(leaves).mean()      }""")
+    - Mean depth                     : {np.array(depths).mean()}
+    - Mean number of nodes           : {np.array(nodes).mean()}
+    - Mean number of leaves          : {np.array(leaves).mean()}""")
 
     def suspects(self, explanatory, n_suspects):
         """
@@ -143,24 +141,3 @@ class Isolation_Random_Forest():
         depths = self.predict(explanatory)
         suspect_indices = np.argsort(depths)[:n_suspects]
         return explanatory[suspect_indices], depths[suspect_indices]
-
-        def set_target(self, target):
-            """
-            Sets the target variable for color mapping in plots.
-
-            Parameters:
-            target : numpy.ndarray
-                The target variable data to set.
-            """
-            self.target = target
-
-        def get_target(self):
-            """
-            Returns the target variable for color mapping in plots.
-
-            Returns:
-            --------
-            numpy.ndarray or None
-                The target variable data, or None if not set.
-            """
-            return self.target
