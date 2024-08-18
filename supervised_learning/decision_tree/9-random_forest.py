@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import numpy as np
 from scipy import stats
 Decision_Tree = __import__('8-build_decision_tree').Decision_Tree
