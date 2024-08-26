@@ -27,6 +27,8 @@ class NeuralNetwork:
     __init__(self, nx, nodes)
         Initializes the neural network with given input features and nodes in
         the hidden layer.
+    def forward_prop(self, X):
+        Computes the forward propagation of the neural network.
     """
 
     def __init__(self, nx, nodes):
@@ -143,8 +145,8 @@ class NeuralNetwork:
                 - A2 (numpy.ndarray): The activated output of the output
                 neuron with shape (1, m).
         """
-        Z1 = np.matmul(self.__W1, X) + self.__b1
-        self.__A1 = 1 / (1 + np.exp(-Z1))
-        Z2 = np.matmul(self.__W2, self.__A1) + self.__b2
-        self.__A2 = 1 / (1 + np.exp(-Z2))
+        C1 = np.matmul(self.__W1, X) + self.__b1
+        self.__A1 = 1 / (1 + np.exp(-C1))
+        C2 = np.matmul(self.__W2, self.__A1) + self.__b2
+        self.__A2 = 1 / (1 + np.exp(-C2))
         return self.__A1, self.__A2
