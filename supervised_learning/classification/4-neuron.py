@@ -28,7 +28,7 @@ class Neuron:
         Computes the forward propagation of the neuron.
     forward_prop(self, X)
         Calculates the cost of the model using logistic regression.
-    def evaluate(self, X, Y)
+    evaluate(self, X, Y)
         Evaluates the neuron’s predictions.
     """
 
