@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+""" Task 8: 8. NeuralNetwork """
+import numpy as np
+
+
+class NeuralNetwork:
+    """
+    Defines a neural network with one hidden layer for performing
+    binary classification.
+
+    Attributes:
+    W1 : numpy.ndarray
+        The weight matrix for the hidden layer. Shape is (nodes, nx).
+    b1 : numpy.ndarray
+        The bias vector for the hidden layer. Shape is (nodes, 1).
+    A1 : float
+        The activated output of the hidden layer.
+    W2 : numpy.ndarray
+        The weight matrix for the output neuron. Shape is (1, nodes).
+    b2 : float
+        The bias term for the output neuron. Initialized to 0.
+    A2 : float
+        The activated output of the output neuron, representing the final
+        prediction of the network.
+
+    Methods:
+    __init__(self, nx, nodes)
+        Initializes the neural network with given input features and nodes in
+        the hidden layer.
+    """
+
+    def __init__(self, nx, nodes):
+        """
+        Initializes the neural network.
+
+        Parameters:
+        nx : int
+            The number of input features to the neural network.
+        nodes : int
+            The number of nodes in the hidden layer.
+
+        Raises:
+        TypeError
+            If `nx` is not an integer or `nodes` is not an integer.
+        ValueError
+            If `nx` is less than 1 or `nodes` is less than 1.
+        """
+        if not isinstance(nx, int):
+            raise TypeError("nx must be an integer")
+        if nx < 1:
+            raise ValueError("nx must be a positive integer")
+        if not isinstance(nodes, int):
+            raise TypeError("nodes must be an integer")
+        if nodes < 1:
+            raise ValueError("nodes must be a positive integer")
+        
+        self.W1 = np.random.normal(0, 1, (nodes, nx))
+        self.b1 = np.zeros((nodes, 1))
+        self.A1 = 0
+        self.W2 = np.random.normal(0, 1, (1, nodes))
+        self.b2 = 0
+        self.A2 = 0
