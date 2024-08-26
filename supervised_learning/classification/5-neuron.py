@@ -28,7 +28,7 @@ class Neuron:
         Computes the forward propagation of the neuron.
     forward_prop(self, X)
         Calculates the cost of the model using logistic regression.
-    def evaluate(self, X, Y)
+    evaluate(self, X, Y)
         Evaluates the neuron’s predictions.
     gradient_descent(self, X, Y, A, alpha=0.05)
         Performs one pass of gradient descent on the neuron.
