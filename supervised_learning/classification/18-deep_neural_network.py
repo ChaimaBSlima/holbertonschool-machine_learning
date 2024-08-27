@@ -27,6 +27,8 @@ class DeepNeuralNetwork:
             Property getter for the intermediary values in the network.
         weights(self):
             Property getter for the weights and biases of the network.
+        forward_prop(self, X)
+            Calculates the forward propagation of the neural network.
     """
 
     def __init__(self, nx, layers):
