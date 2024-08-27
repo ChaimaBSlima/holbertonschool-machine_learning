@@ -29,6 +29,8 @@ class DeepNeuralNetwork:
             Property getter for the weights and biases of the network.
         forward_prop(self, X)
             Calculates the forward propagation of the neural network.
+        cost(self, Y, A)
+            Calculates the cost of the model using logistic regression.
     """
 
     def __init__(self, nx, layers):
