@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Task 13: 13. NeuralNetwork Gradient Descent """
+""" Task 14: 14. Train NeuralNetwork """
 import numpy as np
 
 
