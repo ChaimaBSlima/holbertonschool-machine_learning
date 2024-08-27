@@ -3,6 +3,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 class NeuralNetwork:
     """
     Defines a neural network with one hidden layer for performing
