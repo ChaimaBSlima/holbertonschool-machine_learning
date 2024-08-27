@@ -33,6 +33,9 @@ class DeepNeuralNetwork:
             Evaluates the neural network’s predictions.
         gradient_descent(self, Y, cache, alpha=0.05)
             Performs one pass of gradient descent on the neural network.
+        train(self, X, Y, iterations=5000, alpha=0.05)
+            Trains the deep neural network using forward propagation and
+            gradient descent.
     """
 
     def __init__(self, nx, layers):
@@ -175,7 +178,6 @@ class DeepNeuralNetwork:
         cost = self.cost(Y, A_final)
         return A_adjus, cost
 
-
     def gradient_descent(self, Y, cache, alpha=0.05):
         """
         Performs one pass of gradient descent on the neural network.
@@ -241,7 +243,7 @@ class DeepNeuralNetwork:
             the input data.
                 - nx (int): Number of input features.
                 - m (int): Number of examples.
-            Y (numpy.ndarray): Array with shape (1, m) containing the correct 
+            Y (numpy.ndarray): Array with shape (1, m) containing the correct
             labels for the input data.
                 - m (int): Number of examples.
             iterations (int, optional): Number of iterations to perform
