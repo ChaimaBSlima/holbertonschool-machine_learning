@@ -175,7 +175,6 @@ class DeepNeuralNetwork:
         cost = self.cost(Y, A_final)
         return A_adjus, cost
 
-
     def gradient_descent(self, Y, cache, alpha=0.05):
         """
         Performs one pass of gradient descent on the neural network.
