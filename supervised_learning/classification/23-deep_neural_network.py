@@ -233,7 +233,9 @@ class DeepNeuralNetwork:
             self.__weights['b{}'.format(i + 1)] = \
                 weights['b{}'.format(i + 1)] \
                 - (alpha * db)
-    def train(self, X, Y, iterations=5000, alpha=0.05, verbose=True, graph=True, step=100):
+
+    def train(self, X, Y, iterations=5000, alpha=0.05,
+              verbose=True, graph=True, step=100):
         """
         Trains the deep neural network using forward
         propagation and gradient descent, with options for
@@ -264,7 +266,8 @@ class DeepNeuralNetwork:
 
         Returns:
             tuple: A tuple containing:
-                - numpy.ndarray: Array with shape (1, m) of the network's predicted labels after training.
+                - numpy.ndarray: Array with shape (1, m) of the network's
+                predicted labels after training.
                 - float: The cost of the network after training.
 
         Raises:
@@ -303,5 +306,5 @@ class DeepNeuralNetwork:
             plt.xlabel('iteration')
             plt.ylabel('cost')
             plt.title('Training Cost')
-            plt.savefig("23-figure")
+            plt.show()
         return self.evaluate(X, Y)

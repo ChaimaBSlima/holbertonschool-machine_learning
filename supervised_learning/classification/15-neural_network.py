@@ -309,7 +309,7 @@ class NeuralNetwork:
                 raise ValueError("step must be positive and <= iterations")
         costList = []
         stepList = []
-        for i in range(iterations):
+        for i in range(iterations + 1):
             self.forward_prop(X)
             self.gradient_descent(X, Y, self.__A1, self.__A2, alpha)
             if i % step == 0 or i == iterations:
