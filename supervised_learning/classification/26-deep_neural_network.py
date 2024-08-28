@@ -125,18 +125,19 @@ class DeepNeuralNetwork:
                 activations of each layer.
         """
         self.__cache['A0'] = X
+        for i in range(1, self.L + 1):
+            Zi = np.dot(self.__weights['W' + str(i)],
+                        self.__cache['A' + str(i - 1)])
+            + self.__weights['b' + str(i)]
+            if i == self.L:
+                exp_Zi = np.exp(Zi - np.max(Zi, axis=0,
+                                            keepdims=True))
+                self.__cache['A' + str(i)] = exp_Zi / exp_Zi.sum(axis=0,
+                                                                 keepdims=True)
+            else:
+                self.__cache['A' + str(i)] = 1 / (1 + np.exp(-Zi))
 
-        for i in range(self.__L):
-            W_key = "W{}".format(i + 1)
-            b_key = "b{}".format(i + 1)
-            A_key_prev = "A{}".format(i)
-            A_key_forw = "A{}".format(i + 1)
-
-            Z = np.matmul(self.__weights[W_key], self.__cache[A_key_prev]) \
-                + self.__weights[b_key]
-            self.__cache[A_key_forw] = 1 / (1 + np.exp(-Z))
-
-        return self.__cache[A_key_forw], self.__cache
+        return self.__cache['A' + str(self.L)], self.__cache
 
     def cost(self, Y, A):
         """
@@ -154,8 +155,8 @@ class DeepNeuralNetwork:
             float: The cost of the model, calculated using the
             logistic regression cost function.
         """
-        cost = -np.sum((Y * np.log(A)) +
-                       ((1 - Y) * np.log(1.0000001 - A))) / Y.shape[1]
+        m = Y.shape[1]
+        cost = -np.sum(Y * np.log(A)) / m
         return cost
 
     def evaluate(self, X, Y):
@@ -179,10 +180,10 @@ class DeepNeuralNetwork:
                 - float: The cost of the model, calculated
                 using the logistic regression cost function.
         """
-        A_final = self.forward_prop(X)[0]
-        A_adjus = np.where(A_final >= 0.5, 1, 0)
-        cost = self.cost(Y, A_final)
-        return A_adjus, cost
+        A, _ = self.forward_prop(X)
+        predictions = np.argmax(A, axis=0)
+        cost = self.cost(Y, A)
+        return predictions, cost
 
     def gradient_descent(self, Y, cache, alpha=0.05):
         """
