@@ -20,15 +20,19 @@ class DeepNeuralNetwork:
         and biases of the network.
 
     Methods:
-        __init__(self, nx, layers):
+        __init__(self, nx, layers)
             Initializes the deep neural network with given input features
             and nodes in each layer.
-        L(self):
+        L(self)
             Property getter for the number of layers in the network.
-        cache(self):
+        cache(self)
             Property getter for the intermediary values in the network.
-        weights(self):
+        weights(self)
             Property getter for the weights and biases of the network.
+        sigmoid(self, z)
+            Applies the sigmoid activation function.
+        softmax(self, z)
+            Applies the softmax activation function.
         forward_prop(self, X)
             Calculates the forward propagation of the neural network.
         evaluate(self, X, Y)
@@ -105,6 +109,42 @@ class DeepNeuralNetwork:
         """ Property getter for the weights and
         biases of the network. """
         return self.__weights
+
+    def sigmoid(self, z):
+        """
+        Applies the sigmoid activation function.
+
+        Args:
+            z (numpy.ndarray): A numpy array with shape
+            (nx, m) that contains the input data.
+                - nx (int): The number of input features
+                to the neuron.
+                - m (int): The number of examples.
+
+        Returns:
+            numpy.ndarray: The activated output using
+            the sigmoid function.
+        """
+        y_hat = 1 / (1 + np.exp(-z))
+        return y_hat
+
+    def softmax(self, z):
+        """
+        Applies the softmax activation function.
+
+        Args:
+            z (numpy.ndarray): A numpy array with shape
+            (nx, m) that contains the input data.
+                - nx (int): The number of input features
+                to the neuron.
+                - m (int): The number of examples.
+
+        Returns:
+            numpy.ndarray: The activated output using
+            softmax function.
+        """
+        y_hat = np.exp(z - np.max(z))
+        return y_hat / y_hat.sum(axis=0)
 
     def forward_prop(self, X):
         """
