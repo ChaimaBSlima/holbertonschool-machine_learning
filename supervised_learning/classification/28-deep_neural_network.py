@@ -22,7 +22,7 @@ class DeepNeuralNetwork:
     Methods:
         __init__(self, nx, layers)
             Initializes the deep neural network with given input features
-            and nodes in each layer.
+            and nodes in each  layer.
         L(self)
             Property getter for the number of layers in the network.
         cache(self)
