@@ -178,11 +178,15 @@ class DeepNeuralNetwork:
 
             z = np.matmul(W, Aprev) + b
             if i < self.__L - 1:
-                self.__cache[Akey] = self.sigmoid(z)
+                if self.__activation == 'sig':
+                    self.__cache[Akey] = self.sigmoid(z)
+                else:
+                    self.__cache[Akey] = np.tanh(z)
             else:
                 self.__cache[Akey] = self.softmax(z)
 
         return (self.__cache[Akey], self.__cache)
+
 
     def cost(self, Y, A):
         """
