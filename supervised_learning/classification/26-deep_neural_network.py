@@ -87,6 +87,7 @@ class DeepNeuralNetwork:
                 f = np.sqrt(2 / layers[i - 1])
                 self.weights[W_key] = np.random.randn(layers[i],
                                                       layers[i - 1]) * f
+
     @property
     def L(self):
         """ Property getter for the number of
