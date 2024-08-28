@@ -58,37 +58,35 @@ class DeepNeuralNetwork:
             ValueError: If `nx` is less than 1.
             TypeError: If `layers` is not a list of positive integers.
         """
-        if type(nx) is not int:
+        if type(nx) != int:
             raise TypeError("nx must be an integer")
         if nx < 1:
             raise ValueError("nx must be a positive integer")
-        if type(layers) is not list:
+        if type(layers) != list:
             raise TypeError("layers must be a list of positive integers")
         if len(layers) == 0:
             raise TypeError("layers must be a list of positive integers")
-        self.__nx = nx
-        self.__layers = layers
+        self.nx = nx
+        self.layers = layers
         self.__L = len(layers)
         self.__cache = {}
         self.__weights = {}
 
-        for i in range(self.__L):
-            if not isinstance(layers[i], int) or layers[i] < 1:
+        for i in range(self.L):
+            if type(layers[i]) != int or layers[i] < 1:
                 raise TypeError("layers must be a list of positive integers")
+            W_key = "W{}".format(i + 1)
+            b_key = "b{}".format(i + 1)
 
-            W_key = f"W{i + 1}"
-            b_key = f"b{i + 1}"
-
-            self.__weights[b_key] = np.zeros((layers[i], 1))
+            self.weights[b_key] = np.zeros((layers[i], 1))
 
             if i == 0:
                 f = np.sqrt(2 / nx)
-                self.__weights[W_key] = np.random.randn(layers[i], nx) * f
+                self.weights['W1'] = np.random.randn(layers[i], nx) * f
             else:
                 f = np.sqrt(2 / layers[i - 1])
-                self.__weights[W_key] = \
-                    np.random.randn(layers[i], layers[i - 1]) * f
-
+                self.weights[W_key] = np.random.randn(layers[i],
+                                                      layers[i - 1]) * f
     @property
     def L(self):
         """ Property getter for the number of
@@ -311,7 +309,7 @@ class DeepNeuralNetwork:
             plt.xlabel('iteration')
             plt.ylabel('cost')
             plt.title('Training Cost')
-            plt.savefig("23-figure")
+            plt.show()
         return self.evaluate(X, Y)
 
     def save(self, filename):
