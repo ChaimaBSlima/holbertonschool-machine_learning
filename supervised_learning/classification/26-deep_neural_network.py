@@ -58,11 +58,11 @@ class DeepNeuralNetwork:
             ValueError: If `nx` is less than 1.
             TypeError: If `layers` is not a list of positive integers.
         """
-        if type(nx) != int:
+        if type(nx) is not int:
             raise TypeError("nx must be an integer")
         if nx < 1:
             raise ValueError("nx must be a positive integer")
-        if type(layers) != list:
+        if type(layers) is not list:
             raise TypeError("layers must be a list of positive integers")
         if len(layers) == 0:
             raise TypeError("layers must be a list of positive integers")
@@ -73,7 +73,7 @@ class DeepNeuralNetwork:
         self.__weights = {}
 
         for i in range(self.L):
-            if type(layers[i]) != int or layers[i] < 1:
+            if type(layers[i]) is not int or layers[i] < 1:
                 raise TypeError("layers must be a list of positive integers")
             W_key = "W{}".format(i + 1)
             b_key = "b{}".format(i + 1)
@@ -295,7 +295,7 @@ class DeepNeuralNetwork:
                 raise ValueError("step must be positive and <= iterations")
         cost_list = []
         steps_list = []
-        for i in range(iterations + 1):
+        for i in range(iterations):
             self.forward_prop(X)
             self.gradient_descent(Y, self.cache, alpha)
             if i % step == 0 or i == iterations:
@@ -309,7 +309,7 @@ class DeepNeuralNetwork:
             plt.xlabel('iteration')
             plt.ylabel('cost')
             plt.title('Training Cost')
-            plt.show()
+            plt.savefig("23-figure")
         return self.evaluate(X, Y)
 
     def save(self, filename):
