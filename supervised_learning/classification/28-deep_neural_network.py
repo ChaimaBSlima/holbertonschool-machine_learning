@@ -261,6 +261,7 @@ class DeepNeuralNetwork:
             ValueError: If `alpha` is less than or equal to 0.
         """
         m = Y.shape[1]
+        # dA = - (np.divide(Y, A) - np.divide(1 - Y, 1 - A))
         weights_c = self.__weights.copy()
         for i in range(self.__L, 0, -1):
             A = cache["A" + str(i)]
@@ -275,6 +276,7 @@ class DeepNeuralNetwork:
                     dz = (weights_c["W" + str(i + 1)].T @ dz) * g
             dw = (dz @ cache["A" + str(i - 1)].T) / m
             db = np.sum(dz, axis=1, keepdims=True) / m
+            # dz for next iteration
             self.__weights["W" + str(i)] = self.__weights[
                     "W" + str(i)] - (alpha * dw)
             self.__weights["b" + str(i)] = self.__weights[
