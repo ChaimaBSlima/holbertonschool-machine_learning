@@ -15,7 +15,7 @@ def forward_prop(x, layer_sizes=[], activations=[]):
             each layer of the network
         activations: list containing the activation functions
             for each layer of the network
-    
+
     Returns:
         The prediction of the network in tensor form.
     """
