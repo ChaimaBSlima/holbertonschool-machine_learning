@@ -29,11 +29,6 @@ def train_model(network, data, labels, batch_size, epochs,
         Whether to shuffle the data before each epoch
         (default is False for reproducibility).
 
-    Returns:
-    --------
-    history : History object
-        A Keras History object that holds the
-        record of training loss and metrics.
     """
     return network.fit(x=data,
                        y=labels,
