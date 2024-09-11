@@ -4,7 +4,7 @@ import numpy as np
 
 
 def normalize(X, m, s):
-    """ 
+    """
     Normalizes (standardizes) a matrix by subtracting the mean
     and dividing by the standard deviation.
 
