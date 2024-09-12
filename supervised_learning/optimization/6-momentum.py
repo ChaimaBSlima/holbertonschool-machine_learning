@@ -20,5 +20,5 @@ def create_momentum_op(loss, alpha, beta1):
         tf.Operation: The operation that applies the gradient descent with
         momentum optimization to minimize the loss.
     """
-    optimizer = tf.train.MomentumOptimizer(alpha, beta1)
+    optimizer = tf.compat.v1.train.MomentumOptimizer(alpha, beta1)
     return optimizer.minimize(loss)
