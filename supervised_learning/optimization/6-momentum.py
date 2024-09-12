@@ -3,7 +3,7 @@
 import tensorflow as tf
 
 
-def create_momentum_op(loss, alpha, beta1):
+def create_momentum_op(alpha, beta1):
     """
     Creates the training operation for a neural network in TensorFlow
     using the gradient descent with momentum optimization algorithm.
