@@ -21,4 +21,4 @@ def create_momentum_op(alpha, beta1):
         momentum optimization to minimize the loss.
     """
     optimizer = tf.compat.v1.train.MomentumOptimizer(alpha, beta1)
-    return optimizer.minimize(loss)
+    return optimizer
