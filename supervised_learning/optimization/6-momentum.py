@@ -9,8 +9,6 @@ def create_momentum_op(alpha, beta1):
     using the gradient descent with momentum optimization algorithm.
 
     Args:
-        loss (tf.Tensor): The loss tensor of the network, typically calculated
-            using a loss function such as cross-entropy or mean squared error.
         alpha (float): The learning rate, controlling the step size in the
             optimization process.
         beta1 (float): The momentum weight, controlling the contribution of
