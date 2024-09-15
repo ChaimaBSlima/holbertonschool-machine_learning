@@ -20,23 +20,14 @@ def create_batch_norm_layer(prev, n, activation):
             The output of the batch normalization layer,
             with activation applied if specified.
     """
-    initializer = \
-        tf.contrib.layers.variance_scaling_initializer(mode="FAN_AVG")
-
-    model = tf.layers.Dense(units=n,
-                            activation=None,
-                            kernel_initializer=initializer,
-                            name='layer')
-
-    mean, variance = tf.nn.moments(model(prev), axes=0, keep_dims=True)
-
-    beta = tf.Variable(tf.constant(0.0, shape=[n]),
-                       name='beta', trainable=True)
-    gamma = tf.Variable(tf.constant(1.0, shape=[n]),
-                        name='gamma', trainable=True)
-    adjusted = tf.nn.batch_normalization(model(prev), mean, variance,
-                                         offset=beta, scale=gamma,
-                                         variance_epsilon=1e-8)
-    if activation is None:
-        return model(prev)
-    return activation(adjusted)
+    init = tf.keras.initializers.VarianceScaling(mode='fan_avg')
+    layer = tf.keras.layers.Dense(n, kernel_initializer=init)
+    z = layer(prev)
+    gamma = tf.Variable(1., trainable=True)
+    beta = tf.Variable(0., trainable=True)
+    mean = tf.math.reduce_mean(z, axis=0)
+    var = tf.math.reduce_variance(z, axis=0)
+    epsilon = 1e-8
+    normalized = tf.nn.batch_normalization(
+        z, mean, var, beta, gamma, epsilon)
+    return activation(normalized)
