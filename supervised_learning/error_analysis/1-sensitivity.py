@@ -28,6 +28,7 @@ def sensitivity(confusion):
     i = 0
     for row in confusion:
         positive = row[i]
+        false_positive = sum(row)
         sensitivity.append(positive / false_positive)
         i = i + 1
 
