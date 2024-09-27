@@ -25,8 +25,9 @@ def convolve_channels(images, kernel, padding='same', stride=(1, 1)):
 
     Returns:
     numpy.ndarray:
-    A numpy array of shape (m, new_h, new_w) containing the result of the convolution,
-    where new_h and new_w are the height and width of the output images, respectively.
+    A numpy array of shape (m, new_h, new_w) containing the result of
+    the convolution, where new_h and new_w are the height and width of
+    the output images, respectively.
     """
     w, h, m = images.shape[2], images.shape[1], images.shape[0]
     c = images.shape[3]
