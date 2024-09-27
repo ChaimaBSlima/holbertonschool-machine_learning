@@ -4,7 +4,7 @@ import numpy as np
 
 
 def pool(images, kernel_shape, stride, mode='max'):
-    """ 
+    """
     Perform pooling operation on a batch of images.
 
     This function applies a pooling layer to a batch of images using
@@ -25,7 +25,8 @@ def pool(images, kernel_shape, stride, mode='max'):
     Returns:
     numpy.ndarray:
     A numpy array of shape (m, new_h, new_w, c) containing the pooled images,
-    where new_h and new_w are the height and width of the output images, respectively.
+    where new_h and new_w are the height and width of the output images,
+    respectively.
     """
     c, w, = images.shape[3], images.shape[2]
     h, m = images.shape[1], images.shape[0]
