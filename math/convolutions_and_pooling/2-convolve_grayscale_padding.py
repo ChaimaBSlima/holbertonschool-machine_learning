@@ -8,15 +8,20 @@ def convolve_grayscale_padding(images, kernel, padding):
     Perform a convolution on grayscale images with specified padding.
 
     Parameters:
-    images (numpy.ndarray): A numpy array of shape (m, h, w) containing m grayscale images
-                            of height h and width w.
-    kernel (numpy.ndarray): A numpy array of shape (kh, kw) representing the convolution kernel,
-                            where kh is the height and kw is the width of the kernel.
-    padding (tuple): A tuple of (ph, pw) where ph is the height padding and pw is the width padding.
+    images (numpy.ndarray):
+    A numpy array of shape (m, h, w) containing m grayscale images
+    of height h and width w.
+    kernel (numpy.ndarray):
+    A numpy array of shape (kh, kw) representing the convolution kernel,
+    where kh is the height and kw is the width of the kernel.
+    padding (tuple):
+    A tuple of (ph, pw) where ph is the height padding and pw is
+    the width padding.
 
     Returns:
-    numpy.ndarray: A numpy array of shape (m, H, W) containing the result of the convolution,
-                   where H is the output height and W is the output width.
+    numpy.ndarray:
+    A numpy array of shape (m, H, W) containing the result of the convolution,
+    where H is the output height and W is the output width.
     """
     m = images.shape[0]
     h = images.shape[1]
