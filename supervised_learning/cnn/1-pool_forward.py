@@ -46,7 +46,7 @@ def pool_forward(A_prev, kernel_shape, stride=(1, 1), mode='max'):
     # Retrieving stride
     (sh, sw) = stride
 
-    # Setting padding for valid
+
     pw, ph = 0, 0
 
     # Compute the output dimensions
@@ -56,7 +56,7 @@ def pool_forward(A_prev, kernel_shape, stride=(1, 1), mode='max'):
     # Initialize the output with zeros
     output = np.zeros((m, n_h, n_w, c_prev))
 
-    # Looping over vertical(h) and horizontal(w) axis of output volume
+    # Looping over vertical and horizontal axis of output volume
     for x in range(n_w):
         for y in range(n_h):
             # element-wise multiplication of the kernel and the image
