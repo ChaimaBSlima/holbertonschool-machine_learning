@@ -23,52 +23,22 @@ def lenet5(X):
         categorical cross-entropy loss function, suitable for multi-class
          classification problems.
     """
-    def he_normal():
-        return K.initializers.HeNormal(seed=None)
+    # Set the initializer with the specified seed
+    he_normal_initializer = K.initializers.HeNormal(seed=0)
 
-    conv_1 = K.layers.Conv2D(
-        filters=6,
-        kernel_size=5,
-        padding="same",
-        kernel_initializer=he_normal(),
-        activation="relu"
-    )(X)
+    # Define the model
+    model = K.Sequential([
+        K.layers.Conv2D(6, (5, 5), padding='same', kernel_initializer=he_normal_initializer, activation='relu', input_shape=(28, 28, 1)),
+        K.layers.MaxPooling2D(pool_size=(2, 2), strides=(2, 2)),
+        K.layers.Conv2D(16, (5, 5), padding='valid', kernel_initializer=he_normal_initializer, activation='relu'),
+        K.layers.MaxPooling2D(pool_size=(2, 2), strides=(2, 2)),
+        K.layers.Flatten(),  # Flatten the output for the fully connected layers
+        K.layers.Dense(120, kernel_initializer=he_normal_initializer, activation='relu'),
+        K.layers.Dense(84, kernel_initializer=he_normal_initializer, activation='relu'),
+        K.layers.Dense(10, kernel_initializer=he_normal_initializer, activation='softmax')
+    ])
 
-    pool_1 = K.layers.MaxPooling2D(
-        pool_size=(2, 2),
-        strides=(2, 2)
-    )(conv_1)
-
-    conv_2 = K.layers.Conv2D(
-        filters=16,
-        kernel_size=5,
-        padding="valid",
-        kernel_initializer=he_normal(),
-        activation="relu"
-    )(pool_1)
-
-    pool_2 = K.layers.MaxPooling2D(
-        pool_size=(2, 2),
-        strides=(2, 2)
-    )(conv_2)
-
-    flat = K.layers.Flatten()(pool_2)
-
-    layer_1 = K.layers.Dense(120, activation='relu',
-                             kernel_initializer=he_normal(), kernel_regularizer=K.regularizers.l2(0.001))(flat)
-    dropout_1 = K.layers.Dropout(0.5)(layer_1)
+    # Compile the model using Adam optimizer
+    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
     
-    layer_2 = K.layers.Dense(84, activation='relu',
-                             kernel_initializer=he_normal(), kernel_regularizer=K.regularizers.l2(0.001))(dropout_1)
-    dropout_2 = K.layers.Dropout(0.5)(layer_2)
-
-    layer_3 = K.layers.Dense(10, activation='softmax',
-                             kernel_initializer=he_normal())(dropout_2)
-
-    model = K.Model(inputs=X, outputs=layer_3)
-    optimizer = K.optimizers.Adam(learning_rate=0.0001)  # Adjusted learning rate
-    model.compile(optimizer=optimizer,
-                  loss="categorical_crossentropy",
-                  metrics=['accuracy'])
-
     return model
