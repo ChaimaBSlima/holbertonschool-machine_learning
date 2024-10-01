@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """ Task 4: 4. LeNet-5 (Tensorflow 1) """
-import tensorflow as tf
-
+import tensorflow.compat.v1 as tf
 
 def lenet5(x, y):
     """
