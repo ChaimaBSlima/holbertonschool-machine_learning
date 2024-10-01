@@ -23,42 +23,46 @@ def lenet5(X):
         categorical cross-entropy loss function, suitable for multi-class
          classification problems.
     """
-    C1 = K.layers.Conv2D(filters=6,
-                         kernel_size=5,
-                         padding='same',
-                         activation='relu',
-                         kernel_initializer='he_normal')(X)
+    initializer = K.initializers.HeNormal()
 
-    S2 = K.layers.MaxPooling2D(pool_size=(2, 2),
-                               strides=(2, 2))(C1)
+    conv_1 = K.layers.Conv2D(
+        filters=6,
+        kernel_size=5,
+        padding="same",
+        kernel_initializer=initializer,
+        activation="relu"
+    )(X)
 
-    C3 = K.layers.Conv2D(filters=16,
-                         kernel_size=5,
-                         padding='valid',
-                         activation='relu',
-                         kernel_initializer='he_normal')(S2)
+    pool_1 = K.layers.MaxPooling2D(
+        pool_size=(2, 2),
+        strides=(2, 2)
+    )(conv_1)
 
-    S4 = K.layers.MaxPooling2D(pool_size=(2, 2),
-                               strides=(2, 2))(C3)
+    conv_2 = K.layers.Conv2D(
+        filters=16,
+        kernel_size=5,
+        padding="valid",
+        kernel_initializer=initializer,
+        activation="relu"
+    )(pool_1)
 
-    flatten = K.layers.Flatten()(S4)
+    pool_2 = K.layers.MaxPooling2D(
+        pool_size=(2, 2),
+        strides=(2, 2)
+    )(conv_2)
 
-    C5 = K.layers.Dense(units=120,
-                        activation='relu',
-                        kernel_initializer='he_normal')(flatten)
+    flat = K.layers.Flatten()(pool_2)
 
-    F6 = K.layers.Dense(units=84,
-                        activation='relu',
-                        kernel_initializer='he_normal')(C5)
+    layer_1 = K.layers.Dense(120, "relu",
+                             kernel_initializer=initializer)(flat)
+    layer_2 = K.layers.Dense(84, "relu",
+                             kernel_initializer=initializer)(layer_1)
+    layer_3 = K.layers.Dense(10, "softmax",
+                             kernel_initializer=initializer)(layer_2)
 
-    OUTPUT = K.layers.Dense(units=10,
-                            activation='softmax',
-                            kernel_initializer='he_normal')(F6)
-
-    model = K.Model(inputs=X, outputs=OUTPUT)
-
+    model = K.Model(inputs=X, outputs=layer_3)
     model.compile(optimizer=K.optimizers.Adam(),
-                  loss='categorical_crossentropy',
+                  loss="categorical_crossentropy",
                   metrics=['accuracy'])
 
     return model
