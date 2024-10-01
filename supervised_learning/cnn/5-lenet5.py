@@ -57,13 +57,18 @@ def lenet5(X):
 
     layer_1 = K.layers.Dense(120, activation='relu',
                              kernel_initializer=he_normal())(flat)
+    dropout_1 = K.layers.Dropout(0.5)(layer_1)
+    
     layer_2 = K.layers.Dense(84, activation='relu',
-                             kernel_initializer=he_normal())(layer_1)
+                             kernel_initializer=he_normal())(dropout_1)
+    dropout_2 = K.layers.Dropout(0.5)(layer_2)
+
     layer_3 = K.layers.Dense(10, activation='softmax',
-                             kernel_initializer=he_normal())(layer_2)
+                             kernel_initializer=he_normal())(dropout_2)
 
     model = K.Model(inputs=X, outputs=layer_3)
-    model.compile(optimizer=K.optimizers.Adam(),
+    optimizer = K.optimizers.Adam(learning_rate=0.0001)  # Adjusted learning rate
+    model.compile(optimizer=optimizer,
                   loss="categorical_crossentropy",
                   metrics=['accuracy'])
 
