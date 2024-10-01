@@ -53,12 +53,12 @@ def lenet5(X):
 
     flat = K.layers.Flatten()(pool_2)
 
-    layer_1 = K.layers.Dense(120, "relu",
-                             kernel_initializer=initializer)(flat)
-    layer_2 = K.layers.Dense(84, "relu",
-                             kernel_initializer=initializer)(layer_1)
-    layer_3 = K.layers.Dense(10, "softmax",
-                             kernel_initializer=initializer)(layer_2)
+    layer_1 = K.layers.Dense(120, activation='relu',
+                             kernel_initializer=K.initializers.HeNormal(seed=None))(flat)
+    layer_2 = K.layers.Dense(84, activation='relu',
+                             kernel_initializer=K.initializers.HeNormal(seed=None))(layer_1)
+    layer_3 = K.layers.Dense(10, activation='softmax',
+                             kernel_initializer=K.initializers.HeNormal(seed=None))(layer_2)
 
     model = K.Model(inputs=X, outputs=layer_3)
     model.compile(optimizer=K.optimizers.Adam(),
