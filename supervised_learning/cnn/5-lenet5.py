@@ -23,13 +23,15 @@ def lenet5(X):
         categorical cross-entropy loss function, suitable for multi-class
          classification problems.
     """
-    initializer = K.initializers.HeNormal()
+    # Use unique initializers for each layer with a specified seed
+    def he_normal():
+        return K.initializers.HeNormal(seed=None)
 
     conv_1 = K.layers.Conv2D(
         filters=6,
         kernel_size=5,
         padding="same",
-        kernel_initializer=initializer,
+        kernel_initializer=he_normal(),
         activation="relu"
     )(X)
 
@@ -42,7 +44,7 @@ def lenet5(X):
         filters=16,
         kernel_size=5,
         padding="valid",
-        kernel_initializer=initializer,
+        kernel_initializer=he_normal(),
         activation="relu"
     )(pool_1)
 
@@ -54,11 +56,11 @@ def lenet5(X):
     flat = K.layers.Flatten()(pool_2)
 
     layer_1 = K.layers.Dense(120, activation='relu',
-                             kernel_initializer=K.initializers.HeNormal(seed=None))(flat)
+                             kernel_initializer=he_normal())(flat)
     layer_2 = K.layers.Dense(84, activation='relu',
-                             kernel_initializer=K.initializers.HeNormal(seed=None))(layer_1)
+                             kernel_initializer=he_normal())(layer_1)
     layer_3 = K.layers.Dense(10, activation='softmax',
-                             kernel_initializer=K.initializers.HeNormal(seed=None))(layer_2)
+                             kernel_initializer=he_normal())(layer_2)
 
     model = K.Model(inputs=X, outputs=layer_3)
     model.compile(optimizer=K.optimizers.Adam(),
