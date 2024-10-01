@@ -23,22 +23,35 @@ def lenet5(X):
         categorical cross-entropy loss function, suitable for multi-class
          classification problems.
     """
-    # Set the initializer with the specified seed
-    he_normal_initializer = K.initializers.HeNormal(seed=0)
+    initializer = K.initializers.HeNormal(seed=0)
 
-    # Define the model
     model = K.Sequential([
-        K.layers.Conv2D(6, (5, 5), padding='same', kernel_initializer=he_normal_initializer, activation='relu', input_shape=(28, 28, 1)),
-        K.layers.MaxPooling2D(pool_size=(2, 2), strides=(2, 2)),
-        K.layers.Conv2D(16, (5, 5), padding='valid', kernel_initializer=he_normal_initializer, activation='relu'),
-        K.layers.MaxPooling2D(pool_size=(2, 2), strides=(2, 2)),
-        K.layers.Flatten(),  # Flatten the output for the fully connected layers
-        K.layers.Dense(120, kernel_initializer=he_normal_initializer, activation='relu'),
-        K.layers.Dense(84, kernel_initializer=he_normal_initializer, activation='relu'),
-        K.layers.Dense(10, kernel_initializer=he_normal_initializer, activation='softmax')
+        X,
+        K.layers.Conv2D(filters=6,
+                        kernel_size=5,
+                        padding='same',
+                        activation='relu',
+                        kernel_initializer=initializer),
+        K.layers.MaxPool2D(pool_size=2, strides=2),
+        K.layers.Conv2D(filters=16,
+                        kernel_size=5,
+                        activation='relu',
+                        kernel_initializer=initializer),
+        K.layers.MaxPool2D(pool_size=2, strides=2),
+        K.layers.Flatten(),
+        K.layers.Dense(units=120,
+                       activation='relu',
+                       kernel_initializer=initializer),
+        K.layers.Dense(units=84,
+                       activation='relu',
+                       kernel_initializer=initializer),
+        K.layers.Dense(units=10,
+                       activation='softmax',
+                       kernel_initializer=initializer)
     ])
 
-    # Compile the model using Adam optimizer
-    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
-    
+    model.compile(loss='categorical_crossentropy',
+                  optimizer=K.optimizers.Adam(),
+                  metrics=['accuracy'])
+
     return model
