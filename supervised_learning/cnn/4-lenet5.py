@@ -2,6 +2,7 @@
 """ Task 4: 4. LeNet-5 (Tensorflow 1) """
 import tensorflow.compat.v1 as tf
 
+
 def lenet5(x, y):
     """
     Builds the LeNet-5 architecture using TensorFlow for digit classification.
@@ -61,72 +62,68 @@ def lenet5(x, y):
     - The accuracy is computed by comparing the predicted class with
     the actual labels.
     """
-    # implement He et. al initialization for the layer weights
-    initializer = \
-        tf.contrib.layers.variance_scaling_initializer()
+    weights_init = tf.keras.initializers.VarianceScaling(scale=2.0)
 
-    # Conv layers
-    # Convolutional layer with 6 kernels of shape 5x5 with same padding
-    layer0 = tf.layers.Conv2D(filters=6, kernel_size=(5, 5),
-                              padding='same',
-                              activation=tf.nn.relu,
-                              kernel_initializer=initializer,
-                              name='layer')(x)
+    conv_1 = tf.layers.Conv2D(
+        filters=6,
+        kernel_size=5,
+        padding='same',
+        activation="relu",
+        kernel_initializer=weights_init
+    )(x)
 
-    # Max pooling layer with kernels of shape 2x2 with 2x2 strides
-    layer1 = tf.layers.MaxPooling2D(pool_size=(2, 2),
-                                    strides=(2, 2))(layer0)
+    pool_1 = tf.layers.MaxPooling2D(
+        pool_size=2,
+        strides=2
+    )(conv_1)
 
-    # Convolutional layer with 16 kernels of shape 5x5 with valid padding
-    layer2 = tf.layers.Conv2D(filters=16,
-                              kernel_size=(5, 5),
-                              padding='valid',
-                              activation=tf.nn.relu,
-                              kernel_initializer=initializer,
-                              name='layer')(layer1)
+    conv_2 = tf.layers.Conv2D(
+        filters=16,
+        kernel_size=5,
+        padding='valid',
+        activation="relu",
+        kernel_initializer=weights_init
+    )(pool_1)
 
-    # Max pooling layer with kernels of shape 2x2 with 2x2 strides
-    layer3 = tf.layers.MaxPooling2D(pool_size=(2, 2),
-                                    strides=(2, 2))(layer2)
+    pool_2 = tf.layers.MaxPooling2D(
+        pool_size=2,
+        strides=2
+    )(conv_2)
 
-    # Flattening between conv and dense layers
-    layer3 = tf.layers.Flatten()(layer3)
+    flat = tf.layers.Flatten()(pool_2)
 
-    # Fully connected (Dense) layers
-    # Fully connected layer with 120 nodes
-    layer4 = tf.layers.Dense(units=120,
-                             activation=tf.nn.relu,
-                             kernel_initializer=initializer,
-                             name='layer')(layer3)
+    layer_1 = tf.layers.Dense(
+        units=120,
+        activation="relu",
+        name="layer",
+        kernel_initializer=weights_init
+    )(flat)
 
-    # Fully connected layer with 84 nodes
-    layer5 = tf.layers.Dense(units=84,
-                             activation=tf.nn.relu,
-                             kernel_initializer=initializer,
-                             name='layer')(layer4)
+    layer_2 = tf.layers.Dense(
+        units=84,
+        activation="relu",
+        name="layer",
+        kernel_initializer=weights_init
+    )(layer_1)
 
-    # Fully connected softmax output layer with 10 nodes
-    layer6 = tf.layers.Dense(units=10,
-                             kernel_initializer=initializer,
-                             name='layer')(layer5)
+    output = tf.layers.Dense(
+        units=10,
+        activation=None,
+        name="layer",
+        kernel_initializer=weights_init
+    )(layer_2)
 
-    # loss
-    loss = tf.losses.softmax_cross_entropy(y, layer6)
+    losses = tf.losses.softmax_cross_entropy(
+        onehot_labels=y,
+        logits=output
+    )
 
-    # prediction
-    y_pred = tf.nn.softmax(layer6)
+    comparation = tf.math.equal(tf.argmax(y, 1), tf.argmax(output, 1))
+    accuracy = tf.reduce_mean(tf.cast(comparation, tf.float32))
 
-    # train_op
-    train_op = tf.train.AdamOptimizer(name='Adam').minimize(loss)
+    optimizer = tf.train.AdamOptimizer()
+    train = optimizer.minimize(losses)
 
-    # accuracy
-    # from one y_pred one_hot to tag
-    y_pred_t = tf.argmax(y_pred, 1)
-    # from y one_hot to tag
-    y_t = tf.argmax(y, 1)
-    # comparison vector between tags (TRUE/FALSE)
-    equal = tf.equal(y_pred_t, y_t)
-    # average hits
-    acc = tf.reduce_mean(tf.cast(equal, tf.float32))
+    out = tf.nn.softmax(output)
 
-    return y_pred, train_op, loss, acc
+    return out, train, losses, accuracy
