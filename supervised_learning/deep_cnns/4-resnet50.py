@@ -17,7 +17,7 @@ def resnet50():
         A Keras model instance representing the ResNet-50 architecture.
     """
     # implement He et. al initialization for the layers weights
-    initializer = K.initializers.HeNormal()
+    initializer = K.initializers.HeNormal(speed=0)
 
     X = K.Input(shape=(224, 224, 3))
 
@@ -29,7 +29,7 @@ def resnet50():
                                kernel_initializer=initializer,
                                )(X)
 
-    my_layer = K.layers.BatchNormalization(axis=3)(my_layer)
+    my_layer = K.layers.BatchNormalization()(my_layer)
     my_layer = K.layers.Activation('relu')(my_layer)
 
     # MaxPool 3x3 + 2(S)
