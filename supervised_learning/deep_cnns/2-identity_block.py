@@ -27,41 +27,30 @@ def identity_block(A_prev, filters):
         to form a residual connection.
     """
     F11, F3, F12 = filters
+    c1 = K.layers.Conv2D(
+        filters=F11, kernel_size=(
+            1, 1), padding='same', strides=(
+            1, 1), kernel_initializer=K.initializers.he_normal(
+                seed=0))(A_prev)
+    b1 = K.layers.BatchNormalization(axis=3)(c1)
+    r1 = K.layers.Activation('relu')(b1)
 
-    # implement He et. al initialization for the layers weights
-    initializer = K.initializers.he_normal(seed=None)
+    c2 = K.layers.Conv2D(
+        filters=F3, kernel_size=(
+            3, 3), padding='same', strides=(
+            1, 1), kernel_initializer=K.initializers.he_normal(
+                seed=0))(r1)
+    b2 = K.layers.BatchNormalization(axis=3)(c2)
+    r2 = K.layers.Activation('relu')(b2)
 
-    # Conv 1x1
-    my_layer = K.layers.Conv2D(filters=F11,
-                               kernel_size=(1, 1),
-                               padding='same',
-                               kernel_initializer=initializer,
-                               )(A_prev)
+    c3 = K.layers.Conv2D(
+        filters=F12, kernel_size=(
+            1, 1), padding='same', strides=(
+            1, 1), kernel_initializer=K.initializers.he_normal(
+                seed=0))(r2)
+    b3 = K.layers.BatchNormalization(axis=3)(c3)
 
-    my_layer = K.layers.BatchNormalization(axis=3)(my_layer)
-    my_layer = K.layers.Activation('relu')(my_layer)
+    model = K.layers.Add()([b3, A_prev])
+    model = K.layers.Activation('relu')(model)
 
-    # Conv 3x3
-    my_layer = K.layers.Conv2D(filters=F3,
-                               kernel_size=(3, 3),
-                               padding='same',
-                               kernel_initializer=initializer,
-                               )(my_layer)
-
-    my_layer = K.layers.BatchNormalization(axis=3)(my_layer)
-    my_layer = K.layers.Activation('relu')(my_layer)
-
-    # Conv 1x1
-    my_layer = K.layers.Conv2D(filters=F12,
-                               kernel_size=(1, 1),
-                               padding='same',
-                               kernel_initializer=initializer,
-                               )(my_layer)
-
-    my_layer = K.layers.BatchNormalization(axis=3)(my_layer)
-
-    output = K.layers.Add()([my_layer, A_prev])
-
-    output = K.layers.Activation('relu')(output)
-
-    return output
+    return model
