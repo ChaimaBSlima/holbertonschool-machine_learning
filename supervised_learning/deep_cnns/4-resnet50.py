@@ -16,53 +16,45 @@ def resnet50():
     model : keras.Model
         A Keras model instance representing the ResNet-50 architecture.
     """
-    # implement He et. al initialization for the layers weights
-    initializer = K.initializers.HeNormal(speed=0)
 
-    X = K.Input(shape=(224, 224, 3))
+    init = K.initializers.HeNormal()
+    input_layer = K.Input(shape=(224, 224, 3))
 
-    # Conv 7x7 + 2(S)
-    my_layer = K.layers.Conv2D(filters=64,
-                               kernel_size=(7, 7),
-                               strides=(2, 2),
-                               padding='same',
-                               kernel_initializer=initializer,
-                               )(X)
+    conv1 = K.layers.Conv2D(64, 7, strides=2,
+                            padding='same',
+                            kernel_initializer=init)(input_layer)
+    batch_norm = K.layers.BatchNormalization()(conv1)
 
-    my_layer = K.layers.BatchNormalization()(my_layer)
-    my_layer = K.layers.Activation('relu')(my_layer)
+    activation = K.layers.Activation('relu')(batch_norm)
 
-    # MaxPool 3x3 + 2(S)
-    my_layer = K.layers.MaxPool2D(pool_size=(3, 3),
-                                  padding='same',
-                                  strides=(2, 2))(my_layer)
+    max_pooling = K.layers.MaxPooling2D(pool_size=(3, 3), strides=2,
+                                        padding='same')(activation)
 
-    my_layer = projection_block(my_layer, [64, 64, 256], 1)
-    for i in range(2):
-        my_layer = identity_block(my_layer, [64, 64, 256])
+    CP1 = projection_block(max_pooling, [64, 64, 256], s=1)
+    CI2 = identity_block(CP1, [64, 64, 256])
+    CI3 = identity_block(CI2, [64, 64, 256])
+    CP2 = projection_block(CI3, [128, 128, 512])
 
-    my_layer = projection_block(my_layer, [128, 128, 512])
-    for i in range(3):
-        my_layer = identity_block(my_layer, [128, 128, 512])
+    CI4 = identity_block(CP2, [128, 128, 512])
+    CI5 = identity_block(CI4, [128, 128, 512])
+    CI6 = identity_block(CI5, [128, 128, 512])
 
-    my_layer = projection_block(my_layer, [256, 256, 1024])
-    for i in range(5):
-        my_layer = identity_block(my_layer, [256, 256, 1024])
+    CP3 = projection_block(CI6, [256, 256, 1024])
+    CI7 = identity_block(CP3, [256, 256, 1024])
+    CI8 = identity_block(CI7, [256, 256, 1024])
+    CI9 = identity_block(CI8, [256, 256, 1024])
+    CI10 = identity_block(CI9, [256, 256, 1024])
+    CI11 = identity_block(CI10, [256, 256, 1024])
 
-    my_layer = projection_block(my_layer, [512, 512, 2048])
-    for i in range(2):
-        my_layer = identity_block(my_layer, [512, 512, 2048])
+    CP4 = projection_block(CI11, [512, 512, 2048])
+    CI12 = identity_block(CP4, [512, 512, 2048])
+    CI13 = identity_block(CI12, [512, 512, 2048])
 
-    # Avg pooling layer with kernels of shape 7x7
-    my_layer = K.layers.AveragePooling2D(pool_size=(7, 7),
-                                         padding='same')(my_layer)
+    avg = K.layers.AveragePooling2D(pool_size=(7, 7))(CI13)
 
-    # Fully connected softmax output layer with 1000 nodes
-    my_layer = K.layers.Dense(units=1000,
-                              activation='softmax',
-                              kernel_initializer=initializer,
-                              )(my_layer)
+    output_layer = K.layers.Dense(1000,
+                                  kernel_initializer=init,
+                                  activation='softmax')(avg)
 
-    model = K.models.Model(inputs=X, outputs=my_layer)
-
+    model = K.Model(input_layer, output_layer)
     return model
