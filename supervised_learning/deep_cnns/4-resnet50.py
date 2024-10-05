@@ -30,7 +30,7 @@ def resnet50():
                                )(X)
 
     my_layer = K.layers.BatchNormalization(axis=3)(my_layer)
-    my_layer = K.layers.Activation(activation='relu')(my_layer)
+    my_layer = K.layers.ReLU()(my_layer)
 
     # MaxPool 3x3 + 2(S)
     my_layer = K.layers.MaxPool2D(pool_size=(3, 3),
