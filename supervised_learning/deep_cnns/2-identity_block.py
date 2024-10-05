@@ -9,40 +9,44 @@ def identity_block(A_prev, filters):
     """
     F11, F3, F12 = filters
 
-    # implement He et. al initialization for the layers weights
-    initializer = K.initializers.he_normal(seed=None)
 
-    # Conv 1x1
-    my_layer = K.layers.Conv2D(filters=F11,
-                               kernel_size=(1, 1),
-                               padding='same',
-                               kernel_initializer=initializer,
-                               )(A_prev)
+    init = K.initializers.he_normal(seed=None)
 
-    my_layer = K.layers.BatchNormalization(axis=3)(my_layer)
-    my_layer = K.layers.Activation('relu')(my_layer)
 
-    # Conv 3x3
-    my_layer = K.layers.Conv2D(filters=F3,
-                               kernel_size=(3, 3),
-                               padding='same',
-                               kernel_initializer=initializer,
-                               )(my_layer)
+    # 1x1 Convolution
+    conv2d = K.layers.Conv2D(
+        filters=F11,
+        kernel_size=(1, 1),
+        padding='same',
+        activation='linear',
+        kernel_initializer=init
+    )(A_prev)
 
-    my_layer = K.layers.BatchNormalization(axis=3)(my_layer)
-    my_layer = K.layers.Activation('relu')(my_layer)
+    batch_normalization = K.layers.BatchNormalization()(conv2d)
+    activation = K.layers.ReLU()(batch_normalization)
 
-    # Conv 1x1
-    my_layer = K.layers.Conv2D(filters=F12,
-                               kernel_size=(1, 1),
-                               padding='same',
-                               kernel_initializer=initializer,
-                               )(my_layer)
+    conv2d_1 = K.layers.Conv2D(
+        filters=F3,
+        kernel_size=(3, 3),
+        padding='same',
+        activation='linear',
+        kernel_initializer=init
+    )(activation)
 
-    my_layer = K.layers.BatchNormalization(axis=3)(my_layer)
+    batch_normalization_1 = K.layers.BatchNormalization()(conv2d_1)
+    activation_1 = K.layers.ReLU()(batch_normalization_1)
+    conv2d_2 = K.layers.Conv2D(
+        filters=F12,
+        kernel_size=(1, 1),
+        padding='same',
+        activation='linear',
+        kernel_initializer=init
+    )(activation_1)
 
-    output = K.layers.Add()([my_layer, A_prev])
+    batch_normalization_2 = K.layers.BatchNormalization()(conv2d_2)
 
-    output = K.layers.Activation('relu')(output)
+    add = K.layers.Add()([batch_normalization_2, A_prev])
 
-    return output
+    activation_2 = K.layers.ReLU()(add)
+
+    return activation_2
