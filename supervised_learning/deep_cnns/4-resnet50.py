@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Task 4: 4. ResNet-50 """
+""" Task 4: 4. ResNet-50  """
 from tensorflow import keras as K
 identity_block = __import__('2-identity_block').identity_block
 projection_block = __import__('3-projection_block').projection_block
@@ -17,7 +17,7 @@ def resnet50():
         A Keras model instance representing the ResNet-50 architecture.
     """
     # implement He et. al initialization for the layers weights
-    initializer = K.initializers.HeNormal(speed=0)
+    initializer = K.initializers.he_normal(seed=0)
 
     X = K.Input(shape=(224, 224, 3))
 
