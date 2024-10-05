@@ -8,7 +8,7 @@ def identity_block(A_prev, filters):
     Builds a projection block as part of a residual network.
     """
     F11, F3, F12 = filters
-    init = K.initializers.he_normal(seed=None)
+    init = K.initializers.he_normal(seed=0)
     # 1x1 Convolution
     conv2d = K.layers.Conv2D(
         filters=F11,
