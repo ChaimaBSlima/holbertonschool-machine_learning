@@ -32,7 +32,7 @@ def densenet121(growth_rate=32, compression=1.0):
 
     # Initial Batch Normalization and ReLU
     my_layer = K.layers.BatchNormalization(axis=-1)(X)
-    my_layer = K.layers.ReLU()(my_layer)
+    my_layer = K.layers.Activation(activation='relu')(my_layer)
 
     # Convolution 7x7 + Strides 2
     my_layer = K.layers.Conv2D(filters=2 * growth_rate,
