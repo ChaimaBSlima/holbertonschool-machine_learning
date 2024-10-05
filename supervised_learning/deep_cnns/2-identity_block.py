@@ -19,6 +19,7 @@ def identity_block(A_prev, filters):
         kernel_size=(1, 1),
         padding='same',
         activation='linear',
+        strides=(1, 1),
         kernel_initializer=init
     )(A_prev)
 
@@ -30,6 +31,7 @@ def identity_block(A_prev, filters):
         kernel_size=(3, 3),
         padding='same',
         activation='linear',
+        strides=( 1, 1),
         kernel_initializer=init
     )(activation)
 
@@ -40,6 +42,7 @@ def identity_block(A_prev, filters):
         kernel_size=(1, 1),
         padding='same',
         activation='linear',
+        strides=( 1, 1),
         kernel_initializer=init
     )(activation_1)
 
