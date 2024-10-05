@@ -8,17 +8,12 @@ def identity_block(A_prev, filters):
     Builds a projection block as part of a residual network.
     """
     F11, F3, F12 = filters
-
-
     init = K.initializers.he_normal(seed=None)
-
-
     # 1x1 Convolution
     conv2d = K.layers.Conv2D(
         filters=F11,
         kernel_size=(1, 1),
         padding='same',
-        activation='linear',
         strides=(1, 1),
         kernel_initializer=init
     )(A_prev)
@@ -30,8 +25,7 @@ def identity_block(A_prev, filters):
         filters=F3,
         kernel_size=(3, 3),
         padding='same',
-        activation='linear',
-        strides=( 1, 1),
+        strides=(1, 1),
         kernel_initializer=init
     )(activation)
 
@@ -41,8 +35,7 @@ def identity_block(A_prev, filters):
         filters=F12,
         kernel_size=(1, 1),
         padding='same',
-        activation='linear',
-        strides=( 1, 1),
+        strides=(1, 1),
         kernel_initializer=init
     )(activation_1)
 
