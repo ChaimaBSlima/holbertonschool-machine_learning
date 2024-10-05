@@ -17,7 +17,7 @@ def resnet50():
         A Keras model instance representing the ResNet-50 architecture.
     """
     # implement He et. al initialization for the layers weights
-    initializer = K.initializers.he_normal(seed=0)
+    initializer = K.initializers.HeNormal()
 
     X = K.Input(shape=(224, 224, 3))
 
