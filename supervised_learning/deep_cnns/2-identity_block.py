@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ Task 2: 2. Identity Block """
-from tensorflow import keras as K
+import tensorflow.keras as K
 
 
 def identity_block(A_prev, filters):
