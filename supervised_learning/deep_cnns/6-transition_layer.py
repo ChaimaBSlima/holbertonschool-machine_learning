@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ Task 6:  6. Transition Layer """
-import tensorflow.keras as K
+from tensorflow import keras as K
 
 
 def transition_layer(X, nb_filters, compression):
