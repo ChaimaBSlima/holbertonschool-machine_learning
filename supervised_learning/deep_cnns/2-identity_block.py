@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Task 2: 2. Identity Block """
+"""Task 2: 2. Identity Block"""
 from tensorflow import keras as K
 
 
