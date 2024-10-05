@@ -8,7 +8,7 @@ def projection_block(A_prev, filters, s=2):
     Builds a projection block as part of a residual network.
     """
     F11, F3, F12 = filters
-    initializer = K.initializers.he_normal()
+    initializer = K.initializers.he_normal(seed=0)
 
     conv0 = K.layers.Conv2D(
         F11, (1, 1),
