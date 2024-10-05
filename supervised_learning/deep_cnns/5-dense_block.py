@@ -28,7 +28,7 @@ def dense_block(X, nb_filters, growth_rate, layers):
 
     for i in range(layers):
         my_layer = K.layers.BatchNormalization()(X)
-        my_layer = K.layers.ReLU()(my_layer)
+        my_layer = K.layers.Activation(activation='relu')(my_layer)
 
         # conv 1×1 produces 4k (growth_rate) feature-maps
         my_layer = K.layers.Conv2D(filters=4*growth_rate,
