@@ -43,7 +43,6 @@ def densenet121(growth_rate=32, compression=1.0):
 
     # MaxPool 3x3 + Strides 2
     my_layer = K.layers.MaxPooling2D(pool_size=(3, 3),
-                                     padding='same',
                                      strides=(2, 2))(my_layer)
 
     nb_filters = 2 * growth_rate
