@@ -25,7 +25,7 @@ def transition_layer(X, nb_filters, compression):
     initializer = K.initializers.he_normal(seed=0)
 
     my_layer = K.layers.BatchNormalization()(X)
-    my_layer = K.layers.ReLU()(my_layer)
+    my_layer = K.layers.Activation('relu')(my_layer)
 
     nb_filters = int(nb_filters * compression)
 
@@ -36,7 +36,6 @@ def transition_layer(X, nb_filters, compression):
                                )(my_layer)
 
     # Avg pooling layer with kernels of shape 2x2
-    X = K.layers.AveragePooling2D(pool_size=2,
-                                  padding='same')(my_layer)
+    X = K.layers.AveragePooling2D(pool_size=2)(my_layer)
 
     return X, nb_filters
