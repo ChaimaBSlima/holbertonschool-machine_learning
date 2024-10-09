@@ -65,7 +65,7 @@ def densenet121(growth_rate=32, compression=1.0):
 
     # Classification layer
     # Average pooling layer with kernels of shape 7x7
-    my_layer = K.layers.AveragePooling2D(pool_size=(7, 7),)(my_layer)
+    my_layer = K.layers.AveragePooling2D(pool_size=(7, 7))(my_layer)
 
     # Fully connected softmax output layer with 1000 nodes
     my_layer = K.layers.Dense(units=1000,
