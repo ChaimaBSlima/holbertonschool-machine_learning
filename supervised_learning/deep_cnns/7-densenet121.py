@@ -43,6 +43,7 @@ def densenet121(growth_rate=32, compression=1.0):
 
     # MaxPool 3x3 + Strides 2
     my_layer = K.layers.MaxPooling2D(pool_size=(3, 3),
+                                     padding='same',
                                      strides=(2, 2))(my_layer)
 
     nb_filters = 2 * growth_rate
@@ -64,8 +65,7 @@ def densenet121(growth_rate=32, compression=1.0):
 
     # Classification layer
     # Average pooling layer with kernels of shape 7x7
-    my_layer = K.layers.AveragePooling2D(pool_size=(7, 7),
-                                         padding='same')(my_layer)
+    my_layer = K.layers.AveragePooling2D(pool_size=(7, 7),)(my_layer)
 
     # Fully connected softmax output layer with 1000 nodes
     my_layer = K.layers.Dense(units=1000,
