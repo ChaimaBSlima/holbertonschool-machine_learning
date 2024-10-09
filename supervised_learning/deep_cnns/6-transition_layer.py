@@ -36,6 +36,7 @@ def transition_layer(X, nb_filters, compression):
                                )(my_layer)
 
     # Avg pooling layer with kernels of shape 2x2
-    X = K.layers.AveragePooling2D(pool_size=2)(my_layer)
+    X = K.layers.AveragePooling2D(pool_size=2,
+                                  padding='same')(my_layer)
 
     return X, nb_filters
