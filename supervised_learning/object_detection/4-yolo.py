@@ -6,7 +6,6 @@ import glob
 import cv2
 
 
-
 class Yolo:
     """
     The Yolo class is used for object detection using the YOLOv3 model.
@@ -369,7 +368,7 @@ class Yolo:
 
     @staticmethod
     def load_images(folder_path):
-    """
+        """
     Loads all images from a specified folder.
 
     Args:
@@ -379,12 +378,12 @@ class Yolo:
     Returns:
     tuple
         A tuple of two elements:
-        - images (list of numpy.ndarray): A list containing all the images 
-          loaded from the folder, where each image is represented as a 
+        - images (list of numpy.ndarray): A list containing all the images
+          loaded from the folder, where each image is represented as a
           numpy.ndarray.
-        - image_paths (list of str): A list containing the file paths for 
+        - image_paths (list of str): A list containing the file paths for
           each image loaded.
-    """
+        """
 
         # creating a correct full path argument
         images = []
@@ -394,5 +393,4 @@ class Yolo:
         for imagepath_i in image_paths:
             images.append(cv2.imread(imagepath_i))
 
-        return(images, image_paths)
-
+        return (images, image_paths)
