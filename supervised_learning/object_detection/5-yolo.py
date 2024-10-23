@@ -385,12 +385,12 @@ class Yolo:
         dims = []
         res_images = []
 
-        input_h = self.model.input.shape[0].value
+        input_h = self.model.input.shape[1].value
         input_w = self.model.input.shape[2].value
         for image in images:
-            dims.append([image.shape[0], image.shape[1]])
+            dims.append(image.shape[:2])
 
-        dims = np.array(dims)
+        dims = np.stack(dims, axis=0)
 
         newtam = (input_h, input_w)
 
@@ -400,6 +400,6 @@ class Yolo:
             resize_img = resize_img / 255
             res_images.append(resize_img)
 
-        res_images = np.array(res_images)
+        res_images = np.stack(res_images, axis=0)
 
-        return res_images, dims
+        return (res_images, dims)
