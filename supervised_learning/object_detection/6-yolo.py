@@ -454,7 +454,7 @@ class Yolo:
     def show_boxes(self, image, boxes, box_classes, box_scores, file_name):
         """
         Function that displays the image with all boundary boxes, class names,
-        and box scores (see example below)
+        and box scores
 
         1  -  Boxes should be drawn with a blue line of thickness 2
         2  -  Class names and box scores should be drawn above each box in red
