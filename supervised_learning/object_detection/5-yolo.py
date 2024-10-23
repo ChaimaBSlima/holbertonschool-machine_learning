@@ -432,8 +432,8 @@ class Yolo:
         dims = []
         res_images = []
 
-        input_h = self.model.input.shape[1].value
-        input_w = self.model.input.shape[2].value
+        input_h = self.model.input.shape[1]
+        input_w = self.model.input.shape[2]
         for image in images:
             dims.append(image.shape[:2])
 
