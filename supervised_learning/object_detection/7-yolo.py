@@ -488,61 +488,33 @@ class Yolo:
                 the file path where the original image is stored
         Returns: Nothing
         """
-        # 1. colors for printing
-        box_color = (0, 0, 255)
-        box_thickness = 2
+        for i, box in enumerate(boxes):
+            x1 = int(box[0])
+            y1 = int(box[1])
+            start_point = int(box[0]), int(box[1])
+            end_point = int(box[2]), int(box[3])
+            scores = "{:.2f}".format(box_scores[i])
+            label = (self.class_names[box_classes[i]] + " " + scores)
+            oorg = (x1, y1 - 5)
+            font = cv2.FONT_HERSHEY_SIMPLEX
+            scale = 0.5
+            text_color = (0, 0, 255)
+            thick = 1
+            line_Type = cv2.LINE_AA
+            image = cv2.rectangle(image, start_point, end_point,
+                                  (255, 0, 0), thickness=2)
+            print(image)
+            image = cv2.putText(image, label, oorg, font, scale, text_color,
+                                thick, line_Type, bottomLeftOrigin=False)
+        cv2.imshow(file_name, image)
 
-        # 2. colors for printing
-        box_score_color = (255, 0, 0)
-
-        # 5-6. Font
-        font_type = cv2.FONT_HERSHEY_SIMPLEX
-        font_scale = 0.5
-
-        # 7 Line
-        line_thickness = 1
-        line_type = cv2.LINE_AA
-
-        i = 0
-        for box_i in boxes:
-            # bounding boxes
-            start_point = (int(box_i[0]), int(box_i[1]))
-            end_point = (int(box_i[2]), int(box_i[3]))
-
-            # print box
-            box_i = cv2.rectangle(img=image,
-                                  pt1=start_point,
-                                  pt2=end_point,
-                                  color=box_score_color,
-                                  thickness=box_thickness)
-
-            # print text
-            bc_i = box_classes[i]
-            bs_i = box_scores[i]
-            text = self.class_names[bc_i] + " {:.2f}".format(bs_i)
-            org = (start_point[0], start_point[1] - 5)
-
-            box_i = cv2.putText(img=box_i,
-                                text=text,
-                                org=org,
-                                fontFace=font_type,
-                                fontScale=font_scale,
-                                color=box_color,
-                                thickness=line_thickness,
-                                lineType=line_type,
-                                bottomLeftOrigin=False)
-            # show the image
-            cv2.imshow(file_name, image)
-            i = i + 1
-
-            # wait for key and save if that is the case
-            if cv2.waitKey(0) == 's':
-                if not os.path.exists('detections'):
-                    os.makedirs('detections')
-                os.chdir('detections')
-                cv2.imwrite(file_name, image)
-                os.chdir('../')
-            cv2.destroyAllWindows()
+        k = cv2.waitKey(0)
+        if k == ord('s'):
+            if not os.path.exists('detections'):
+                os.makedirs('detections')
+            os.chdir('detections')
+            cv2.imwrite(file_name, image)
+        cv2.destroyAllWindows()
 
     def predict(self, folder_path):
         """
