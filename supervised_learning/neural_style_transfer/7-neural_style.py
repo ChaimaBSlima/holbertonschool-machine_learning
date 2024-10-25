@@ -8,20 +8,6 @@ class NST:
     """
     Neural Style Transfer (NST) class used to apply the style of
     one image to the content of another.
-
-    Attributes:
-        style_layers (list):
-        Layers from the pretrained model used to extract style features.
-        content_layer (str):
-        Layer used to extract content features.
-        style_image (numpy.ndarray):
-        Scaled style image used for the style transfer.
-        content_image (numpy.ndarray): Scaled content image used for
-        the style transfer.
-        alpha (float):
-        Weight for content loss.
-        beta (float):
-        Weight for style loss.
     """
 
     style_layers = ['block1_conv1', 'block2_conv1', 'block3_conv1',
