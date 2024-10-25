@@ -400,6 +400,10 @@ class NST:
               the content cost.
             - style_cost (tf.Tensor): A scalar tensor representing
               the style cost.
+
+    Raises:
+        TypeError: If `generated_image` is not a tensor of shape
+            (1, height, width, 3).
         """
         shape_content_image = self.content_image.shape
         shape_content_image = self.content_image.shape
