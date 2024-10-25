@@ -169,7 +169,6 @@ class NST:
 
         self.model = model_avg
 
-
     @staticmethod
     def gram_matrix(input_layer):
         """
