@@ -77,7 +77,6 @@ class NST:
         self.gram_style_features, self.content_feature = \
             self.generate_features()
 
-
     @staticmethod
     def scale_image(image):
         """
@@ -260,6 +259,6 @@ class NST:
         # excluding the last element considered more suitable for capturing
         # the style of image
         self.gram_style_features = self.gram_style_features[:-1]
-                
+
         self.content_feature = content_output[-1]
         return self.gram_style_features, self.content_feature
