@@ -76,8 +76,7 @@ class NST:
         self.model = None
         self.load_model()
         self.gram_style_features, self.content_feature = \
-        self.generate_features()
-        
+            self.generate_features()
 
     @staticmethod
     def scale_image(image):
@@ -261,34 +260,37 @@ class NST:
         # excluding the last element considered more suitable for capturing
         # the style of image
         self.gram_style_features = self.gram_style_features[:-1]
-        self.content_feature = content_output[-1]
-        return self.gram_style_features, self.content_feature
 
+        # select only last network layer
+        self.content_feature = content_output[-1]
+
+        return self.gram_style_features, self.content_feature
 
     def layer_style_cost(self, style_output, gram_target):
         """
     Calculates the style cost for a single layer in the style transfer process.
 
-    The style cost measures the difference between the Gram matrix of the 
+    The style cost measures the difference between the Gram matrix of the
     layer's style output and the Gram matrix of the target style.
-    The smaller the difference, the more closely the current image resembles 
+    The smaller the difference, the more closely the current image resembles
     the target style.
 
         Args:
-            style_output (tf.Tensor or tf.Variable): A 4D tensor representing 
-                the style features output from the current layer of the neural 
-                network. Must have shape (batch_size, height, width, channels).
-            gram_target (tf.Tensor or tf.Variable): The Gram matrix of the target 
-                style for the given layer, with shape (1, channels, channels).
+        style_output (tf.Tensor or tf.Variable): A 4D tensor representing
+        the style features output from the current layer of the neural
+        network. Must have shape (batch_size, height, width, channels).
+        gram_target (tf.Tensor or tf.Variable): The Gram matrix of the target
+        style for the given layer, with shape (1, channels, channels).
 
         Returns:
-            tf.Tensor: A scalar tensor representing the style cost for the given 
-            layer, which is the mean squared difference between the current 
-            layer's Gram matrix and the target Gram matrix.
+            tf.Tensor: A scalar tensor representing the style cost for the
+            given layer, which is the mean squared difference between
+            the current;layer's Gram matrix and the target Gram matrix.
 
         Raises:
-            TypeError: If `style_output` is not a tensor of rank 4, or if 
-                `gram_target` is not a tensor of the shape (1, channels, channels).
+            TypeError: If `style_output` is not a tensor of rank 4,
+            or if `gram_target` is not a tensor of the shape
+            (1, channels, channels).
         """
 
         if (not isinstance(style_output, (tf.Tensor, tf.Variable))
