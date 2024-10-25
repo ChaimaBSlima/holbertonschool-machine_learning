@@ -74,6 +74,8 @@ class NST:
 
         self.model = None
         self.load_model()
+        self.gram_style_features, self.content_feature = \
+            self.generate_features()
 
 
     @staticmethod
