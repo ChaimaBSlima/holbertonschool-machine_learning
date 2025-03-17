@@ -66,15 +66,14 @@ def minor(matrix):
 
     for element in matrix:
         if not isinstance(element, list):
-            raise TypeError(errorList)
+            raise TypeError('matrix must be a list of lists')
 
     if len(matrix) == 1 and len(matrix[0]) == 0:
         raise ValueError('matrix must be a non-empty square matrix')
 
     for element in matrix:
         if len(element) != len(matrix):
-            raise ValueError( 'matrix must be a non-empty square matrix')
-
+            raise ValueError('matrix must be a non-empty square matrix')
     if len(matrix) == 1:
         return [[1]]
 
@@ -83,7 +82,8 @@ def minor(matrix):
         minor.append([])
         for j in range(len(matrix)):
             rows = [matrix[m] for m in range(len(matrix)) if m != i]
-            new_m = [[row[n] for n in range(len(matrix)) if n != j] for row in rows]
+            new_m = [[row[n] for n in range(len(matrix)) if n != j]
+                     for row in rows]
             my_det = determinant(new_m)
             minor[i].append(my_det)
 
