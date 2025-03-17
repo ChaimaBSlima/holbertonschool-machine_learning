@@ -24,7 +24,7 @@ def determinant(matrix):
                                                for row in matrix):
         raise TypeError("matrix must be a list of lists")
 
-    if len(matrix) == 0:
+    if len(matrix[0]) == 0:
         return 1
 
     if not all(len(row) == len(matrix) for row in matrix):
