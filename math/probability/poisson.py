@@ -85,3 +85,33 @@ class Poisson:
         summation = ((self.e**-self.lambtha) *
                      (self.lambtha**k)) / factorial(k)
         return summation
+
+    def cdf(self, k):
+        """
+        Calculates the Cumulative Distribution Function (CDF)
+        for a given number of occurrences.
+
+        Parameters:
+        k (int or float):
+        The number of occurrences (successes). If `k` is a float,
+        it is converted to an integer.
+
+        Returns:
+        float:
+        The cumulative probability of obtaining at most
+        `k` occurrences.
+
+        Notes:
+        - If `k` is negative, the function returns 0.
+        - The CDF is computed as the sum of the PMF
+            values from 0 to `k`:
+          CDF(k) = Σ P(i) for i = 0 to k
+        """
+        if k < 0:
+            return 0
+        if type(k) is not int:
+            k = int(k)
+        summation = 0
+        for i in range(0, k+1):
+            summation = summation + self.pmf(i)
+        return summation
