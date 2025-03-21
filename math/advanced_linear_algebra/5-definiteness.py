@@ -23,7 +23,7 @@ def definiteness(matrix):
         - 'Indefinite' if the matrix has both positive and
             negative eigenvalues.
         - None if the matrix is not square or not symmetric.
-    
+
     Raises:
     TypeError:
     If the input is not a numpy.ndarray.
@@ -31,8 +31,8 @@ def definiteness(matrix):
     if not isinstance(matrix, np.ndarray):
         raise TypeError('matrix must be a numpy.ndarray')
 
-    l = matrix.shape[0]
-    if len(matrix.shape) != 2 or l != matrix.shape[1]:
+    le = matrix.shape[0]
+    if len(matrix.shape) != 2 or e != matrix.shape[1]:
         return None
 
     transpose = np.transpose(matrix)
