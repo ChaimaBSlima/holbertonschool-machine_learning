@@ -1,6 +1,31 @@
 #!/usr/bin/env python3
 """ Poisson Distribution """
-import math
+
+
+def factorial(n):
+    """
+    Calculates the factorial of a given number.
+
+    Parameters:
+    n (int):
+    The number for which the factorial is to be computed.
+
+    Returns:
+    int: The factorial of `n`.
+
+    Notes:
+    - The factorial of 0 is defined as 1.
+    - The function uses an iterative approach.
+    """
+    if n == 0:
+        return 1
+
+    fact = 1
+
+    for i in range(1, n+1):
+        fact = fact * i
+    return fact
+
 
 class Poisson:
     """ Represents the Posisson distribution """
@@ -35,7 +60,6 @@ class Poisson:
                 raise ValueError("lambtha must be a positive value")
             self.lambtha = float(lambtha)
 
-
     def pmf(self, k):
         """
         Calculates the Probability Mass Function (PMF)
@@ -43,7 +67,7 @@ class Poisson:
 
         Parameters:
         k (int or float):
-        The number of occurrences (successes). 
+        The number of occurrences (successes).
         If a float is provided, it is cast to an integer.
 
         Returns:
@@ -51,7 +75,7 @@ class Poisson:
 
         Notes:
         - If `k` is negative, the function returns 0.
-        - The PMF formula used: 
+        - The PMF formula used:
           P(k) = (e^(-λ) * λ^k) / k!
         """
         if k < 0:
@@ -59,5 +83,5 @@ class Poisson:
         if type(k) is not int:
             k = int(k)
         summation = ((self.e**-self.lambtha) *
-                     (self.lambtha**k)) / math.factorial(k)
+                     (self.lambtha**k)) / factorial(k)
         return summation
