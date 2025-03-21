@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ Poisson Distribution """
-
+import math
 
 class Poisson:
     """ Represents the Posisson distribution """
@@ -34,3 +34,30 @@ class Poisson:
             if lambtha <= 0:
                 raise ValueError("lambtha must be a positive value")
             self.lambtha = float(lambtha)
+
+
+    def pmf(self, k):
+        """
+        Calculates the Probability Mass Function (PMF)
+        for the Poisson distribution.
+
+        Parameters:
+        k (int or float):
+        The number of occurrences (successes). 
+        If a float is provided, it is cast to an integer.
+
+        Returns:
+        float: The probability of observing `k` occurrences.
+
+        Notes:
+        - If `k` is negative, the function returns 0.
+        - The PMF formula used: 
+          P(k) = (e^(-λ) * λ^k) / k!
+        """
+        if k < 0:
+            return 0
+        if type(k) is not int:
+            k = int(k)
+        summation = ((self.e**-self.lambtha) *
+                     (self.lambtha**k)) / math.factorial(k)
+        return summation
