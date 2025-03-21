@@ -32,7 +32,7 @@ def definiteness(matrix):
         raise TypeError('matrix must be a numpy.ndarray')
 
     l = matrix.shape[0]
-    if len(l) != 2 or l != matrix.shape[1]:
+    if len(matrix.shape) != 2 or l != matrix.shape[1]:
         return None
 
     transpose = np.transpose(matrix)
