@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Poisson Distribution """
+""" Exponential Distribution """
 
 
 class Exponential:
