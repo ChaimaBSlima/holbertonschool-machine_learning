@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Clustering """
+""" Task 3: 3. Optimize k """
 import numpy as np
 kmeans = __import__('1-kmeans').kmeans
 variance = __import__('2-variance').variance
@@ -7,19 +7,28 @@ variance = __import__('2-variance').variance
 
 def optimum_k(X, kmin=1, kmax=None, iterations=1000):
     """
-    Tests for the optimum number of clusters by variance
-    :param X: numpy.ndarray of shape (n, d) containing the data set
-    :param kmin: positive integer containing the minimum number of clusters
-    to check for (inclusive)
-    :param kmax: positive integer containing the maximum number of clusters
-    to check for (inclusive)
-    :param iterations: positive integer containing the maximum number of
-    iterations for K-means
-    :return: results, d_vars, or None, None on failure
-        results is a list containing the outputs of K-means for each cluster
-        size
-        d_vars is a list containing the difference in variance from the
-        smallest cluster size for each cluster size
+    Determines the optimum number of clusters using the
+    variance difference method.
+
+    Parameters:
+    X : numpy.ndarray
+        A 2D array of shape (n, d) containing the dataset,
+        where n is the number of data points and d is the number of features.
+    kmin : int, optional (default=1)
+        The minimum number of clusters to check.
+    kmax : int, optional (default=None)
+        The maximum number of clusters to check.
+        If None, it defaults to the number of data points.
+    iterations : int, optional (default=1000)
+        The maximum number of iterations for the K-means algorithm.
+
+    Returns:
+    tuple : (results, d_vars)
+        results : list of tuples
+            Each tuple contains (centroids, cluster assignments) for a given k.
+        d_vars : list of floats
+            The differences in variance as k increases.
+        Returns (None, None) if input validation fails.
     """
     if type(X) is not np.ndarray or len(X.shape) != 2:
         return None, None
