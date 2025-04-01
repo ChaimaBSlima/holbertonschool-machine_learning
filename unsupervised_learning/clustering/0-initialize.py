@@ -5,7 +5,7 @@ import numpy as np
 
 
 def initialize(X, k):
-    """ 
+    """
     initializes cluster centroids for K-means.
         Args:
             X: (numpy.ndarray) containing the dataset that
@@ -16,7 +16,12 @@ def initialize(X, k):
                             for each cluster, or None on failure.
     """
 
-    if type(X) != np.ndarray or type(k) != int or len(X.shape) != 2 or k <= 0:
+    if (
+        not isinstance(X, np.ndarray)
+        or not isinstance(k, int)
+        or X.ndim != 2
+        or k <= 0
+    ):
         return None
     n, d = X.shape
     centroids = np.zeros((k, X.shape[1]))
