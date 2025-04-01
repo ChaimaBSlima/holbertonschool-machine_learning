@@ -1,23 +1,30 @@
 #!/usr/bin/env python3
-""" K means """
+""" Task : 1. K-means """
 
 import numpy as np
 
 
 def kmeans(X, k, iterations=1000):
     """
-    Performs K-means on a dataset
-    :param X: numpy.ndarray of shape (n, d) containing the dataset that will
-    be used for K-means clustering
-        n is the number of data points
-        d is the number of dimensions for each data point
-    :param iterations: positive integer containing the maximum number of
-    iterations that should be performed
-    :return: C, clss, or None, None on failure
-        C is a numpy.ndarray of shape (k, d) containing the centroid means
-        for each cluster
-        clss is a numpy.ndarray of shape (n,) containing the index of the
-        cluster in C that each data point belongs to
+    Performs K-means clustering on a dataset.
+
+    Parameters:
+    X : numpy.ndarray
+        A 2D array of shape (n, d) containing the dataset,
+        where n is the number of data points and d is the number of features.
+    k : int
+        The number of clusters.
+    iterations : int, optional (default=1000)
+        The maximum number of iterations to perform.
+
+    Returns:
+    tuple : (centroids, clss)
+        centroids : numpy.ndarray
+            A 2D array of shape (k, d) containing the centroid positions.
+        clss : numpy.ndarray
+            A 1D array of shape (n,) containing the cluster index assigned
+            to each data point.
+            Returns (None, None) if input validation fails.
     """
     if type(k) is not int or k <= 0:
         return None, None
