@@ -1,17 +1,28 @@
 #!/usr/bin/env python3
-""" Clustering """
+""" Task 2: 2. Variance """
 
 import numpy as np
 
 
 def variance(X, C):
     """
-    Calculates the intra-cluster variance
-    :param X: numpy.ndarray of shape (n, d) containing the data set
-    :param C: numpy.ndarray of shape (k, d) containing the centroid means for
-    each cluster
-    :return: var, or None on failure
-        var is the total variance
+    Calculates the total intra-cluster variance for a given
+    set of cluster centroids.
+
+    Parameters:
+    X : numpy.ndarray
+        A 2D array of shape (n, d) containing the dataset,
+        where n is the number of data points and d is the
+        number of features.
+    C : numpy.ndarray
+        A 2D array of shape (k, d) containing the cluster
+        centroids, where k is the number of clusters.
+
+    Returns:
+    float
+        The total variance, calculated as the sum of squared distances
+        of each data point to its closest centroid.
+        Returns None if input validation fails.
     """
     if type(X) is not np.ndarray or len(X.shape) != 2:
         return None
