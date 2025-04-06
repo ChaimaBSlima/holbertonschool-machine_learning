@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" clustering """
+""" Task 9: 9. BIC """
 import numpy as np
 
 expectation_maximization = __import__('8-EM').expectation_maximization
@@ -7,47 +7,41 @@ expectation_maximization = __import__('8-EM').expectation_maximization
 
 def BIC(X, kmin=1, kmax=None, iterations=1000, tol=1e-5, verbose=False):
     """
-    Function that performs the expectation maximization for a GMM:
-    Args:
-                X: numpy.ndarray -> Array of shape (n, d) with the data
-        kmin: int -> positive int with the minimum number
-            of clusters to check for (inclusive)
-        kmax: int -> positive int with the maximum number
-            of clusters to check for (inclusive)
-        iterations: int -> positive int with the maximum number
-            of iterations for the algorithm
-        tol: float -> non-negative float with the tolerance
-            of the log likelihood, used to
-            determine early stopping i.e. if the
-            difference is less than or equal to
-            tol you should stop the algorithm
-        verbose: bool -> boolean that determines if you should
-            print information about the algorithm
-            If True, print Log Likelihood after {i} iterations: {l}
-            every 10 iterations and after the last iteration
-                {i} is the number of iterations of the EM algorithm
-                 {l} is the log likelihood
-            You should use:
-            initialize = __import__('4-initialize').initialize
-            expectation = __import__('6-expectation').expectation
-            maximization = __import__('7-maximization').maximization
-    """
+    Finds the best number of clusters for a GMM using the Bayesian
+    Information Criterion (BIC).
 
+    Parameters:
+    - X (np.ndarray): Array of shape (n, d) containing the data set.
+    - kmin (int): Minimum number of clusters to check for (inclusive).
+    - kmax (int): Maximum number of clusters to check for (inclusive).
+                  If None, set to number of data points.
+    - iterations (int): Maximum number of iterations for the EM algorithm.
+    - tol (float): Tolerance for the EM algorithm's log likelihood convergence.
+    - verbose (bool): If True, prints information during EM execution.
+
+    Returns:
+    - best_k (int): The best number of clusters based on BIC.
+    - best_result (tuple): Tuple containing (pi, m, S) for the
+        best number of clusters.
+    - l (np.ndarray): Log likelihoods for each number of clusters tested.
+    - b (np.ndarray): BIC values for each number of clusters tested.
+    Returns (None, None, None, None) on failure.
+    """
     if not isinstance(X, np.ndarray) or len(X.shape) != 2:
         return None, None, None, None
     if kmax is None:
         kmax = X.shape[0]
-    if type(kmin) != int or kmin <= 0 or X.shape[0] <= kmin:
+    if type(kmin) is not int or kmin <= 0 or X.shape[0] <= kmin:
         return None, None, None, None
-    if type(kmax) != int or kmax <= 0 or X.shape[0] < kmax:
+    if type(kmax) is not int or kmax <= 0 or X.shape[0] < kmax:
         return None, None, None, None
     if kmax <= kmin:
         return None, None, None, None
-    if type(iterations) != int or iterations <= 0:
+    if type(iterations) is not int or iterations <= 0:
         return None, None, None, None
-    if type(tol) != float or tol < 0:
+    if type(tol) is not float or tol < 0:
         return None, None, None, None
-    if type(verbose) != bool:
+    if type(verbose) is not bool:
         return None, None, None, None
 
     n, d = X.shape
