@@ -1,16 +1,24 @@
 #!/usr/bin/env python3
-""" clustering """
+""" Task 12: 12. Agglomerative """
 import scipy.cluster.hierarchy
 import matplotlib.pyplot as plt
 
 
 def agglomerative(X, dist):
     """
-    Performs agglomerative clustering on a dataset
-    :param X: numpy.ndarray of shape (n, d) containing the dataset
-    :param dist: maximum cophenetic distance for all clusters
-    :return: clss, a numpy.ndarray of shape (n,) containing the cluster
-    indices for each data point
+    Performs agglomerative hierarchical clustering on the dataset.
+
+    Parameters:
+    - X (np.ndarray): The dataset of shape (n, d).
+    - dist (float): The distance threshold for forming clusters.
+
+    Returns:
+    - fcluster (np.ndarray): The cluster labels for each
+    data point based on the distance threshold.
+    
+    Saves:
+    - A dendrogram plot as "12-figFile.png" that visualizes the
+    hierarchical clustering.
     """
     hierarchy = scipy.cluster.hierarchy
     linkage = hierarchy.linkage(X, method='ward')
