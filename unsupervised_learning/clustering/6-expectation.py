@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" clustering """
+""" task 6: 6. Expectation """
 
 import numpy as np
 pdf = __import__('5-pdf').pdf
@@ -7,18 +7,24 @@ pdf = __import__('5-pdf').pdf
 
 def expectation(X, pi, m, S):
     """
-    Calculates the expectation step in the EM algorithm for a GMM
-    :param X: numpy.ndarray of shape (n, d) containing the data set
-    :param pi: numpy.ndarray of shape (k,) containing the priors for each
-    cluster
-    :param m: numpy.ndarray of shape (k, d) containing the centroid means for
-    each cluster
-    :param S: numpy.ndarray of shape (k, d, d) containing the covariance
-    matrices for each cluster
-    :return: g, l, or None, None on failure
-        g is a numpy.ndarray of shape (k, n) containing the posterior
-        probabilities for each data point in each cluster
-        l is the total log likelihood
+    Performs the expectation step in the EM algorithm for a GMM.
+
+    Parameters:
+    - X (np.ndarray): Array of shape (n, d)
+        containing the data set.
+    - pi (np.ndarray): Array of shape (k,)
+        containing the priors for each cluster.
+    - m (np.ndarray): Array of shape (k, d)
+        containing the centroid means for each cluster.
+    - S (np.ndarray): Array of shape (k, d, d)
+        containing the covariance matrices for each cluster.
+
+    Returns:
+    - g (np.ndarray):
+    Array of shape (k, n) containing the posterior probabilities
+    for each data point in each cluster.
+    - log_likelihood (float): Total log likelihood for the data
+        given the current parameters.
     """
     if type(X) is not np.ndarray or len(X.shape) != 2:
         return None, None
