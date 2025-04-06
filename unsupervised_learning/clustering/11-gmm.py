@@ -15,7 +15,8 @@ def gmm(X, k):
     - pi (np.ndarray): The weights (priors) for each cluster.
     - m (np.ndarray): The means (centroids) for each cluster, shape (k, d).
     - S (np.ndarray): The covariances for each cluster, shape (k, d, d).
-    - clss (np.ndarray): The predicted cluster label for each data point, shape (n,).
+    - clss (np.ndarray): The predicted cluster label for each data point,
+        shape (n,).
     - bic (float): The Bayesian Information Criterion (BIC) for the model.
     """
     model = sklearn.mixture.GaussianMixture(n_components=k).fit(X)
