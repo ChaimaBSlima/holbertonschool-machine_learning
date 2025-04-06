@@ -1,22 +1,26 @@
 #!/usr/bin/env python3
-""" clustering """
+""" Task 7: 7. Maximization """
 
 import numpy as np
 
 
 def maximization(X, g):
     """
-    Calculates the maximization step in the EM algorithm for a GMM
-    :param X: numpy.ndarray of shape (n, d) containing the data set
-    :param g: numpy.ndarray of shape (k, n) containing the posterior
-    probabilities for each data point in each cluster
-    :return: pi, m, S, or None, None, None on failure
-        pi is a numpy.ndarray of shape (k,) containing the updated priors for
-        each cluster
-        m is a numpy.ndarray of shape (k, d) containing the updated centroid
-        means for each cluster
-        S is a numpy.ndarray of shape (k, d, d) containing the updated
-        covariance matrices for each cluster
+    Performs the maximization step in the EM algorithm for a GMM.
+
+    Parameters:
+    - X (np.ndarray): Array of shape (n, d) containing the data set.
+    - g (np.ndarray): Array of shape (k, n) containing the posterior
+                      probabilities for each data point in each cluster.
+
+    Returns:
+    - pi (np.ndarray): Array of shape (k,) containing the updated priors
+                       for each cluster.
+    - m (np.ndarray): Array of shape (k, d) containing the updated
+                      centroid means for each cluster.
+    - S (np.ndarray): Array of shape (k, d, d) containing the updated
+                      covariance matrices for each cluster.
+                      Returns (None, None, None) on failure.
     """
     if type(X) is not np.ndarray or len(X.shape) != 2:
         return None, None, None
