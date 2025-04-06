@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" clustering """
+""" Task 8: 8. EM """
 
 import numpy as np
 initialize = __import__('4-initialize').initialize
@@ -9,26 +9,29 @@ maximization = __import__('7-maximization').maximization
 
 def expectation_maximization(X, k, iterations=1000, tol=1e-5, verbose=False):
     """
-    Performs the expectation maximization for a GMM
-    :param X: numpy.ndarray of shape (n, d) containing the data set
-    :param k: positive integer containing the number of clusters
-    :param iterations: positive integer containing the maximum number of
-    iterations for the algorithm
-    :param tol: non-negative float containing tolerance of the log
-    likelihood, used to determine early stopping i.e. if the difference is
-    less than or equal to tol you should stop the algorithm
-    :param verbose: a boolean that determines if you should print information
-    about the algorithm
-    :return: pi, m, S, g, l, or None, None, None, None, None on failure
-        pi is a numpy.ndarray of shape (k,) containing the priors for each
-        cluster
-        m is a numpy.ndarray of shape (k, d) containing the centroid means for
-        each cluster
-        S is a numpy.ndarray of shape (k, d, d) containing the covariance
-        matrices for each cluster
-        g is a numpy.ndarray of shape (k, n) containing the probabilities for
-        each data point in each cluster
-        l is the log likelihood of the model
+    Performs the Expectation-Maximization (EM) algorithm for a
+    Gaussian Mixture Model (GMM).
+
+    Parameters:
+    - X (np.ndarray): Array of shape (n, d) containing the data set.
+    - k (int): Number of clusters.
+    - iterations (int): Maximum number of iterations for the algorithm.
+    - tol (float): Tolerance for the log likelihood change to declare
+        convergence.
+    - verbose (bool): If True, prints the log likelihood every 10
+        iterations and at the end.
+
+    Returns:
+    - pi (np.ndarray): Array of shape (k,) containing the priors for
+        each cluster.
+    - m (np.ndarray): Array of shape (k, d) containing the centroid
+        means for each cluster.
+    - S (np.ndarray): Array of shape (k, d, d) containing the
+        covariance matrices for each cluster.
+    - g (np.ndarray): Array of shape (k, n) containing the posterior
+        probabilities for each data point.
+    - log_likelihood (float): The final log likelihood.
+    Returns (None, None, None, None, None) on failure.
     """
     if type(X) is not np.ndarray or len(X.shape) != 2:
         return None, None, None, None, None
