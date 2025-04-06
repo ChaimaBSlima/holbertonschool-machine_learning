@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" task 6: 6. Expectation """
+""" Task 6: 6. Expectation """
 
 import numpy as np
 pdf = __import__('5-pdf').pdf
