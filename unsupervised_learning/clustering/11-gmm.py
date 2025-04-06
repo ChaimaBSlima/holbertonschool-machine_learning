@@ -1,14 +1,22 @@
 #!/usr/bin/env python3
-""" clustering """
+""" Task 11: 11. GMM """
 import sklearn.mixture
 
 
 def gmm(X, k):
     """
-    Calculates a GMM from a dataset
-    :param X: numpy.ndarray of shape (n, d) containing the dataset
-    :param k: the number of clusters
-    :return: pi, m, S, clss, bic
+    Performs Gaussian Mixture Model (GMM) clustering on the dataset.
+
+    Parameters:
+    - X (np.ndarray): The dataset of shape (n, d).
+    - k (int): The number of clusters (components) for the GMM.
+
+    Returns:
+    - pi (np.ndarray): The weights (priors) for each cluster.
+    - m (np.ndarray): The means (centroids) for each cluster, shape (k, d).
+    - S (np.ndarray): The covariances for each cluster, shape (k, d, d).
+    - clss (np.ndarray): The predicted cluster label for each data point, shape (n,).
+    - bic (float): The Bayesian Information Criterion (BIC) for the model.
     """
     model = sklearn.mixture.GaussianMixture(n_components=k).fit(X)
 
