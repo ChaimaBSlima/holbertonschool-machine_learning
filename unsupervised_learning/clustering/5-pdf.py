@@ -5,7 +5,7 @@ import numpy as np
 
 def pdf(X, m, S):
     """
-    Calculates the probability density function of a multivariate 
+    Calculates the probability density function of a multivariate
     normal distribution.
 
     Parameters:
@@ -17,7 +17,7 @@ def pdf(X, m, S):
                       covariance matrix of the distribution.
 
     Returns:
-    - P (np.ndarray): A numpy array of shape (n,) containing the PDF 
+    - P (np.ndarray): A numpy array of shape (n,) containing the PDF
                       values for each data point, or None on failure.
     """
     if type(X) is not np.ndarray or len(X.shape) != 2:
