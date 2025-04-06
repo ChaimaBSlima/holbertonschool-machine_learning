@@ -1,20 +1,24 @@
 #!/usr/bin/env python3
-""" clustering """
+""" Task 5: 5. PDF """
 import numpy as np
 
 
 def pdf(X, m, S):
     """
-    Calculates the probability density function of a Gaussian distribution
-    :param X: numpy.ndarray of shape (n, d) containing the data points whose
-    PDF should be evaluated
-    :param m: numpy.ndarray of shape (d,) containing the mean of the
-    distribution
-    :param S: numpy.ndarray of shape (d, d) containing the covariance of the
-    distribution
-    :return: P, or None on failure
-        P is a numpy.ndarray of shape (n,) containing the PDF values for each
-        data point
+    Calculates the probability density function of a multivariate 
+    normal distribution.
+
+    Parameters:
+    - X (np.ndarray): A matrix of shape (n, d) containing the data points
+                      whose PDF should be evaluated.
+    - m (np.ndarray): A numpy array of shape (d,) containing the mean
+                      of the distribution.
+    - S (np.ndarray): A numpy array of shape (d, d) containing the
+                      covariance matrix of the distribution.
+
+    Returns:
+    - P (np.ndarray): A numpy array of shape (n,) containing the PDF 
+                      values for each data point, or None on failure.
     """
     if type(X) is not np.ndarray or len(X.shape) != 2:
         return None
