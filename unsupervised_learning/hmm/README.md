@@ -1,7 +1,5 @@
 <h1><p align="center"> Hidden Markov Models </h1></p></font>
 
----
-
 
 ## 📚 Resources
 Read or watch:
