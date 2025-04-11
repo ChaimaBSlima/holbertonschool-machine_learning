@@ -75,3 +75,22 @@ Read or watch:
 - All your functions (inside and outside a class) should have documentation (`python3 -c 'print(__import__("my_module").my_function.__doc__)'` and python3 -c `'print(__import__("my_module").MyClass.my_function.__doc__)'`)
 - Unless otherwise noted, you are not allowed to import any module except `import numpy as np`
 - All your files must be executable
+
+---
+# 📝 Tasks
+
+### 0. Markov Chain
+Write the function `def markov_chain(P, s, t=1):` that determines the probability of a Markov chain being in a particular state after a specified number of iterations:
+
+- `P` is a square 2D numpy.ndarray of shape `(n, n)` representing the transition matrix  
+  `P[i, j]` is the probability of transitioning from state `i` to state `j`  
+  `n` is the number of states in the Markov chain  
+- `s` is a numpy.ndarray of shape `(1, n)` representing the probability of starting in each state  
+- `t` is the number of iterations that the Markov chain has been through  
+
+Returns: a numpy.ndarray of shape `(1, n)` representing the probability of being in a specific state after `t` iterations, or `None` on failure.
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./0-main.py
+[[0.2494929  0.26335362 0.23394185 0.25321163]]
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
+```
