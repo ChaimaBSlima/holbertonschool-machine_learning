@@ -1,6 +1,6 @@
 <h1><p align="center"> Hidden Markov Models </h1></p></font>
 
-![image](https://github.com/user-attachments/assets/e8707f23-c2b9-447e-9180-79c463bb16d6)
+<center> ![image](https://github.com/user-attachments/assets/e8707f23-c2b9-447e-9180-79c463bb16d6) </center>
 
 
 # 📚 Resources
