@@ -80,7 +80,9 @@ Read or watch:
 # 📝 Tasks
 
 ### 0. Markov Chain
-**Mandatory**  
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
 Write the function `def markov_chain(P, s, t=1):` that determines the probability of a Markov chain being in a particular state after a specified number of iterations:
 
 - `P` is a square 2D numpy.ndarray of shape `(n, n)` representing the transition matrix  
@@ -89,21 +91,27 @@ Write the function `def markov_chain(P, s, t=1):` that determines the probabilit
 - `s` is a numpy.ndarray of shape `(1, n)` representing the probability of starting in each state  
 - `t` is the number of iterations that the Markov chain has been through  
 
-Returns: a numpy.ndarray of shape `(1, n)` representing the probability of being in a specific state after `t` iterations, or `None` on failure.
+#### Returns:
+ a numpy.ndarray of shape `(1, n)` representing the probability of being in a specific state after `t` iterations, or `None` on failure.
 ```
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/0-main.py
 [[0.2494929  0.26335362 0.23394185 0.25321163]]
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
 ```
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
 ### 1. Regular Chains
-**Mandatory** 
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
 Write the function `def regular(P):` that determines the steady state probabilities of a regular Markov chain:
 
-- `P` is a square 2D numpy.ndarray of shape `(n, n)` representing the transition matrix  
+- `P` is a square 2D `numpy.ndarray` of shape `(n, n)` representing the transition matrix  
   `P[i, j]` is the probability of transitioning from state `i` to state `j`  
   `n` is the number of states in the Markov chain  
 
-Returns: a numpy.ndarray of shape `(1, n)` containing the steady state probabilities, or `None` on failure.
+#### Returns:
+ a `numpy.ndarray` of shape `(1, n)` containing the steady state probabilities, or `None` on failure.
 ```
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/1-main.py
 None
@@ -114,18 +122,21 @@ None
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
 ```
 
-<p align="center">⭐⭐⭐</p>
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
 
 
 ### 2. Absorbing Chains
-**Mandatory** 
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
 Write the function `def absorbing(P):` that determines if a Markov chain is absorbing:
 
-- `P` is a square 2D numpy.ndarray of shape `(n, n)` representing the standard transition matrix  
+- `P` is a square 2D `numpy.ndarray` of shape `(n, n)` representing the standard transition matrix  
   `P[i, j]` is the probability of transitioning from state `i` to state `j`  
   `n` is the number of states in the Markov chain  
 
-Returns: `True` if it is absorbing, or `False` on failure.
+#### Returns:
+ `True` if it is absorbing, or `False` on failure.
 ```
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/2-main.py
 True
@@ -134,5 +145,105 @@ False
 False
 True
 True
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
+```
+
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 3. The Forward Algorithm
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)   
+
+
+Write the function `def forward(Observation, Emission, Transition, Initial):` that performs the forward algorithm for a hidden markov model:
+
+- **Observation** is a `numpy.ndarray` of shape `(T,)` that contains the index of the observation.  
+  **T** is the number of observations.
+- **Emission** is a `numpy.ndarray` of shape `(N, M)` containing the emission probability of a specific observation given a hidden state.  
+  **Emission[i, j]** is the probability of observing `j` given the hidden state `i`.  
+  **N** is the number of hidden states, and **M** is the number of all possible observations.
+- **Transition** is a 2D `numpy.ndarray` of shape `(N, N)` containing the transition probabilities.  
+  **Transition[i, j]** is the probability of transitioning from the hidden state `i` to `j`.
+- **Initial** is a `numpy.ndarray` of shape `(N, 1)` containing the probability of starting in a particular hidden state.
+
+#### Returns:
+- **P** is the likelihood of the observations given the model.
+- **F** is a `numpy.ndarray` of shape `(N, T)` containing the forward path probabilities.  
+  **F[i, j]** is the probability of being in hidden state `i` at time `j` given the previous observations.
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/3-main.py
+1.7080966131859584e-214
+[[0.00000000e+000 0.00000000e+000 2.98125000e-004 ... 0.00000000e+000
+  0.00000000e+000 0.00000000e+000]
+ [2.00000000e-002 0.00000000e+000 3.18000000e-003 ... 0.00000000e+000
+  0.00000000e+000 0.00000000e+000]
+ [2.50000000e-001 3.31250000e-002 0.00000000e+000 ... 2.13885975e-214
+  1.17844112e-214 0.00000000e+000]
+ [1.00000000e-002 4.69000000e-002 0.00000000e+000 ... 2.41642482e-213
+  1.27375484e-213 9.57568349e-215]
+ [0.00000000e+000 8.00000000e-004 0.00000000e+000 ... 1.96973759e-214
+  9.65573676e-215 7.50528264e-215]]
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
+```
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 4. The Viterbi Algorithm
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)  
+
+Write the function `def viterbi(Observation, Emission, Transition, Initial):` that calculates the most likely sequence of hidden states for a hidden Markov model:
+
+- **Observation** is a `numpy.ndarray` of shape `(T,)` that contains the index of the observation.  
+  **T** is the number of observations.
+- **Emission** is a `numpy.ndarray` of shape `(N, M)` containing the emission probability of a specific observation given a hidden state.  
+  **Emission[i, j]** is the probability of observing `j` given the hidden state `i`.  
+  **N** is the number of hidden states, and **M** is the number of all possible observations.
+- **Transition** is a 2D `numpy.ndarray` of shape `(N, N)` containing the transition probabilities.  
+  **Transition[i, j]** is the probability of transitioning from the hidden state `i` to `j`.
+- **Initial** is a `numpy.ndarray` of shape `(N, 1)` containing the probability of starting in a particular hidden state.
+
+#### Returns:
+- **path** is a list of length `T` containing the most likely sequence of hidden states.
+- **P** is the probability of obtaining the `path` sequence.
+
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/4-main.py
+4.701733355108224e-252
+[2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 1, 1, 1, 1, 0, 0, 1, 2, 2, 2, 3, 3, 3, 2, 1, 2, 1, 1, 2, 2, 2, 3, 3, 2, 2, 3, 4, 4, 3, 3, 2, 2, 3, 3, 3, 2, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 2, 3, 3, 2, 1, 2, 1, 1, 1, 2, 2, 3, 4, 4, 4, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 3, 2, 2, 3, 2, 2, 3, 4, 4, 4, 3, 2, 1, 0, 0, 0, 1, 2, 2, 1, 1, 2, 3, 3, 2, 1, 1, 1, 2, 3, 3, 3, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 2, 1, 2, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 0, 0, 1, 2, 2, 1, 2, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 3, 3, 4, 4, 4, 4, 3, 3, 3, 2, 1, 1, 1, 1, 2, 1, 0, 0, 0, 0, 1, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 3, 4, 4, 4, 3, 3, 3, 3, 2, 2, 3, 3, 3, 3, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 1, 2, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 1, 1, 2, 1, 1, 2, 2, 2, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 2, 1, 1, 2, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 3, 3, 3, 3, 3]
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
+```
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 5. The Backward Algorithm
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
+Write the function `def backward(Observation, Emission, Transition, Initial):` that performs the backward algorithm for a hidden Markov model:
+
+- **Observation** is a `numpy.ndarray` of shape `(T,)` that contains the index of the observation.  
+  **T** is the number of observations.
+- **Emission** is a `numpy.ndarray` of shape `(N, M)` containing the emission probability of a specific observation given a hidden state.  
+  **Emission[i, j]** is the probability of observing `j` given the hidden state `i`.  
+  **N** is the number of hidden states, and **M** is the number of all possible observations.
+- **Transition** is a 2D `numpy.ndarray` of shape `(N, N)` containing the transition probabilities.  
+  **Transition[i, j]** is the probability of transitioning from the hidden state `i` to `j`.
+- **Initial** is a `numpy.ndarray` of shape `(N, 1)` containing the probability of starting in a particular hidden state.
+
+#### Returns:
+- **P** is the likelihood of the observations given the model.
+- **B** is a `numpy.ndarray` of shape `(N, T)` containing the backward path probabilities.  
+  **B[i, j]** is the probability of generating the future observations from hidden state `i` at time `j`.
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/5-main.py
+1.7080966131859631e-214
+[[1.28912952e-215 6.12087935e-212 1.00555701e-211 ... 6.75000000e-005
+  0.00000000e+000 1.00000000e+000]
+ [3.86738856e-214 2.69573528e-212 4.42866330e-212 ... 2.02500000e-003
+  0.00000000e+000 1.00000000e+000]
+ [6.44564760e-214 5.15651808e-213 8.47145100e-213 ... 2.31330000e-002
+  2.70000000e-002 1.00000000e+000]
+ [1.93369428e-214 0.00000000e+000 0.00000000e+000 ... 6.39325000e-002
+  1.15000000e-001 1.00000000e+000]
+ [1.28912952e-215 0.00000000e+000 0.00000000e+000 ... 5.77425000e-002
+  2.19000000e-001 1.00000000e+000]]
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
 ```
