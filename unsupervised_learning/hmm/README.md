@@ -1,5 +1,7 @@
 <h1><p align="center"> Hidden Markov Models </h1></p></font>
 
+![image](https://github.com/user-attachments/assets/e8707f23-c2b9-447e-9180-79c463bb16d6)
+
 
 # 📚 Resources
 Read or watch:
@@ -153,6 +155,8 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
 ### 3. The Forward Algorithm
 
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)   
+
+![image](https://github.com/user-attachments/assets/6896d732-26b8-4647-a5fc-6fff6acbb42b)
 
 
 Write the function `def forward(Observation, Emission, Transition, Initial):` that performs the forward algorithm for a hidden markov model:
