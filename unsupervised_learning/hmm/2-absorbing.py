@@ -84,7 +84,7 @@ def absorbing(P):
     - True if the Markov chain is absorbing, False if not,
         or None if input is invalid.
     """
-    # import warning
+    # impo_rt warning
     # warnings.filterwarnings('ignore')
     # Avoid this warning: Line 92.  np.linalg.lstsq(a, b)[0]
 
