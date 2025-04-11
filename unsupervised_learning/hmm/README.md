@@ -80,6 +80,7 @@ Read or watch:
 # 📝 Tasks
 
 ### 0. Markov Chain
+**Mandatory**  
 Write the function `def markov_chain(P, s, t=1):` that determines the probability of a Markov chain being in a particular state after a specified number of iterations:
 
 - `P` is a square 2D numpy.ndarray of shape `(n, n)` representing the transition matrix  
@@ -90,7 +91,44 @@ Write the function `def markov_chain(P, s, t=1):` that determines the probabilit
 
 Returns: a numpy.ndarray of shape `(1, n)` representing the probability of being in a specific state after `t` iterations, or `None` on failure.
 ```
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./0-main.py
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/0-main.py
 [[0.2494929  0.26335362 0.23394185 0.25321163]]
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
+```
+### 1. Regular Chains
+**Mandatory** 
+Write the function `def regular(P):` that determines the steady state probabilities of a regular Markov chain:
+
+- `P` is a square 2D numpy.ndarray of shape `(n, n)` representing the transition matrix  
+  `P[i, j]` is the probability of transitioning from state `i` to state `j`  
+  `n` is the number of states in the Markov chain  
+
+Returns: a numpy.ndarray of shape `(1, n)` containing the steady state probabilities, or `None` on failure.
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/1-main.py
+None
+[[0.42857143 0.57142857]]
+[[0.2494929  0.26335362 0.23394185 0.25321163]]
+None
+None
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
+```
+### 2. Absorbing Chains
+**Mandatory** 
+Write the function `def absorbing(P):` that determines if a Markov chain is absorbing:
+
+- `P` is a square 2D numpy.ndarray of shape `(n, n)` representing the standard transition matrix  
+  `P[i, j]` is the probability of transitioning from state `i` to state `j`  
+  `n` is the number of states in the Markov chain  
+
+Returns: `True` if it is absorbing, or `False` on failure.
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/2-main.py
+True
+False
+False
+False
+True
+True
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
 ```
