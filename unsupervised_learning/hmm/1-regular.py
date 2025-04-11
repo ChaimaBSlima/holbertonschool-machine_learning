@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """ Task 1: 1. Regular Chains """
 import numpy as np
+import warnings
 
 
 def markov_chain(P, s, t=1):
@@ -49,27 +50,24 @@ def regular(P):
     - A 1D numpy.ndarray of shape (1, n) representing the steady state,
       or None if not regular or input is invalid.
     """
-    np.warnings.filterwarnings('ignore')
+    warnings.filterwarnings('ignore')
     # Avoid this warning: Line 92.  np.linalg.lstsq(a, b)[0]
 
-    if (not isinstance(P, np.ndarray)):
-        return None
-
-    if (P.ndim != 2):
+    if not isinstance(P, np.ndarray) or P.ndim != 2:
         return None
 
     n = P.shape[0]
-    if (P.shape != (n, n)):
+    if P.shape != (n, n):
         return None
 
-    if ((np.sum(P) / n) != 1):
+    if not np.allclose(P.sum(axis=1), 1):
         return None
 
-    if ((P > 0).all()):  # checks to see if all elements of P are posistive
+    if (P > 0).all():
         a = np.eye(n) - P
         a = np.vstack((a.T, np.ones(n)))
-        b = np.matrix([0] * n + [1]).T
-        regular = np.linalg.lstsq(a, b)[0]
-        return regular.T
+        b = np.array([0] * n + [1])
+        regular = np.linalg.lstsq(a, b, rcond=None)[0]
+        return regular[np.newaxis, :] 
 
     return None
