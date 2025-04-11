@@ -273,6 +273,24 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
  [0.26 0.58 0.16]]
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
 ```
+# Random Information ℹ️
+
+- **Repository Name**: holbertonschool-machine_learning 
+- **Description**:  
+  This repository is a collection of machine learning algorithms and models, implemented as part of my work at Holberton School. It includes various tasks and solutions for different algorithms such as Markov Chains, Viterbi Algorithm, and Baum-Welch Algorithm. The purpose of this repository is to showcase my understanding and implementation of these algorithms in Python, using numpy and other relevant libraries.
+- **Repository Link**: [https://github.com/ChaimaBSlima/holbertonschool-machine_learning/](https://github.com/ChaimaBSlima/holbertonschool-machine_learning/)  
+- **Clone Command**:  
+  To clone this repository to your local machine, use the following command in your terminal:
+  ```bash
+  git clone https://github.com/ChaimaBSlima/holbertonschool-machine_learning.git
+  ```
+- **Test Files**:  
+  All test files for this project are located in the `test_files` folder within the repository.
+
+- **Additional Information**:  
+  - All code is written in Python, and it uses numpy for numerical operations.
+  - The repository follows best practices for coding style and includes documentation for each function, class, and module.
+  - The repository is intended for educational purposes and as a reference for learning and practicing machine learning algorithms.
 
 # 📊 Project Summary
 
