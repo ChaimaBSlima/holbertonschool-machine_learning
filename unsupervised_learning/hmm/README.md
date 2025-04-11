@@ -157,9 +157,11 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
 
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)   
 
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/6896d732-26b8-4647-a5fc-6fff6acbb42b" alt="Image"/>
 </p>
+
 
 Write the function `def forward(Observation, Emission, Transition, Initial):` that performs the forward algorithm for a hidden markov model:
 
