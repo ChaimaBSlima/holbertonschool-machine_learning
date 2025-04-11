@@ -11,7 +11,7 @@ Read or watch:
 - [Understanding K-means Clustering in Machine Learning](https://medium.com/data-science/understanding-k-means-clustering-in-machine-learning-6a6e67336aa1)
 - [K-means clustering: how it works](https://www.youtube.com/watch?v=_aWzGGNrcic)
 - [How many clusters?](https://www.youtube.com/watch?v=xNfOheh-res)
-- [Bimodal distribution](hhttps://www.youtube.com/watch?v=BWItfiVnDfU)
+- [Bimodal distribution](https://www.youtube.com/watch?v=BWItfiVnDfU)
 - [Gaussian Mixture Model](https://intranet.hbtn.io/rltoken/wdP_gXMOYcwdrZf2tUAbcA)
 - [EM algorithm: how it works](https://www.youtube.com/watch?v=REypj2sy_5U)
 - [Expectation Maximization: how it works](https://www.youtube.com/watch?v=iQoXFmbXRJA)
