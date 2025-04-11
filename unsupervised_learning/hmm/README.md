@@ -114,7 +114,7 @@ None
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
 ```
 
-##### ⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛
+<p align="center">⭐⭐⭐</p>
 
 
 ### 2. Absorbing Chains
