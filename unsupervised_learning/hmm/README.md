@@ -1,5 +1,8 @@
 <h1><p align="center"> Hidden Markov Models </h1></p></font>
-<hr>
+
+---
+
+
 ## 📚 Resources
 Read or watch:
 - [Markov property](https://en.wikipedia.org/wiki/Markov_property)
