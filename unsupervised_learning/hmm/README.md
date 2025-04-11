@@ -113,7 +113,10 @@ None
 None
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
 ```
+
 ...
+
+
 ### 2. Absorbing Chains
 **Mandatory** 
 Write the function `def absorbing(P):` that determines if a Markov chain is absorbing:
