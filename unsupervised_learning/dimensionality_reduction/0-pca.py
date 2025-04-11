@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Task 0: 0. PCA"""
+""" Task 0: 0. PCA """
 import numpy as np
 
 
