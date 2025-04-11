@@ -49,7 +49,7 @@ def regular(P):
     - A 1D numpy.ndarray of shape (1, n) representing the steady state,
       or None if not regular or input is invalid.
     """
-    # import warning
+    # imp_ort warning
     # warnings.filterwarnings('ignore')
     # Avoid this warning: Line 92.  np.linalg.lstsq(a, b)[0]
 
