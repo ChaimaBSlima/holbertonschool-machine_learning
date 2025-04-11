@@ -49,7 +49,7 @@ def regular(P):
     - A 1D numpy.ndarray of shape (1, n) representing the steady state,
       or None if not regular or input is invalid.
     """
-    #warnings.filterwarnings('ignore')
+    # warnings.filterwarnings('ignore')
     # Avoid this warning: Line 92.  np.linalg.lstsq(a, b)[0]
 
     if not isinstance(P, np.ndarray) or P.ndim != 2:
@@ -67,6 +67,6 @@ def regular(P):
         a = np.vstack((a.T, np.ones(n)))
         b = np.array([0] * n + [1])
         regular = np.linalg.lstsq(a, b, rcond=None)[0]
-        return regular[np.newaxis, :] 
+        return regular[np.newaxis, :]
 
     return None
