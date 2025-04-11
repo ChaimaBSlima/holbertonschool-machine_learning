@@ -1,7 +1,8 @@
 <h1><p align="center"> Hidden Markov Models </h1></p></font>
 
-<p align="center"> ![image](https://github.com/user-attachments/assets/e8707f23-c2b9-447e-9180-79c463bb16d6) </p>
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e8707f23-c2b9-447e-9180-79c463bb16d6" alt="Image"/>
+</p>
 
 # 📚 Resources
 Read or watch:
