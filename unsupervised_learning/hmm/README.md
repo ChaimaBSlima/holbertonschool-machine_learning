@@ -273,3 +273,20 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
  [0.26 0.58 0.16]]
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
 ```
+
+# 📊 Project Summary
+
+This project focuses on implementing and solving key algorithms in **Hidden Markov Models (HMMs)**, a fundamental concept in probability theory and machine learning. The objective of this project is to apply different techniques used in HMMs to process sequences of data, including tasks such as sequence prediction, observation likelihood estimation, and model training.
+
+The project is divided into several critical tasks, such as:
+- **Markov Chains**: Understanding the probabilities of states transitioning over time.
+- **Regular Chains**: Determining steady-state probabilities for regular Markov chains.
+- **Absorbing Chains**: Identifying if a Markov chain is absorbing or not.
+- **The Forward Algorithm**: Calculating the likelihood of a sequence of observations.
+- **The Viterbi Algorithm**: Identifying the most likely sequence of hidden states.
+- **The Baum-Welch Algorithm**: Training an HMM using the Expectation-Maximization approach to optimize model parameters.
+
+# 👩‍💻 Authors
+Tasks by [Holberton School](https://www.holbertonschool.com/)
+**Chaima Ben Slima** - Holberton School Student, ML Developer
+[GitHub](https://github.com/ChaimaBSlima)
