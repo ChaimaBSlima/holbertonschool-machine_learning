@@ -124,7 +124,7 @@ Write a function `def initialize(X, k):` that initializes cluster centroids for 
 - A **numpy.ndarray** of shape (k, d) containing the initialized centroids for each cluster.
 - Return `None` on failure.
 ```
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/0-main.py
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#./test_files/0-main.py
 ```
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
@@ -152,7 +152,7 @@ Write a function `def kmeans(X, k, iterations=1000):` that performs **K-means** 
 
 - On failure, return `None, None`.
 ```
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/1-main.py
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#./test_files/1-main.py
 [[ 9.92511389 25.73098987]
  [30.06722465 40.41123947]
  [39.62770705 19.89843487]
@@ -181,7 +181,7 @@ Write a function `def variance(X, C):` that calculates the **total intra-cluster
 - **var**: The total variance.
 - Return `None` on failure.
 ```
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/2-main.py
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#./test_files/2-main.py
 Variance with 1 clusters: 157927.7052
 Variance with 2 clusters: 82095.68297
 Variance with 3 clusters: 34784.23723
@@ -192,7 +192,7 @@ Variance with 7 clusters: 6930.66361
 Variance with 8 clusters: 6162.15884
 Variance with 9 clusters: 5843.92455
 Variance with 10 clusters: 5727.41124
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#
 ```
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
@@ -223,7 +223,7 @@ Write a function `def optimum_k(X, kmin=1, kmax=None, iterations=1000):` that te
 - Return `None, None` on failure.
 
 ```
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/3-main.py
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#./test_files/3-main.py
 [(array([[31.78625503, 37.01090945]]), array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -385,92 +385,343 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
 ```
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
-### 4. The Viterbi Algorithm
+### 4. Initialize GMM
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)  
 
-Write the function `def viterbi(Observation, Emission, Transition, Initial):` that calculates the most likely sequence of hidden states for a hidden Markov model:
+Write a function `def initialize(X, k):` that initializes variables for a **Gaussian Mixture Model (GMM)**:
 
-- **Observation** is a `numpy.ndarray` of shape `(T,)` that contains the index of the observation.  
-  **T** is the number of observations.
-- **Emission** is a `numpy.ndarray` of shape `(N, M)` containing the emission probability of a specific observation given a hidden state.  
-  **Emission[i, j]** is the probability of observing `j` given the hidden state `i`.  
-  **N** is the number of hidden states, and **M** is the number of all possible observations.
-- **Transition** is a 2D `numpy.ndarray` of shape `(N, N)` containing the transition probabilities.  
-  **Transition[i, j]** is the probability of transitioning from the hidden state `i` to `j`.
-- **Initial** is a `numpy.ndarray` of shape `(N, 1)` containing the probability of starting in a particular hidden state.
+- `X` is a **numpy.ndarray** of shape (n, d) containing the dataset.
+  - `n` is the number of data points.
+  - `d` is the number of dimensions for each data point.
+- `k` is a positive integer containing the **number of clusters**.
+
+- You are **not allowed to use any loops**.
+- You must use:
+  - `kmeans = __import__('1-kmeans').kmeans`
 
 #### Returns:
-- **path** is a list of length `T` containing the most likely sequence of hidden states.
-- **P** is the probability of obtaining the `path` sequence.
+- **pi**: A numpy.ndarray of shape (k,) containing the **priors** for each cluster, initialized **evenly**.
+- **m**: A numpy.ndarray of shape (k, d) containing the **centroid means** for each cluster, initialized with **K-means**.
+- **S**: A numpy.ndarray of shape (k, d, d) containing the **covariance matrices** for each cluster, initialized as **identity matrices**.
+- Return `None, None, None` on failure.
 
 ```
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/4-main.py
-4.701733355108224e-252
-[2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 1, 1, 1, 1, 0, 0, 1, 2, 2, 2, 3, 3, 3, 2, 1, 2, 1, 1, 2, 2, 2, 3, 3, 2, 2, 3, 4, 4, 3, 3, 2, 2, 3, 3, 3, 2, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 2, 3, 3, 2, 1, 2, 1, 1, 1, 2, 2, 3, 4, 4, 4, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 3, 2, 2, 3, 2, 2, 3, 4, 4, 4, 3, 2, 1, 0, 0, 0, 1, 2, 2, 1, 1, 2, 3, 3, 2, 1, 1, 1, 2, 3, 3, 3, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 2, 1, 2, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 0, 0, 1, 2, 2, 1, 2, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 3, 3, 4, 4, 4, 4, 3, 3, 3, 2, 1, 1, 1, 1, 2, 1, 0, 0, 0, 0, 1, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 3, 4, 4, 4, 3, 3, 3, 3, 2, 2, 3, 3, 3, 3, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 1, 2, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 1, 1, 2, 1, 1, 2, 2, 2, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 2, 1, 1, 2, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 3, 3, 3, 3, 3]
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#./test_files/4-main.py
+[0.25 0.25 0.25 0.25]
+[[54.73711515 31.81393242]
+ [16.84012557 31.20248225]
+ [21.43215816 65.50449077]
+ [32.3301925  41.80664127]]
+[[[1. 0.]
+  [0. 1.]]
+
+ [[1. 0.]
+  [0. 1.]]
+
+ [[1. 0.]
+  [0. 1.]]
+
+ [[1. 0.]
+  [0. 1.]]]
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#
 ```
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
-### 5. The Backward Algorithm
+### 5. PDF
 
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
-Write the function `def backward(Observation, Emission, Transition, Initial):` that performs the backward algorithm for a hidden Markov model:
+Write a function `def pdf(X, m, S):` that calculates the probability density function of a Gaussian distribution:
 
-- **Observation** is a `numpy.ndarray` of shape `(T,)` that contains the index of the observation.  
-  **T** is the number of observations.
-- **Emission** is a `numpy.ndarray` of shape `(N, M)` containing the emission probability of a specific observation given a hidden state.  
-  **Emission[i, j]** is the probability of observing `j` given the hidden state `i`.  
-  **N** is the number of hidden states, and **M** is the number of all possible observations.
-- **Transition** is a 2D `numpy.ndarray` of shape `(N, N)` containing the transition probabilities.  
-  **Transition[i, j]** is the probability of transitioning from the hidden state `i` to `j`.
-- **Initial** is a `numpy.ndarray` of shape `(N, 1)` containing the probability of starting in a particular hidden state.
+- `X` is a `numpy.ndarray` of shape `(n, d)` containing the data points whose PDF should be evaluated  
+- `m` is a `numpy.ndarray` of shape `(d,)` containing the mean of the distribution  
+- `S` is a `numpy.ndarray` of shape `(d, d)` containing the covariance of the distribution  
 
-#### Returns:
-- **P** is the likelihood of the observations given the model.
-- **B** is a `numpy.ndarray` of shape `(N, T)` containing the backward path probabilities.  
-  **B[i, j]** is the probability of generating the future observations from hidden state `i` at time `j`.
+**You are not allowed to use any loops**  
+**You are not allowed to use the function `numpy.diag` or the method `numpy.ndarray.diagonal`**
+
+**Returns:**  
+- `P`, or `None` on failure  
+- `P` is a `numpy.ndarray` of shape `(n,)` containing the PDF values for each data point  
+- All values in `P` should have a minimum value of `1e-300`
+
 ```
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/5-main.py
-1.7080966131859631e-214
-[[1.28912952e-215 6.12087935e-212 1.00555701e-211 ... 6.75000000e-005
-  0.00000000e+000 1.00000000e+000]
- [3.86738856e-214 2.69573528e-212 4.42866330e-212 ... 2.02500000e-003
-  0.00000000e+000 1.00000000e+000]
- [6.44564760e-214 5.15651808e-213 8.47145100e-213 ... 2.31330000e-002
-  2.70000000e-002 1.00000000e+000]
- [1.93369428e-214 0.00000000e+000 0.00000000e+000 ... 6.39325000e-002
-  1.15000000e-001 1.00000000e+000]
- [1.28912952e-215 0.00000000e+000 0.00000000e+000 ... 5.77425000e-002
-  2.19000000e-001 1.00000000e+000]]
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#./test_files/5-main.py
+[3.47450910e-05 2.53649178e-06 1.80348301e-04 ... 1.24604061e-04
+ 1.86345129e-04 2.59397003e-05]
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#
 ```
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
-### 6. The Baum-Welch Algorithm
+### 6. Expectation
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)  
 
-Write the function `def baum_welch(Observations, Transition, Emission, Initial, iterations=1000):` that performs the Baum-Welch algorithm for a hidden Markov model:
+Write a function `def expectation(X, pi, m, S):` that calculates the expectation step in the EM algorithm for a GMM:
 
-- **Observations** is a `numpy.ndarray` of shape `(T,)` that contains the index of the observation.  
-  **T** is the number of observations.
-- **Transition** is a `numpy.ndarray` of shape `(M, M)` that contains the initialized transition probabilities.  
-  **M** is the number of hidden states.
-- **Emission** is a `numpy.ndarray` of shape `(M, N)` that contains the initialized emission probabilities.  
-  **N** is the number of output states.
-- **Initial** is a `numpy.ndarray` of shape `(M, 1)` that contains the initialized starting probabilities.
-- **iterations** is the number of times expectation-maximization should be performed.
+- `X` is a `numpy.ndarray` of shape `(n, d)` containing the data set  
+- `pi` is a `numpy.ndarray` of shape `(k,)` containing the priors for each cluster  
+- `m` is a `numpy.ndarray` of shape `(k, d)` containing the centroid means for each cluster  
+- `S` is a `numpy.ndarray` of shape `(k, d, d)` containing the covariance matrices for each cluster  
 
-#### Returns:
-- The converged **Transition**, **Emission**, or **None**, **None** on failure.
+**You may use at most 1 loop**
+
+**Returns:**  
+- `g`, `l`, or `None`, `None` on failure  
+- `g` is a `numpy.ndarray` of shape `(k, n)` containing the posterior probabilities for each data point in each cluster  
+- `l` is the total log likelihood  
+
+**You should use** `pdf = __import__('5-pdf').pdf`
+
 ```
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/6-main.py
-[[0.81 0.19]
- [0.28 0.72]]
-[[0.82 0.18 0.  ]
- [0.26 0.58 0.16]]
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#./test_files/6-main.py
+[[1.98542668e-055 1.00000000e+000 1.56526421e-185 ... 1.00000000e+000
+  3.70567311e-236 1.91892348e-012]
+ [6.97883333e-085 2.28658376e-279 9.28518983e-065 ... 8.12227631e-287
+  1.53690661e-032 3.17417182e-181]
+ [9.79811365e-234 2.28658376e-279 2.35073465e-095 ... 1.65904890e-298
+  9.62514613e-068 5.67072057e-183]
+ [1.00000000e+000 7.21133039e-186 1.00000000e+000 ... 2.42138447e-125
+  1.00000000e+000 1.00000000e+000]]
+[1. 1. 1. ... 1. 1. 1.]
+-652797.7866541843
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#
 ```
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 7. Maximization
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)  
+
+Write a function `def maximization(X, g):` that calculates the maximization step in the EM algorithm for a GMM:
+
+- `X` is a `numpy.ndarray` of shape `(n, d)` containing the data set  
+- `g` is a `numpy.ndarray` of shape `(k, n)` containing the posterior probabilities for each data point in each cluster  
+
+**You may use at most 1 loop**
+
+**Returns:**  
+- `pi`, `m`, `S`, or `None`, `None`, `None` on failure  
+- `pi` is a `numpy.ndarray` of shape `(k,)` containing the updated priors for each cluster  
+- `m` is a `numpy.ndarray` of shape `(k, d)` containing the updated centroid means for each cluster  
+- `S` is a `numpy.ndarray` of shape `(k, d, d)` containing the updated covariance matrices for each cluster  
+
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#./test_files/7-main.py
+[0.10104901 0.24748822 0.1193333  0.53212947]
+[[54.7440558  31.80888393]
+ [16.84099873 31.20560148]
+ [21.42588061 65.51441875]
+ [32.33208369 41.80830251]]
+[[[64.05063663 -2.13941814]
+  [-2.13941814 41.90354928]]
+
+ [[72.72404579  9.96322554]
+  [ 9.96322554 53.05035303]]
+
+ [[46.20933259  1.08979413]
+  [ 1.08979413 66.9841323 ]]
+
+ [[35.04054823 -0.94790014]
+  [-0.94790014 45.14948772]]]
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#
+```
+
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 8. EM
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)  
+
+Write a function `def expectation_maximization(X, k, iterations=1000, tol=1e-5, verbose=False):` that performs the Expectation-Maximization for a GMM:
+
+- `X` is a `numpy.ndarray` of shape `(n, d)` containing the data set  
+- `k` is a positive integer containing the number of clusters  
+- `iterations` is a positive integer containing the maximum number of iterations for the algorithm  
+- `tol` is a non-negative float containing tolerance of the log likelihood, used to determine early stopping  
+  - Stop the algorithm if the difference is less than or equal to `tol`  
+- `verbose` is a boolean that determines if information about the algorithm should be printed  
+  - If `True`, print `Log Likelihood after {i} iterations: {l}` every 10 iterations and after the last iteration  
+    - `{i}` is the number of iterations of the EM algorithm  
+    - `{l}` is the log likelihood, **rounded to 5 decimal places**
+
+**You should use:**  
+- `initialize = __import__('4-initialize').initialize`  
+- `expectation = __import__('6-expectation').expectation`  
+- `maximization = __import__('7-maximization').maximization`
+
+**Constraints:**  
+- You may use **at most 1 loop**
+
+**Returns:**  
+- `pi`, `m`, `S`, `g`, `l`, or `None, None, None, None, None` on failure  
+  - `pi`: `numpy.ndarray` of shape `(k,)` containing the priors for each cluster  
+  - `m`: `numpy.ndarray` of shape `(k, d)` containing the centroid means for each cluster  
+  - `S`: `numpy.ndarray` of shape `(k, d, d)` containing the covariance matrices for each cluster  
+  - `g`: `numpy.ndarray` of shape `(k, n)` containing the probabilities for each data point in each cluster  
+  - `l`: the log likelihood of the model  
+
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#./test_files/8-main.py
+Log Likelihood after 0 iterations: -652797.78665
+Log Likelihood after 10 iterations: -94855.45662
+Log Likelihood after 20 iterations: -94714.52057
+Log Likelihood after 30 iterations: -94590.87362
+Log Likelihood after 40 iterations: -94440.40559
+Log Likelihood after 50 iterations: -94439.93891
+Log Likelihood after 52 iterations: -94439.93889
+```
+
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 9. BIC
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)  
+
+Write a function `def BIC(X, kmin=1, kmax=None, iterations=1000, tol=1e-5, verbose=False):` that finds the best number of clusters for a GMM using the Bayesian Information Criterion:
+
+- `X` is a numpy.ndarray of shape (n, d) containing the data set  
+- `kmin` is a positive integer containing the minimum number of clusters to check for (inclusive)  
+- `kmax` is a positive integer containing the maximum number of clusters to check for (inclusive)  
+  - If `kmax` is None, `kmax` should be set to the maximum number of clusters possible  
+- `iterations` is a positive integer containing the maximum number of iterations for the EM algorithm  
+- `tol` is a non-negative float containing the tolerance for the EM algorithm  
+- `verbose` is a boolean that determines if the EM algorithm should print information to the standard output  
+  - If True, print Log Likelihood after {i} iterations: {l} every 10 iterations and after the last iteration  
+    - {i} is the number of iterations of the EM algorithm  
+    - {l} is the log likelihood, **rounded to 5 decimal places**  
+
+You should use:
+- `expectation_maximization = __import__('8-EM').expectation_maximization`  
+- `initialize = __import__('4-initialize').initialize`  
+- `expectation = __import__('6-expectation').expectation`  
+- `maximization = __import__('7-maximization').maximization`  
+
+**Constraints:**  
+- You may use **at most 1 loop**
+
+**Returns:**  
+- `best_k`, `best_result`, `l`, `b`, or `None`, `None`, `None`, `None` on failure  
+  - `best_k` is the best value for `k` based on its BIC  
+  - `best_result` is tuple containing `pi`, `m`, `S`:  
+    - `pi` is a numpy.ndarray of shape (k,) containing the cluster priors for the best number of clusters  
+    - `m` is a numpy.ndarray of shape (k, d) containing the centroid means for the best number of clusters  
+    - `S` is a numpy.ndarray of shape (k, d, d) containing the covariance matrices for the best number of clusters  
+  - `l` is a numpy.ndarray of shape (kmax - kmin + 1) containing the log likelihood for each cluster size tested  
+  - `b` is a numpy.ndarray of shape (kmax - kmin + 1) containing the BIC value for each cluster size tested  
+- `BIC = p * ln(n) - 2 * l`  
+  - `p` is the number of parameters required for the model  
+  - `n` is the number of data points used to create the model  
+  - `l` is the log likelihood of the model  
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#./test_files/9-main.py
+4
+(array([0.79885962, 0.08044842, 0.06088258, 0.05980938]), array([[29.89606417, 40.12518027],
+       [20.0343883 , 69.84718588],
+       [60.18888407, 30.19707372],
+       [ 5.05788987, 24.92583792]]), array([[[74.52101284,  5.20770764],
+        [ 5.20770764, 73.8729309 ]],
+
+       [[35.58334497, 11.08416742],
+        [11.08416742, 33.09483747]],
+
+       [[16.85183256,  0.25475122],
+        [ 0.25475122, 16.4943092 ]],
+
+       [[15.19520213,  9.62633552],
+        [ 9.62633552, 15.47268905]]]))
+[-98801.40298366 -96729.95558846 -95798.40406023 -94439.93888882
+ -94435.87750008 -94428.62217176 -94426.71159745 -94425.5860871
+ -94421.41864281 -94416.43390835]
+[197649.97338694 193563.67950008 191757.17734716 189096.84790787
+ 189145.32603394 189187.41628084 189240.19603576 189294.54591859
+ 189342.81193356 189389.44336818]
+```
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 10. Hello, sklearn!
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)  
+
+Write a function `def kmeans(X, k):` that performs K-means on a dataset:
+
+- `X` is a numpy.ndarray of shape (n, d) containing the dataset  
+- `k` is the number of clusters
+
+The only import you are allowed to use is `import sklearn.cluster`
+
+**Returns:**  
+- `C` is a numpy.ndarray of shape (k, d) containing the centroid means for each cluster  
+- `clss` is a numpy.ndarray of shape (n,) containing the index of the cluster in `C` that each data point belongs to 
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#./test_files/10-main.py
+[[30.06722465 40.41123947]
+ [59.22766628 29.19796006]
+ [ 9.92511389 25.73098987]
+ [20.0835633  69.81592298]
+ [39.62770705 19.89843487]]
+```
+
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 11. GMM
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)  
+
+Write a function `def gmm(X, k):` that calculates a GMM from a dataset:
+
+- `X` is a numpy.ndarray of shape (n, d) containing the dataset  
+- `k` is the number of clusters
+
+The only import you are allowed to use is `import sklearn.mixture`
+
+**Returns:**  
+- `pi` is a numpy.ndarray of shape (k,) containing the cluster priors  
+- `m` is a numpy.ndarray of shape (k, d) containing the centroid means  
+- `S` is a numpy.ndarray of shape (k, d, d) containing the covariance matrices  
+- `clss` is a numpy.ndarray of shape (n,) containing the cluster indices for each data point  
+- `bic` is a numpy.ndarray of shape (kmax - kmin + 1) containing the BIC value for each cluster size tested
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#./test_files/11-main.py
+[0.68235847 0.17835524 0.06079717 0.07848911]
+[[30.6032058  40.76046968]
+ [18.77413861 32.82638046]
+ [60.2071779  30.24071437]
+ [20.00542639 70.02497115]]
+[[[ 6.96776628e+01 -3.66204575e+00]
+  [-3.66204575e+00  7.82087329e+01]]
+
+ [[ 1.54935691e+02  8.17658780e+01]
+  [ 8.17658780e+01  6.56306521e+01]]
+
+ [[ 1.66980918e+01  1.00778176e-02]
+  [ 1.00778176e-02  1.66498476e+01]]
+
+ [[ 3.55102735e+01  1.13250004e+01]
+  [ 1.13250004e+01  3.21335458e+01]]]
+189794.11897876553
+```
+
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 12. Agglomerative
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)  
+
+Write a function `def agglomerative(X, dist):` that performs agglomerative clustering on a dataset:
+
+- `X` is a numpy.ndarray of shape (n, d) containing the dataset  
+- `dist` is the maximum cophenetic distance for all clusters
+
+Performs agglomerative clustering with Ward linkage and displays the dendrogram with each cluster displayed in a different color.
+
+The only imports you are allowed to use are:
+- `import scipy.cluster.hierarchy`
+- `import matplotlib.pyplot as plt`
+
+**Returns:**  
+- `clss` is a numpy.ndarray of shape (n,) containing the cluster indices for each data point
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#./test_files/12-main.py
+```
+
+# 📊 Project Summary
+
+This project focuses on implementing and solving key algorithms in Clustering, a fundamental concept in unsupervised learning. The objective of this project is to apply different techniques for clustering data, including K-means and Gaussian Mixture Models (GMM), to group similar data points together.
+
 # Random Information ℹ️
 
 - **Repository Name**: holbertonschool-machine_learning 
@@ -489,18 +740,6 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
   - All code is written in Python, and it uses numpy for numerical operations.
   - The repository follows best practices for coding style and includes documentation for each function, class, and module.
   - The repository is intended for educational purposes and as a reference for learning and practicing machine learning algorithms.
-
-# 📊 Project Summary
-
-This project focuses on implementing and solving key algorithms in **Hidden Markov Models (HMMs)**, a fundamental concept in probability theory and machine learning. The objective of this project is to apply different techniques used in HMMs to process sequences of data, including tasks such as sequence prediction, observation likelihood estimation, and model training.
-
-The project is divided into several critical tasks, such as:
-- **Markov Chains**: Understanding the probabilities of states transitioning over time.
-- **Regular Chains**: Determining steady-state probabilities for regular Markov chains.
-- **Absorbing Chains**: Identifying if a Markov chain is absorbing or not.
-- **The Forward Algorithm**: Calculating the likelihood of a sequence of observations.
-- **The Viterbi Algorithm**: Identifying the most likely sequence of hidden states.
-- **The Baum-Welch Algorithm**: Training an HMM using the Expectation-Maximization approach to optimize model parameters.
 
 # 👩‍💻 Authors
 Tasks by [Holberton School](https://www.holbertonschool.com/)
