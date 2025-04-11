@@ -1,8 +1,7 @@
-README
-Resources
+<h1><p align="center"> Hidden Markov Models </h1></p></font>
+<hr>
+## 📚 Resources
 Read or watch:
-
-
 - [Markov property](https://en.wikipedia.org/wiki/Markov_property)
 - [Markov Chain](https://en.wikipedia.org/wiki/Markov_chain)
 - [Properties of Markov Chains](https://pdf4pro.com/download/10-1-properties-of-markov-chains-governors-state-university-4c8fed.html)
