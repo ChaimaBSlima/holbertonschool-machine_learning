@@ -1,7 +1,7 @@
 <h1><p align="center"> Clustering </h1></p></font>
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/eae10d97-da83-4c93-9b75-bad2b41dd4d9" alt="Image"/>
 </p>
 
 # 📚 Resources
@@ -126,6 +126,11 @@ Write a function `def initialize(X, k):` that initializes cluster centroids for 
 ```
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#./test_files/0-main.py
 ```
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a3655884-7fa3-4be3-b3c8-cb82e8e0098c" alt="Image"/>
+</p>
+
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
 ### 1. K-means
@@ -159,6 +164,10 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clus
  [59.22766628 29.19796006]
  [20.0835633  69.81592298]]
 ```
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2fcc769d-514d-4c44-ad61-ba92cb6c2534" alt="Image"/>
+</p>
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
@@ -383,6 +392,10 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clus
 [     0.       75832.02223 123143.46797 134769.30424 150059.18397
  150520.77443 150997.04159 151765.54636 152083.78065 152200.29395]
 ```
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/9a8bcd22-5c2b-4fbf-b9e2-253d654b1383" alt="Image"/>
+</p>
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
 ### 4. Initialize GMM
@@ -569,6 +582,31 @@ Log Likelihood after 50 iterations: -94439.93891
 Log Likelihood after 52 iterations: -94439.93889
 ```
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b1d71fa5-fb70-49f3-af23-6cf81b1c7ced" alt="Image"/>
+</p>
+
+```
+[ 761.03239903  747.62391034 1005.60275934 9985.74093129]
+[[60.18888335 30.19707607]
+ [ 5.05794926 24.92588821]
+ [20.03438453 69.84721009]
+ [29.89607379 40.12519148]]
+[[[16.85183426  0.2547388 ]
+  [ 0.2547388  16.49432111]]
+
+ [[15.19555672  9.62661086]
+  [ 9.62661086 15.47295413]]
+
+ [[35.58332494 11.08419454]
+  [11.08419454 33.09463207]]
+
+ [[74.52083678  5.20755533]
+  [ 5.20755533 73.87299705]]]
+-94439.93889004056
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#
+```
+
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
 ### 9. BIC
@@ -633,6 +671,14 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clus
  189145.32603394 189187.41628084 189240.19603576 189294.54591859
  189342.81193356 189389.44336818]
 ```
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d6fd71b5-380a-4da9-9e83-2fb07ad0b180" alt="Image"/>
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/eb51c8e5-7218-42e1-8a16-47578064cbc6" alt="Image"/>
+</p>
+
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
 ### 10. Hello, sklearn!
@@ -656,6 +702,10 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clus
  [20.0835633  69.81592298]
  [39.62770705 19.89843487]]
 ```
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/cba5a5c7-28ed-4a6f-a0d2-8e72b4d8d3c7" alt="Image"/>
+</p>
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
@@ -695,6 +745,9 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clus
   [ 1.13250004e+01  3.21335458e+01]]]
 189794.11897876553
 ```
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0e05abba-02fb-4371-90e1-af8939692f3b" alt="Image"/>
+</p>
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
@@ -717,6 +770,14 @@ The only imports you are allowed to use are:
 ```
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clustering#./test_files/12-main.py
 ```
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/fe96b9e5-b016-4883-b77a-43957a3ef836" alt="Image"/>
+</p>
+
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7bb95c5f-c7c2-4189-ad17-5c5ac3a3f95a" alt="Image"/>
+</p>
 
 # 📊 Project Summary
 
