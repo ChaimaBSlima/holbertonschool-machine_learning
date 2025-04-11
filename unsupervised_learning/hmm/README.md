@@ -247,3 +247,29 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
   2.19000000e-001 1.00000000e+000]]
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
 ```
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 6. The Baum-Welch Algorithm
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)  
+
+Write the function `def baum_welch(Observations, Transition, Emission, Initial, iterations=1000):` that performs the Baum-Welch algorithm for a hidden Markov model:
+
+- **Observations** is a `numpy.ndarray` of shape `(T,)` that contains the index of the observation.  
+  **T** is the number of observations.
+- **Transition** is a `numpy.ndarray` of shape `(M, M)` that contains the initialized transition probabilities.  
+  **M** is the number of hidden states.
+- **Emission** is a `numpy.ndarray` of shape `(M, N)` that contains the initialized emission probabilities.  
+  **N** is the number of output states.
+- **Initial** is a `numpy.ndarray` of shape `(M, 1)` that contains the initialized starting probabilities.
+- **iterations** is the number of times expectation-maximization should be performed.
+
+#### Returns:
+- The converged **Transition**, **Emission**, or **None**, **None** on failure.
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/6-main.py
+[[0.81 0.19]
+ [0.28 0.72]]
+[[0.82 0.18 0.  ]
+ [0.26 0.58 0.16]]
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
+```
