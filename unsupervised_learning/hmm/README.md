@@ -290,4 +290,6 @@ The project is divided into several critical tasks, such as:
 Tasks by [Holberton School](https://www.holbertonschool.com/)
 
 **Chaima Ben Slima** - Holberton School Student, ML Developer
+
 [GitHub](https://github.com/ChaimaBSlima)
+[Linkedin](https://www.linkedin.com/in/chaima-ben-slima-35477120a/)
