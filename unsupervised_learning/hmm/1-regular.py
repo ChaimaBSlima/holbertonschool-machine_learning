@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """ Task 1: 1. Regular Chains """
 import numpy as np
-#import warnings
 
 
 def markov_chain(P, s, t=1):
