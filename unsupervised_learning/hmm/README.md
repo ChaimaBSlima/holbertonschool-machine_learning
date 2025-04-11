@@ -288,5 +288,6 @@ The project is divided into several critical tasks, such as:
 
 # 👩‍💻 Authors
 Tasks by [Holberton School](https://www.holbertonschool.com/)
+
 **Chaima Ben Slima** - Holberton School Student, ML Developer
 [GitHub](https://github.com/ChaimaBSlima)
