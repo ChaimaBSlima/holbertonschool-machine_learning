@@ -1,7 +1,8 @@
 <h1><p align="center"> Dimensionality Reduction </h1></p></font>
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/216c5ded-0fec-4d60-94b4-e7df9af662dc
+" alt="Image"/>
 </p>
 
 # 📚 Resources
@@ -94,7 +95,7 @@ array([2.])
 Here a graph of execution time (Y-axis) for the number of iteration (X-axis) - red line is EIG and blue line is SVG
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/268df614-3dc2-46c8-bfa7-06420e060af2" alt="Image"/>
 </p>
 ---
 # 📝 Tasks
@@ -432,7 +433,7 @@ Q: (2500, 2500)
 1.0000000000000004
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dimensionality_reduction#
 ```
-
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
 ### 7. Cost
 ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
 
@@ -451,7 +452,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dime
 4.531113944164376
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dimensionality_reduction#
 ```
-
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
 ### 8. t-SNE
 ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
 
@@ -518,15 +519,17 @@ Cost at iteration 2900: 0.9844307720012038
 Cost at iteration 3000: 0.9824051809484152
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dimensionality_reduction#
 ```
+
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/e0f67385-e5fe-4ae8-95fc-96625000dbf" alt="Image"/>
 </p>
 *Awesome! We can see pretty good clusters! For comparison, here’s how PCA performs on the same dataset:*
 ```
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dimensionality_reduction#./pca.py 
 ```
+
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/5a087129-3960-40dd-b2b3-706c7edec4e0" alt="Image"/>
 </p>
 
 # 📊 Project Summary
