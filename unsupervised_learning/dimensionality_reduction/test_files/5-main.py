@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 
 import numpy as np
-pca = __import__('1-pca').pca
+Q_affinities = __import__('5-Q_affinities').Q_affinities
 
-X = np.loadtxt("mnist2500_X.txt")
-print('X:', X.shape)
-print(X)
-T = pca(X, 50)
-print('T:', T.shape)
-print(T)
+np.random.seed(0)
+Y = np.random.randn(2500, 2)
+Q, num = Q_affinities(Y)
+print('num:', num.shape)
+print(num)
+print(np.sum(num))
+print('Q:', Q.shape)
+print(Q)
+print(np.sum(Q))
