@@ -545,9 +545,13 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dime
   <img src="https://github.com/user-attachments/assets/5a087129-3960-40dd-b2b3-706c7edec4e0" alt="Image"/>
 </p>
 
+---
+
 # 📊 Project Summary
 
 This project focuses on implementing **t-SNE (t-Distributed Stochastic Neighbor Embedding)** for dimensionality reduction and data visualization. The goal is to transform high-dimensional datasets into a lower-dimensional space (typically 2D or 3D) while preserving the structure of the data.
+
+---
 
 # Random Information ℹ️
 
@@ -567,6 +571,8 @@ This project focuses on implementing **t-SNE (t-Distributed Stochastic Neighbor 
   - All code is written in Python, and it uses numpy for numerical operations.
   - The repository follows best practices for coding style and includes documentation for each function, class, and module.
   - The repository is intended for educational purposes and as a reference for learning and practicing machine learning algorithms.
+
+---
 
 # 👩‍💻 Authors
 Tasks by [Holberton School](https://www.holbertonschool.com/)
