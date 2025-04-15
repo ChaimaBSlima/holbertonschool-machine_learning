@@ -233,8 +233,12 @@ Write a function `def P_init(X, perplexity):` that initializes all variables req
 - `D`: a `numpy.ndarray` of shape `(n, n)` that calculates the squared pairwise distance between two data points  
   - The diagonal of `D` should be 0s  
 - `P`: a `numpy.ndarray` of shape `(n, n)` initialized to all 0‘s that will contain the P affinities  
-- `betas`: a `numpy.ndarray` of shape `(n, 1)` initialized to all 1’s that will contain all of the beta values  
-  - \(\beta_{i} = \frac{1}{2{\sigma_{i}}^{2}}\)  
+- `betas`: a `numpy.ndarray` of shape `(n, 1)` initialized to all 1’s that will contain all of the beta values
+
+  <p align="center">
+  <img src="https://github.com/user-attachments/assets/201a6d01-91ef-456a-a043-935b569ec8c4" alt="Image"/>
+</p>
+
 - `H`: the Shannon entropy for perplexity `perplexity` with a base of 2
 ```
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dimensionality_reduction#./test_files/2-main.py
