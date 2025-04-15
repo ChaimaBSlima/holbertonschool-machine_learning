@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 
 import matplotlib.pyplot as plt
@@ -22,3 +23,4 @@ if __name__ == '__main__':
     print(m)
     print(S)
     print(l)
+
