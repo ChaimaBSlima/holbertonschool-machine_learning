@@ -1,7 +1,7 @@
 <h1><p align="center"> Dimensionality Reduction </h1></p></font>
 
 <p align="center">
-  <img src=" " alt="Image"/>
+  <img src="" alt="Image"/>
 </p>
 
 # 📚 Resources
