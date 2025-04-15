@@ -531,6 +531,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dime
   <img src="https://github.com/user-attachments/assets/8b363256-fced-4d5d-8803-ecfd32dd56b0" alt="Image"/>
 </p>
 *Awesome! We can see pretty good clusters! For comparison, here’s how PCA performs on the same dataset:*
+
 ```
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dimensionality_reduction#./pca.py 
 ```
