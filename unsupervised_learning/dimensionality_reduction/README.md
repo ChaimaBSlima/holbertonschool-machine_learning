@@ -96,7 +96,9 @@ Here a graph of execution time (Y-axis) for the number of iteration (X-axis) - r
 <p align="center">
   <img src="https://github.com/user-attachments/assets/268df614-3dc2-46c8-bfa7-06420e060af2" alt="Image"/>
 </p>
+
 ---
+
 # 📝 Tasks
 
 ### 0. PCA
