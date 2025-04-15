@@ -1,7 +1,7 @@
 <h1><p align="center"> Dimensionality Reduction </h1></p></font>
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src=" " alt="Image"/>
 </p>
 
 # 📚 Resources
@@ -325,77 +325,213 @@ You should use `P_init = __import__('2-P_init').P_init` and `HP = __import__('3-
 💡 *Hint 2*: For this task, you will need to perform a binary search on each point’s distribution to find the correct value of `beta` that will give a Shannon Entropy `H` within the tolerance (Think about why we analyze the Shannon entropy instead of perplexity). Since beta can be in the range `(0, inf)`, you will have to do a binary search with the `high` and `low` initially set to None. If in your search, you are supposed to increase/decrease `beta` to `high`/`low` but they are still set to `None`, you should double/half the value of `beta` instead.
 
 ```
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/4-main.py
-4.701733355108224e-252
-[2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 1, 1, 1, 1, 0, 0, 1, 2, 2, 2, 3, 3, 3, 2, 1, 2, 1, 1, 2, 2, 2, 3, 3, 2, 2, 3, 4, 4, 3, 3, 2, 2, 3, 3, 3, 2, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 2, 3, 3, 2, 1, 2, 1, 1, 1, 2, 2, 3, 4, 4, 4, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 3, 2, 2, 3, 2, 2, 3, 4, 4, 4, 3, 2, 1, 0, 0, 0, 1, 2, 2, 1, 1, 2, 3, 3, 2, 1, 1, 1, 2, 3, 3, 3, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 2, 1, 2, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 0, 0, 1, 2, 2, 1, 2, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 3, 3, 4, 4, 4, 4, 3, 3, 3, 2, 1, 1, 1, 1, 2, 1, 0, 0, 0, 0, 1, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 3, 4, 4, 4, 3, 3, 3, 3, 2, 2, 3, 3, 3, 3, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 1, 2, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 1, 1, 2, 1, 1, 2, 2, 2, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 2, 1, 1, 2, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 3, 3, 3, 3, 3]
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dimensionality_reduction#./test_files/4-main.py
+P: (2500, 2500)
+[[0.00000000e+00 7.40714907e-10 9.79862968e-13 ... 2.37913671e-11
+  1.22844912e-10 1.75011944e-10]
+ [7.40714907e-10 0.00000000e+00 1.68735728e-13 ... 2.11150140e-12
+  1.05003596e-11 2.42913116e-10]
+ [9.79862968e-13 1.68735728e-13 0.00000000e+00 ... 2.41827214e-11
+  3.33128330e-09 1.25696380e-09]
+ ...
+ [2.37913671e-11 2.11150140e-12 2.41827214e-11 ... 0.00000000e+00
+  3.62850172e-12 4.11671350e-10]
+ [1.22844912e-10 1.05003596e-11 3.33128330e-09 ... 3.62850172e-12
+  0.00000000e+00 6.70800054e-10]
+ [1.75011944e-10 2.42913116e-10 1.25696380e-09 ... 4.11671350e-10
+  6.70800054e-10 0.00000000e+00]]
+1.0000000000000004
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dimensionality_reduction#
 ```
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
-### 5. The Backward Algorithm
+### 5. Q affinities
 
-![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
 
 Write the function `def backward(Observation, Emission, Transition, Initial):` that performs the backward algorithm for a hidden Markov model:
 
-- **Observation** is a `numpy.ndarray` of shape `(T,)` that contains the index of the observation.  
-  **T** is the number of observations.
-- **Emission** is a `numpy.ndarray` of shape `(N, M)` containing the emission probability of a specific observation given a hidden state.  
-  **Emission[i, j]** is the probability of observing `j` given the hidden state `i`.  
-  **N** is the number of hidden states, and **M** is the number of all possible observations.
-- **Transition** is a 2D `numpy.ndarray` of shape `(N, N)` containing the transition probabilities.  
-  **Transition[i, j]** is the probability of transitioning from the hidden state `i` to `j`.
-- **Initial** is a `numpy.ndarray` of shape `(N, 1)` containing the probability of starting in a particular hidden state.
+Write a function `def Q_affinities(Y):` that calculates the Q affinities:
 
-#### Returns:
-- **P** is the likelihood of the observations given the model.
-- **B** is a `numpy.ndarray` of shape `(N, T)` containing the backward path probabilities.  
-  **B[i, j]** is the probability of generating the future observations from hidden state `i` at time `j`.
+- `Y` is a `numpy.ndarray` of shape `(n, ndim)` containing the low dimensional transformation of `X`  
+  - `n` is the number of points  
+  - `ndim` is the new dimensional representation of `X`  
+
+#### Returns:  
+- `Q`, a `numpy.ndarray` of shape `(n, n)` containing the Q affinities  
+- `num`, a `numpy.ndarray` of shape `(n, n)` containing the numerator of the Q affinities  
+
+💡 *Hint*: See page 7 of [t-SNE](https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf) 
 ```
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/5-main.py
-1.7080966131859631e-214
-[[1.28912952e-215 6.12087935e-212 1.00555701e-211 ... 6.75000000e-005
-  0.00000000e+000 1.00000000e+000]
- [3.86738856e-214 2.69573528e-212 4.42866330e-212 ... 2.02500000e-003
-  0.00000000e+000 1.00000000e+000]
- [6.44564760e-214 5.15651808e-213 8.47145100e-213 ... 2.31330000e-002
-  2.70000000e-002 1.00000000e+000]
- [1.93369428e-214 0.00000000e+000 0.00000000e+000 ... 6.39325000e-002
-  1.15000000e-001 1.00000000e+000]
- [1.28912952e-215 0.00000000e+000 0.00000000e+000 ... 5.77425000e-002
-  2.19000000e-001 1.00000000e+000]]
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dimensionality_reduction#./test_files/5-main.py
+num: (2500, 2500)
+[[0.         0.1997991  0.34387413 ... 0.08229525 0.43197616 0.29803545]
+ [0.1997991  0.         0.08232739 ... 0.0780192  0.36043254 0.20418429]
+ [0.34387413 0.08232739 0.         ... 0.07484357 0.16975081 0.17792688]
+ ...
+ [0.08229525 0.0780192  0.07484357 ... 0.         0.13737822 0.22790422]
+ [0.43197616 0.36043254 0.16975081 ... 0.13737822 0.         0.65251175]
+ [0.29803545 0.20418429 0.17792688 ... 0.22790422 0.65251175 0.        ]]
+2113140.980877581
+Q: (2500, 2500)
+[[0.00000000e+00 9.45507652e-08 1.62731275e-07 ... 3.89445137e-08
+  2.04423728e-07 1.41039074e-07]
+ [9.45507652e-08 0.00000000e+00 3.89597234e-08 ... 3.69209645e-08
+  1.70567198e-07 9.66259681e-08]
+ [1.62731275e-07 3.89597234e-08 0.00000000e+00 ... 3.54181605e-08
+  8.03310395e-08 8.42001935e-08]
+ ...
+ [3.89445137e-08 3.69209645e-08 3.54181605e-08 ... 0.00000000e+00
+  6.50113847e-08 1.07850932e-07]
+ [2.04423728e-07 1.70567198e-07 8.03310395e-08 ... 6.50113847e-08
+  0.00000000e+00 3.08787608e-07]
+ [1.41039074e-07 9.66259681e-08 8.42001935e-08 ... 1.07850932e-07
+  3.08787608e-07 0.00000000e+00]]
+1.0000000000000004
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dimensionality_reduction#
 ```
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
-### 6. The Baum-Welch Algorithm
-![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)  
+### 6. Gradients
+![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
 
-Write the function `def baum_welch(Observations, Transition, Emission, Initial, iterations=1000):` that performs the Baum-Welch algorithm for a hidden Markov model:
+Write a function `def grads(Y, P):` that calculates the gradients of `Y`:
 
-- **Observations** is a `numpy.ndarray` of shape `(T,)` that contains the index of the observation.  
-  **T** is the number of observations.
-- **Transition** is a `numpy.ndarray` of shape `(M, M)` that contains the initialized transition probabilities.  
-  **M** is the number of hidden states.
-- **Emission** is a `numpy.ndarray` of shape `(M, N)` that contains the initialized emission probabilities.  
-  **N** is the number of output states.
-- **Initial** is a `numpy.ndarray` of shape `(M, 1)` that contains the initialized starting probabilities.
-- **iterations** is the number of times expectation-maximization should be performed.
+- `Y` is a `numpy.ndarray` of shape `(n, ndim)` containing the low dimensional transformation of `X`  
+- `P` is a `numpy.ndarray` of shape `(n, n)` containing the P affinities of `X`
 
-#### Returns:
-- The converged **Transition**, **Emission**, or **None**, **None** on failure.
+#### Returns:  
+- `dY`, a `numpy.ndarray` of shape `(n, ndim)` containing the gradients of `Y`  
+- `Q`, a `numpy.ndarray` of shape `(n, n)` containing the Q affinities of `Y`
+
+💡 *Hint*: See page 8 of [t-SNE](https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf)
 ```
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#./test_files/6-main.py
-[[0.81 0.19]
- [0.28 0.72]]
-[[0.82 0.18 0.  ]
- [0.26 0.58 0.16]]
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dimensionality_reduction#./test_files/6-main.py
+dY: (2500, 2)
+[[ 1.28824814e-05  1.55400363e-05]
+ [ 3.21435525e-05  4.35358938e-05]
+ [-1.02947106e-05  3.53998421e-07]
+ ...
+ [-2.27447049e-05 -3.05191863e-06]
+ [ 9.69379032e-06  1.00659610e-06]
+ [ 5.75113416e-05  7.65517123e-09]]
+Q: (2500, 2500)
+[[0.00000000e+00 9.45507652e-08 1.62731275e-07 ... 3.89445137e-08
+  2.04423728e-07 1.41039074e-07]
+ [9.45507652e-08 0.00000000e+00 3.89597234e-08 ... 3.69209645e-08
+  1.70567198e-07 9.66259681e-08]
+ [1.62731275e-07 3.89597234e-08 0.00000000e+00 ... 3.54181605e-08
+  8.03310395e-08 8.42001935e-08]
+ ...
+ [3.89445137e-08 3.69209645e-08 3.54181605e-08 ... 0.00000000e+00
+  6.50113847e-08 1.07850932e-07]
+ [2.04423728e-07 1.70567198e-07 8.03310395e-08 ... 6.50113847e-08
+  0.00000000e+00 3.08787608e-07]
+ [1.41039074e-07 9.66259681e-08 8.42001935e-08 ... 1.07850932e-07
+  3.08787608e-07 0.00000000e+00]]
+1.0000000000000004
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dimensionality_reduction#
 ```
+
+### 7. Cost
+![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
+
+Write a function `def cost(P, Q):` that calculates the cost of the t-SNE transformation:
+
+- `P` is a `numpy.ndarray` of shape `(n, n)` containing the P affinities  
+- `Q` is a `numpy.ndarray` of shape `(n, n)` containing the Q affinities
+
+#### Returns:  
+- `C`, the cost of the transformation
+
+💡 *Hint 1*: See page 5 of [t-SNE](https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf)  
+💡 *Hint 2*: Watch out for division by 0 errors! Take the minimum of all values in `p` and `q` with almost 0 (ex. `1e-12`)
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dimensionality_reduction#./test_files/7-main.py
+4.531113944164376
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dimensionality_reduction#
+```
+
+### 8. t-SNE
+![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
+
+Write a function `def tsne(X, ndims=2, idims=50, perplexity=30.0, iterations=1000, lr=500):` that performs a t-SNE transformation:
+
+- `X` is a `numpy.ndarray` of shape `(n, d)` containing the dataset to be transformed by t-SNE  
+  `n` is the number of data points  
+  `d` is the number of dimensions in each point  
+- `ndims` is the new dimensional representation of X  
+- `idims` is the intermediate dimensional representation of X after PCA  
+- `perplexity` is the perplexity  
+- `iterations` is the number of iterations  
+- `lr` is the learning rate
+
+#### Process:
+- Every 100 iterations, not including 0, print `Cost at iteration {iteration}: {cost}`  
+  `{iteration}` is the number of times Y has been updated and `{cost}` is the corresponding cost  
+- After every iteration, `Y` should be re-centered by subtracting its mean  
+- For the first 100 iterations, perform early exaggeration with an exaggeration of 4  
+- A(t) = 0.5 for the first 20 iterations and 0.8 thereafter  
+
+#### Returns:  
+- `Y`, a `numpy.ndarray` of shape `(n, ndim)` containing the optimized low dimensional transformation of X  
+
+You should use:
+- `pca = __import__('1-pca').pca`  
+- `P_affinities = __import__('4-P_affinities').P_affinities`  
+- `grads = __import__('6-grads').grads`  
+- `cost = __import__('7-cost').cost`
+
+💡 *Hint 1*: See Algorithm 1 on page 9 of [t-SNE](https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf) . But WATCH OUT! There is a mistake in the gradient descent step  
+💡 *Hint 2*: See Section 3.4 starting on page 9 of [t-SNE](https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf)  for early exaggeration
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dimensionality_reduction#./test_files/8-main.py
+Cost at iteration 100: 15.132745380504451
+Cost at iteration 200: 1.4499349051185884
+Cost at iteration 300: 1.2991961074009266
+Cost at iteration 400: 1.2255530221811528
+Cost at iteration 500: 1.179753264451479
+Cost at iteration 600: 1.1476306791330366
+Cost at iteration 700: 1.123501502573646
+Cost at iteration 800: 1.1044968276172735
+Cost at iteration 900: 1.0890468673949145
+Cost at iteration 1000: 1.0762018736143146
+Cost at iteration 1100: 1.0652921250043619
+Cost at iteration 1200: 1.0558751316523136
+Cost at iteration 1300: 1.047653338870073
+Cost at iteration 1400: 1.0403981880716473
+Cost at iteration 1500: 1.033935359326665
+Cost at iteration 1600: 1.0281287524465708
+Cost at iteration 1700: 1.0228885344794134
+Cost at iteration 1800: 1.0181265576736775
+Cost at iteration 1900: 1.0137760713813615
+Cost at iteration 2000: 1.009782545181553
+Cost at iteration 2100: 1.0061007125574222
+Cost at iteration 2200: 1.0026950513450206
+Cost at iteration 2300: 0.9995335333268901
+Cost at iteration 2400: 0.9965894332394158
+Cost at iteration 2500: 0.9938399255561283
+Cost at iteration 2600: 0.9912653473151115
+Cost at iteration 2700: 0.9888485527807156
+Cost at iteration 2800: 0.9865746432480398
+Cost at iteration 2900: 0.9844307720012038
+Cost at iteration 3000: 0.9824051809484152
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dimensionality_reduction#
+```
+<p align="center">
+  <img src="" alt="Image"/>
+</p>
+*Awesome! We can see pretty good clusters! For comparison, here’s how PCA performs on the same dataset:*
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dimensionality_reduction#./pca.py 
+```
+<p align="center">
+  <img src="" alt="Image"/>
+</p>
+
 # 📊 Project Summary
 
-This project focuses on implementing and solving key algorithms in **Hidden Markov Models (HMMs)**, a fundamental concept in probability theory and machine learning. The objective of this project is to apply different techniques used in HMMs to process sequences of data, including tasks such as sequence prediction, observation likelihood estimation, and model training.
-
+This project focuses on implementing *t-SNE (t-Distributed Stochastic Neighbor Embedding)* for dimensionality reduction and data visualization. The goal is to transform high-dimensional datasets into a lower-dimensional space (typically 2D or 3D) while preserving the structure of the data.
 
 # Random Information ℹ️
 
