@@ -543,7 +543,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dime
 
 # 📊 Project Summary
 
-This project focuses on implementing *t-SNE (t-Distributed Stochastic Neighbor Embedding)* for dimensionality reduction and data visualization. The goal is to transform high-dimensional datasets into a lower-dimensional space (typically 2D or 3D) while preserving the structure of the data.
+This project focuses on implementing **t-SNE (t-Distributed Stochastic Neighbor Embedding)** for dimensionality reduction and data visualization. The goal is to transform high-dimensional datasets into a lower-dimensional space (typically 2D or 3D) while preserving the structure of the data.
 
 # Random Information ℹ️
 
