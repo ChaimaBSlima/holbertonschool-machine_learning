@@ -1,8 +1,7 @@
 <h1><p align="center"> Dimensionality Reduction </h1></p></font>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/216c5ded-0fec-4d60-94b4-e7df9af662dc
-" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/216c5ded-0fec-4d60-94b4-e7df9af662dc" alt="Image"/>
 </p>
 
 # 📚 Resources
