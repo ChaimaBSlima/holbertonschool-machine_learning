@@ -72,8 +72,8 @@ Advanced:
 
 # 📊 Data
 
-- [mnist2500_X.txt](https://intranet-projects-files.s3.amazonaws.com/holbertonschool-ml/mnist2500_X.txt)
-- [mnist2500_labels.txt](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/text/2019/10/72a86270e2a1c2cbc14b.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20250415%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20250415T172725Z&X-Amz-Expires=345600&X-Amz-SignedHeaders=host&X-Amz-Signature=a2cb5674b3d71f207b046ce5da3f429d24522e02ced3f6b4872bec26eaaa2485)
+- [mnist2500_X.txt](https://github.com/ChaimaBSlima/holbertonschool-machine_learning/blob/main/unsupervised_learning/dimensionality_reduction/data/mnist2500_X.txt)
+- [mnist2500_labels.txt](https://github.com/ChaimaBSlima/holbertonschool-machine_learning/blob/main/unsupervised_learning/dimensionality_reduction/data/mnist2500_labels.txt)
 ---
 
 # ⚠️ Watch Out!
