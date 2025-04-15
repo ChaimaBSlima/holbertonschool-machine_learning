@@ -435,7 +435,10 @@ Q: (2500, 2500)
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dimensionality_reduction#
 ```
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+
 ### 7. Cost
+
 ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
 
 Write a function `def cost(P, Q):` that calculates the cost of the t-SNE transformation:
@@ -453,8 +456,11 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dime
 4.531113944164376
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dimensionality_reduction#
 ```
+
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
+
 ### 8. t-SNE
+
 ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
 
 Write a function `def tsne(X, ndims=2, idims=50, perplexity=30.0, iterations=1000, lr=500):` that performs a t-SNE transformation:
@@ -522,7 +528,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dime
 ```
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e0f67385-e5fe-4ae8-95fc-96625000dbf" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/8b363256-fced-4d5d-8803-ecfd32dd56b0" alt="Image"/>
 </p>
 *Awesome! We can see pretty good clusters! For comparison, here’s how PCA performs on the same dataset:*
 ```
