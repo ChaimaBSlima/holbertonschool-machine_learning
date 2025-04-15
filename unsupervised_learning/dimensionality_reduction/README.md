@@ -70,7 +70,7 @@ Advanced:
 - Your code should use the minimum number of operations to avoid floating point errors 
 ---
 
-# 📊 Data
+# 🗃️ Data
 
 - [mnist2500_X.txt](https://github.com/ChaimaBSlima/holbertonschool-machine_learning/blob/main/unsupervised_learning/dimensionality_reduction/data/mnist2500_X.txt)
 - [mnist2500_labels.txt](https://github.com/ChaimaBSlima/holbertonschool-machine_learning/blob/main/unsupervised_learning/dimensionality_reduction/data/mnist2500_labels.txt)
