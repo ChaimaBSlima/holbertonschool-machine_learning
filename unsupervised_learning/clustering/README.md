@@ -779,11 +779,15 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clus
   <img src="https://github.com/user-attachments/assets/7bb95c5f-c7c2-4189-ad17-5c5ac3a3f95a" alt="Image"/>
 </p>
 
+---
+
 # 📊 Project Summary
 
 This project focuses on implementing and solving key algorithms in Clustering, a fundamental concept in unsupervised learning. The objective of this project is to apply different techniques for clustering data, including K-means and Gaussian Mixture Models (GMM), to group similar data points together.
 
-# Random Information ℹ️
+---
+
+# ℹ️ Random Information 
 
 - **Repository Name**: holbertonschool-machine_learning 
 - **Description**:  
@@ -801,6 +805,8 @@ This project focuses on implementing and solving key algorithms in Clustering, a
   - All code is written in Python, and it uses numpy for numerical operations.
   - The repository follows best practices for coding style and includes documentation for each function, class, and module.
   - The repository is intended for educational purposes and as a reference for learning and practicing machine learning algorithms.
+
+---
 
 # 👩‍💻 Authors
 Tasks by [Holberton School](https://www.holbertonschool.com/)
