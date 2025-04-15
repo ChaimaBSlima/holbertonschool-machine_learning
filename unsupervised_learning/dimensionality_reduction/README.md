@@ -553,7 +553,7 @@ This project focuses on implementing **t-SNE (t-Distributed Stochastic Neighbor 
 
 ---
 
-# Random Information ℹ️
+# ℹ️ Random Information 
 
 - **Repository Name**: holbertonschool-machine_learning 
 - **Description**:  
