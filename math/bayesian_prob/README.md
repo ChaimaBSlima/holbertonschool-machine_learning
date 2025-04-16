@@ -1,7 +1,7 @@
 <h1><p align="center"> Bayesian Probability </h1></p></font>
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/32085ab2-b906-489f-8814-c322ec93639a" alt="Image"/>
 </p>
 
 
