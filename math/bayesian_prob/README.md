@@ -12,7 +12,7 @@ Read or watch:
 - [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics)
 - [Bayes’ Theorem - The Simplest Case](https://www.youtube.com/watch?v=XQoLVl31ZfQ)
 - [A visual guide to Bayesian thinking](https://www.youtube.com/watch?v=BrK7X_XlGB8)
-- [Base Rates](hhttps://onlinestatbook.com/2/probability/base_rates.html)
+- [Base Rates](https://onlinestatbook.com/2/probability/base_rates.html)
 - [Bayesian statistics: a comprehensive course](https://www.youtube.com/playlist?list=PLFDbGp5YzjqXQ4oE4w9GVWdiokWB9gEpm)
 - [Bayes’ rule - an intuitive explanation](https://www.youtube.com/watch?v=EbyUsf_jUjk&list=PLFDbGp5YzjqXQ4oE4w9GVWdiokWB9gEpm&index=15)
 -  - [Bayes’ rule in statistics](https://www.youtube.com/watch?v=i567qvWejJA&list=PLFDbGp5YzjqXQ4oE4w9GVWdiokWB9gEpm&index=16)
