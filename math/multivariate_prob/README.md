@@ -1,7 +1,7 @@
 <h1><p align="center"> Multivariate Probability </h1></p></font>
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/03a86146-584a-430b-8f1d-8441127ce62b" alt="Image"/>
 </p>
 
 
