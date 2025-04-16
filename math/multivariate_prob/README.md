@@ -202,6 +202,16 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/multivariate_prob#./t
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/multivariate_prob#
 ```
 ---
+# 📄 Files
+
+| Task Number | Task Title                   |File                 | Priority                                                             |
+|-------------|------------------------------|---------------------|----------------------------------------------------------------------|
+| 0           | 0. Mean and Covariance        | `0-mean_cov.py`   | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 1           | 1. Correlation              | `1-correlation.py` | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 2           | 2. Initialize     | `multinormal.py`     | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 3           | 3. PDF               | `multinormal.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+ 
+---
 
 # 📊 Project Summary
 
