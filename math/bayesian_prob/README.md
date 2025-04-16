@@ -111,7 +111,7 @@ What is **P(B)**?
 
 ### 0. Likelihood  
 
-**File:** `0-likelihood.py` ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
 Write the function `def likelihood(x, n, P):` that calculates the likelihood of obtaining this data given various hypothetical probabilities of developing severe side effects:
 
@@ -145,7 +145,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/bayesian_prob#
 
 ### 1. Intersection  
 
-**File:** `1-intersection.py` ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
 
 Based on `0-likelihood.py`, write the function `def intersection(x, n, P, Pr):` that calculates the intersection of obtaining this data with the various hypothetical probabilities:
@@ -189,7 +189,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/bayesian_prob#
 
 ### 2. Marginal Probability  
 
-**File:** `2-marginal.py` ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
 Based on `1-intersection.py`, write the function `def marginal(x, n, P, Pr):` that calculates the **marginal probability** of obtaining the data:
 
@@ -229,7 +229,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/bayesian_prob#
 
 ### 3. Posterior  
 
-**File:** `3-posterior.py` ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
 Based on `2-marginal.py`, write the function `def posterior(x, n, P, Pr):` that calculates the **posterior probability** for the various hypothetical probabilities of developing severe side effects given the data:
 
@@ -271,7 +271,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/bayesian_prob#
 
 ### 4. Continuous Posterior
 
-**File:** `100-continuous.py` ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
+![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
 
 
 Based on `3-posterior.py`, write a function `def posterior(x, n, p1, p2):` that calculates the posterior probability that the probability of developing severe side effects falls within a specific range given the data:
@@ -306,6 +306,17 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/bayesian_prob#./test_
 0.6098093274896221
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/bayesian_prob#
 ```
+
+---
+# 📄 Files
+
+| Task Number | Task Title                   |File                 | Priority                                                             |
+|-------------|------------------------------|---------------------|----------------------------------------------------------------------|
+| 0           | 0. Likelihood                | `0-likelihood.py`   | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 1           | 1. Intersection              | `1-intersection.py` | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 2           | 2. Marginal Probability      | `2-marginal.py`     | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 3           | 3. Posterior                 | `3-posterior.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 4           | 4. Continuous Posterior      | `100-continuous.py` | ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)    |
 
 ---
 
