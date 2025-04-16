@@ -547,6 +547,22 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/dime
 
 ---
 
+# 📄 Files
+
+| Task Number | Task Title                   |File                 | Priority                                                             |
+|-------------|------------------------------|---------------------|----------------------------------------------------------------------|
+| 0           | 0. PCA                | `0-pca.py`   | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 1           | 1. PCA v2              | `1-pca.py` | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 2           | 2. Initialize t-SNE      | `2-P_init.py`     |  ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)  |
+| 3           | 3. Entropy                | `3-entropy.py`    |  ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)  |
+| 4           | 4. P affinities      | `4-P_affinities.py` | ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)    |
+| 5           | 5. Q affinities      | `5-Q_affinities.py` | ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)    |
+| 6           | 6. Gradients     | `6-grads.py` | ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)    |
+| 7           | 7. Cost          | `7-cost.py` | ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)    |
+| 8           | 8. t-SNE         | `8-tsne.py` | ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)    |
+
+---
+
 # 📊 Project Summary
 
 This project focuses on implementing **t-SNE (t-Distributed Stochastic Neighbor Embedding)** for dimensionality reduction and data visualization. The goal is to transform high-dimensional datasets into a lower-dimensional space (typically 2D or 3D) while preserving the structure of the data.
