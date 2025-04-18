@@ -283,6 +283,20 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hmm#
 ```
 
 ---
+,
+# 📄 Files
+
+| Task Number | Task Title                   |File                 | Priority                                                             |
+|-------------|------------------------------|---------------------|----------------------------------------------------------------------|
+| 0           | 0. Markov Chain       | `0-markov_chain.py`   | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 1           | 1. Regular Chains           | `1-regular.py` | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 2           | 2. Absorbing Chains     | `2-absorbing.py`     | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 3           | 3. The Forward Algorithm           | `3-forward.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 4           | 4. The Viretbi Algorithm              | `4-viterbi.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 5           |5. The Backward Algorithm             | `5-backward.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 6           |6. The Baum-Welch Algorithm              | `6-baum_welch.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+
+---
 
 # 📊 Project Summary
 
@@ -294,7 +308,16 @@ This project focuses on implementing and solving key algorithms in **Hidden Mark
 
 - **Repository Name**: holbertonschool-machine_learning 
 - **Description**:  
-  This repository is a collection of machine learning algorithms and models, implemented as part of my work at Holberton School. It includes various tasks and solutions for different algorithms such as Markov Chains, Viterbi Algorithm, and Baum-Welch Algorithm. The purpose of this repository is to showcase my understanding and implementation of these algorithms in Python, using numpy and other relevant libraries.
+  This repository is a comprehensive collection of my machine learning work completed during my time at Holberton School. It demonstrates my practical understanding of key concepts in machine learning, including supervised learning, unsupervised learning, and reinforcement learning.
+
+  Machine learning is a field of study that enables systems to learn from data, identify patterns, and make decisions or predictions with minimal human intervention.
+
+  - `Supervised learning` involves training a system using labeled data, allowing it to learn the relationship between inputs and known outputs.  
+  - `Unsupervised learning` focuses on exploring data without predefined labels, aiming to discover hidden patterns or groupings within the data.  
+  - `Reinforcement learning` centers around learning through interaction with an environment, where a system receives feedback in the form of rewards or penalties to improve its performance over time.
+
+  This repository includes tasks and solutions implemented primarily in Python using libraries like NumPy, serving as a demonstration of my technical ability and understanding of foundational machine learning principles.
+
 - **Repository Link**: [https://github.com/ChaimaBSlima/holbertonschool-machine_learning/](https://github.com/ChaimaBSlima/holbertonschool-machine_learning/)  
 - **Clone Command**:  
   To clone this repository to your local machine, use the following command in your terminal:
