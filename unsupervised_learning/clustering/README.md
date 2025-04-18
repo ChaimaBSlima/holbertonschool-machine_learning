@@ -781,6 +781,26 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/clus
 
 ---
 
+# 📄 Files
+
+| Task Number | Task Title                   |File                 | Priority                                                             |
+|-------------|------------------------------|---------------------|----------------------------------------------------------------------|
+| 0           | 0. Initialize K-means       | `0-initialize.py`   | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 1           | 1. K-means            | `1-kmeans.py` | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 2           | 2. Variance     | `2-variance.py`     | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 3           | 3. Optimize k              | `3-optimum.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 4           | 4. Initialize GMM              | `4-initialize.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 5           | 5. PDF             | `5-pdf.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 6           |6. Expectation              | `6-expectation.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 7           | 7. Maximization              | `7-maximization.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 8           | 8. EM             | `8-EM.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 9           |9. BIC              | `9-BIC.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 10           | 10. Hello, sklearn!             | `10-kmeans.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 11           | 11. GMM        | `11-gmm.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 12           |12. Agglomerative              | `12-agglomerative.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+
+---
+
 # 📊 Project Summary
 
 This project focuses on implementing and solving key algorithms in Clustering, a fundamental concept in unsupervised learning. The objective of this project is to apply different techniques for clustering data, including K-means and Gaussian Mixture Models (GMM), to group similar data points together.
