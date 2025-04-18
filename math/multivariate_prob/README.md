@@ -223,7 +223,16 @@ This project involves the implementation of a Multivariate Normal distribution c
 
 - **Repository Name**: holbertonschool-machine_learning 
 - **Description**:  
-  This repository is a collection of machine learning algorithms and models, implemented as part of my work at Holberton School. It includes various tasks and solutions for different algorithms such as Markov Chains, Viterbi Algorithm, and Baum-Welch Algorithm. The purpose of this repository is to showcase my understanding and implementation of these algorithms in Python, using numpy and other relevant libraries.
+  This repository is a comprehensive collection of my machine learning work completed during my time at Holberton School. It demonstrates my practical understanding of key concepts in machine learning, including supervised learning, unsupervised learning, and reinforcement learning.
+
+  Machine learning is a field of study that enables systems to learn from data, identify patterns, and make decisions or predictions with minimal human intervention.
+
+  - `Supervised learning` involves training a system using labeled data, allowing it to learn the relationship between inputs and known outputs.  
+  - `Unsupervised learning` focuses on exploring data without predefined labels, aiming to discover hidden patterns or groupings within the data.  
+  - `Reinforcement learning` centers around learning through interaction with an environment, where a system receives feedback in the form of rewards or penalties to improve its performance over time.
+
+  This repository includes tasks and solutions implemented primarily in Python using libraries like NumPy, serving as a demonstration of my technical ability and understanding of foundational machine learning principles.
+
 - **Repository Link**: [https://github.com/ChaimaBSlima/holbertonschool-machine_learning/](https://github.com/ChaimaBSlima/holbertonschool-machine_learning/)  
 - **Clone Command**:  
   To clone this repository to your local machine, use the following command in your terminal:
@@ -236,7 +245,7 @@ This project involves the implementation of a Multivariate Normal distribution c
 - **Additional Information**:  
   - All code is written in Python, and it uses numpy for numerical operations.
   - The repository follows best practices for coding style and includes documentation for each function, class, and module.
-  - The repository is intended for educational purposes and as a reference for learning and practicing machine learning algorithms.
+  - The repository is intended for educational purposes and as a reference for learning and practicing machine learning algorithms
 
 ---
 
