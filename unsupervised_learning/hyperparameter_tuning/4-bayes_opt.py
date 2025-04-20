@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """ Task 4: 4. Bayesian Optimization - Acquisition """
+from scipy.stats import norm
 import numpy as np
 GP = __import__('2-gp').GaussianProcess
 
