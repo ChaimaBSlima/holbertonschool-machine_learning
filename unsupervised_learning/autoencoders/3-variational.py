@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Task 3: 3. Variational Autoencoder  """
+""" Task 3: 3. Variational Autoencoder """
 import keras
 
 

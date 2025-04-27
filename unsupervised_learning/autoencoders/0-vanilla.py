@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Task 0: 0. "Vanilla" Autoencoder  """
+""" Task 0: 0. "Vanilla" Autoencoder """
 import keras
 
 
