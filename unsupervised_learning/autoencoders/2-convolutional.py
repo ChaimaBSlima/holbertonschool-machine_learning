@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ Task 2: 2. Convolutional Autoencoder """
-import keras
+import tensorflow.keras as keras
 
 
 def autoencoder(input_dims, filters, latent_dims):
