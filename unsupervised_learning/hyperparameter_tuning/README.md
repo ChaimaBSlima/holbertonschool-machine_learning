@@ -1,7 +1,7 @@
-<h1><p align="center"> Hidden Markov Models </h1></p></font>
+<h1><p align="center"> Hyperparameter Tuning </h1></p></font>
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/be82e7c1-b8c8-48e1-988a-d6466b4bfd96" alt="Image"/>
 </p>
 
 # 📚 Resources
@@ -299,8 +299,9 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/unsupervised_learning/hype
 [4.55210364]
 
 ```
+
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e8707f23-c2b9-447e-9180-79c463bb16d6" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/c08e51c4-ca2e-4137-b435-7db64359920e" alt="Image"/>
 </p>
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
@@ -387,7 +388,7 @@ When done, please add all **URLs** below (blog post, tweet, etc.)
 ⚠️ Please, remember that these blogs must be written in **English** to further your technical ability in a variety of settings.
 
 ---
-,
+
 # 📄 Files
 
 | Task Number | Task Title                   |File                 | Priority                                                             |
