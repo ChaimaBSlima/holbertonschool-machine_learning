@@ -1,4 +1,4 @@
-<h1><p align="center"> Hidden Markov Models </h1></p></font>
+<h1><p align="center"> Hyperparameter Tuning </h1></p></font>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/be82e7c1-b8c8-48e1-988a-d6466b4bfd96" alt="Image"/>
