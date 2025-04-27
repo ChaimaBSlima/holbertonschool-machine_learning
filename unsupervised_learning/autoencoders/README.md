@@ -1,7 +1,8 @@
 <h1><p align="center"> Autoencoders </h1></p></font>
 
+
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/51f5d4d3-c860-48b4-a975-760ecff94353" alt="Image"/>
 </p>
 
 
@@ -157,8 +158,9 @@ Epoch 50/50
 8.311438
 1/1 [==============================] - 0s 80ms/step
 ```
+
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/a92385b8-6666-4efe-97cd-2192c59ea03f" alt="Image"/>
 </p>
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
@@ -217,7 +219,7 @@ Epoch 50/50
 ```
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/3748d787-fa37-4aa3-98bf-49d0a39561e6" alt="Image"/>
 </p>
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
@@ -291,8 +293,9 @@ Epoch 50/50
 3.4141076
 1/1 [==============================] - 0s 85ms/step
 ```
+
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/4745f30e-37fb-432f-8193-fde7e100ea86" alt="Image"/>
 </p>
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
@@ -383,7 +386,7 @@ Epoch 50/50
 ```
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/8c961c0f-bdd8-49bd-ba6e-49b074159eea" alt="Image"/>
 </p>
 
 ---
