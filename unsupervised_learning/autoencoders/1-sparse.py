@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Task 1: 1. Sparse Autoencoder """
+""" Task 1: 1. Sparse Autoencoder  """
 import keras
 
 
