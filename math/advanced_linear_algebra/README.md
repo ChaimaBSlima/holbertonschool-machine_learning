@@ -1,9 +1,8 @@
 <h1><p align="center"> Advanced Linear Algebra </h1></p></font>
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/34916010-05b2-4c8d-8b6d-9751ff97fe31" alt="Image"/>
 </p>
-
 
 # 📚 Resources
 
