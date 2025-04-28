@@ -8,7 +8,7 @@
 # 📚 Resources
 
 Read or watch:
-- [Probability](https://en.wikipedia./wiki/Probability)
+- [Probability](https://en.wikipedia.org/wiki/Probability)
 - [Basic Concepts](https://onlinestatbook.com/2/probability/basic.html)
 - [Intro to probability 1: Basic notation](https://www.youtube.com/watch?v=TkU3BvDAOtQ)
 - [Intro to probability 2: Independent and disjoint](https://www.youtube.com/watch?v=GnWHt9nqwBA)
@@ -233,7 +233,6 @@ For a given distribution, the CDF(x) where x ∈ X:
 - The probability that X <= x ✔️  
 - The percentile of x ✔️  
 - ~~The probability that X >= x~~  
-
 
 ---
 
