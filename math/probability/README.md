@@ -91,10 +91,9 @@ At the end of this project, you are expected to be able to [explain to anyone](h
 For the following tasks, you will have to use various irrational numbers and functions. Since you are not able to import any libraries, please use the following approximations:
 
 - π = 3.1415926536  
-- e = 2.7182818285 
+- e = 2.7182818285
 - <p align="left">
-  <img src="https://github.com/user-attachments/assets/57f3127e-8e84-4c98-a4dd-f94f73104660
-" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/8df11ced-6714-4f27-958e-7012e4a528ee" alt="Image"/>
 </p>
 
 ---
