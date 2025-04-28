@@ -134,7 +134,7 @@ What does the expression P(A ∪ B) represent?
 ### Question #4
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/b0204f3e-ad40-4cd4-87bc-9597aae42912" alt="Image"/>
 </p>
 
 The above image displays the normal distribution of male heights. What is the mode height?
@@ -148,7 +148,7 @@ The above image displays the normal distribution of male heights. What is the mo
 ### Question #5
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/b0204f3e-ad40-4cd4-87bc-9597aae42912" alt="Image"/>
 </p>
 
 The above image displays the normal distribution of male heights. What is the standard deviation?
@@ -161,7 +161,7 @@ The above image displays the normal distribution of male heights. What is the st
 ### Question #6
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/b0204f3e-ad40-4cd4-87bc-9597aae42912" alt="Image"/>
 </p>
 
 The above image displays the normal distribution of male heights. What is the variance?
@@ -174,7 +174,7 @@ The above image displays the normal distribution of male heights. What is the va
 ### Question #7
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/b0204f3e-ad40-4cd4-87bc-9597aae42912" alt="Image"/>
 </p>
 
 The above image displays the normal distribution of male heights. If a man is 6'6", what percentile would he be in?
@@ -187,7 +187,7 @@ The above image displays the normal distribution of male heights. If a man is 6'
 ### Question #8 
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/8ced9886-0bfb-490c-aedd-029720cf427c" alt="Image"/>
 </p>
 
 What type of distribution is displayed above?
@@ -200,7 +200,7 @@ What type of distribution is displayed above?
 ### Question #9
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/07410be9-fd40-41bd-b94e-09713e27071d" alt="Image"/>
 </p>
 
 What type of distribution is displayed above?
