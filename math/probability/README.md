@@ -1,7 +1,7 @@
 <h1><p align="center"> Probability </h1></p></font>
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/d71723c9-af7c-4c87-9c1d-cd6f5bd829ff" alt="Image"/>
 </p>
 
 
@@ -92,9 +92,9 @@ For the following tasks, you will have to use various irrational numbers and fun
 
 - π = 3.1415926536  
 - e = 2.7182818285 
-
-<p align="center">
-  <img src="" alt="Image"/>
+- <p align="left">
+  <img src="https://github.com/user-attachments/assets/57f3127e-8e84-4c98-a4dd-f94f73104660
+" alt="Image"/>
 </p>
 
 ---
