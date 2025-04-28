@@ -234,4 +234,421 @@ For a given distribution, the CDF(x) where x ∈ X:
 - ~~The probability that X >= x~~  
 
 ---
+ # 📝 Tasks
 
+### 0. Initialize Poisson
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
+Create a class `Poisson` that represents a Poisson distribution:
+
+- **Class constructor:** `def __init__(self, data=None, lambtha=1.):`
+  - `data` is a list of the data to be used to estimate the distribution  
+  - `lambtha` is the expected number of occurrences in a given time frame  
+  - Sets the instance attribute `lambtha`  
+  - Saves `lambtha` as a float  
+
+- If `data` is not given (i.e., `None`):  
+  - Use the given `lambtha`  
+  - If `lambtha` is not a positive value or equals 0, raise a `ValueError` with the message:  
+    **"lambtha must be a positive value"**
+
+- If `data` is given:
+  - Calculate the `lambtha` from `data`
+  - If `data` is not a list, raise a `TypeError` with the message:  
+    **"data must be a list"**
+  - If `data` does not contain at least two data points, raise a `ValueError` with the message:  
+    **"data must contain multiple values"**
+
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#./test_files/0-main.py
+Lambtha: 4.84
+Lambtha: 5.0
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#
+```
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 1. Poisson PMF
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
+Update the class `Poisson`:
+
+- **Instance method:** `def pmf(self, k):`
+  - Calculates the value of the PMF for a given number of “successes”  
+  - `k` is the number of “successes”  
+  - If `k` is not an integer, convert it to an integer  
+  - If `k` is out of range, return `0`  
+
+#### Returns:
+- the PMF value for `k`
+
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#./test_files/1-main.py
+P(9): 0.03175849616802446
+P(9): 0.036265577412911795
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#
+```
+
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+
+### 2. Poisson CDF
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
+Update the class `Poisson`:
+
+- **Instance method:** `def cdf(self, k):`
+  - Calculates the value of the CDF for a given number of “successes”  
+  - `k` is the number of “successes”  
+  - If `k` is not an integer, convert it to an integer  
+  - If `k` is out of range, return `0`  
+
+#### Returns:
+- the CDF value for `k`
+
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#./test_files/2-main.py
+F(9): 0.9736102067423525
+F(9): 0.9681719426208609
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#
+```
+
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 3. Initialize Exponential
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
+Create a class `Exponential` that represents an exponential distribution:
+
+- **Class constructor:** `def __init__(self, data=None, lambtha=1.):`
+  - `data` is a list of the data to be used to estimate the distribution  
+  - `lambtha` is the expected number of occurrences in a given time frame  
+  - Sets the instance attribute `lambtha`  
+  - Saves `lambtha` as a float  
+
+- If `data` is not given (i.e., `None`):
+  - Use the given `lambtha`  
+  - If `lambtha` is not a positive value, raise a `ValueError` with the message:  
+    **"lambtha must be a positive value"**
+
+- If `data` is given:
+  - Calculate the `lambtha` from `data`
+  - If `data` is not a list, raise a `TypeError` with the message:  
+    **"data must be a list"**
+  - If `data` does not contain at least two data points, raise a `ValueError` with the message:  
+    **"data must contain multiple values"**
+
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#./test_files/3-main.py
+Lambtha: 2.1771114730906937
+Lambtha: 2.0
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#
+```
+
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 4. Exponential PDF
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
+Update the class `Exponential`:
+
+- **Instance method:** `def pdf(self, x):`
+  - Calculates the value of the PDF for a given time period  
+  - `x` is the time period  
+  - If `x` is out of range, return `0`  
+
+#### Returns:
+- the PDF value for `x`
+
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#./test_files/4-main.py
+f(1): 0.24681591903431568
+f(1): 0.2706705664650693
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#
+```
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 5. Exponential CDF
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
+Update the class `Exponential`:
+
+- **Instance method:** `def cdf(self, x):`
+  - Calculates the value of the CDF for a given time period  
+  - `x` is the time period  
+  - If `x` is out of range, return `0`  
+
+#### Returns:
+- the CDF value for `x`
+
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#./test_files/5-main.py
+F(1): 0.886631473819791
+F(1): 0.8646647167674654
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#
+```
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 6. Initialize Normal
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
+Create a class `Normal` that represents a normal distribution:
+
+- **Class constructor:** `def __init__(self, data=None, mean=0., stddev=1.):`
+  - `data` is a list of the data to be used to estimate the distribution  
+  - `mean` is the mean of the distribution  
+  - `stddev` is the standard deviation of the distribution  
+  - Sets the instance attributes `mean` and `stddev`  
+  - Saves `mean` and `stddev` as floats  
+
+- If `data` is not given (i.e., `None`):
+  - Use the given `mean` and `stddev`
+  - If `stddev` is not a positive value or equals to `0`, raise a `ValueError` with the message:  
+    **"stddev must be a positive value"**
+
+- If `data` is given:
+  - Calculate the `mean` and `standard deviation` from `data`
+  - If `data` is not a list, raise a `TypeError` with the message:  
+    **"data must be a list"**
+  - If `data` does not contain at least two data points, raise a `ValueError` with the message:  
+    **"data must contain multiple values"**
+
+
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#./test_files/6-main.py
+Mean: 70.59808015534485 , Stddev: 10.078822447165797
+Mean: 70.0 , Stddev: 10.0
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#
+```
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 7. Normalize Normal
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
+Update the class `Normal`:
+
+- **Instance method:** `def z_score(self, x):`
+  - Calculates the z-score of a given `x`-value  
+  - `x` is the `x`-value  
+
+- **Instance method:** `def x_value(self, z):`
+  - Calculates the `x`-value of a given `z`-score  
+  - `z` is the `z`-score  
+
+#### Returns:
+- For `z_score`: the z-score of `x`
+- For `x_value`: the x-value of `z`
+
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#./test_files/7-main.py
+Z(90): 1.9250185174272068
+X(2): 90.75572504967644
+
+Z(90): 2.0
+X(2): 90.0
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#
+```
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 8. Normal PDF
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
+Update the class `Normal`:
+
+- **Instance method:** `def pdf(self, x):`
+  - Calculates the value of the PDF for a given `x`-value  
+  - `x` is the `x`-value  
+
+#### Returns:
+- the PDF value for `x`
+
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#./test_files/8-main.py
+PSI(90): 0.006206096804434349
+PSI(90): 0.005399096651147344
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#
+```
+
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 9. Normal CDF
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
+Update the class `Normal`:
+
+- **Instance method:** `def cdf(self, x):`
+  - Calculates the value of the CDF for a given `x`-value  
+  - `x` is the `x`-value  
+
+#### Returns:
+- the CDF value for `x`
+
+
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#./test_files/9-main.py
+PHI(90): 0.9829020110852376
+PHI(90): 0.9922398930659416
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#
+```
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 10. Initialize Binomial
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
+Create a class `Binomial` that represents a binomial distribution:
+
+- **Class constructor:** `def __init__(self, data=None, n=1, p=0.5):`
+  - `data` is a list of the data to be used to estimate the distribution  
+  - `n` is the number of Bernoulli trials  
+  - `p` is the probability of a “success”  
+
+- Sets the instance attributes `n` and `p`  
+  - Saves `n` as an integer and `p` as a float  
+
+- If `data` is not given (i.e., `None`):
+  - Use the given `n` and `p`
+  - If `n` is not a positive value, raise a `ValueError` with the message:  
+    **"n must be a positive value"**
+  - If `p` is not a valid probability, raise a `ValueError` with the message:  
+    **"p must be greater than 0 and less than 1"**
+
+- If `data` is given:
+  - Calculate `n` and `p` from `data`
+  - Round `n` to the nearest integer (rounded, not casting!)
+  - Calculate `p` first and then recalculate `n`
+  - If `data` is not a list, raise a `TypeError` with the message:  
+    **"data must be a list"**
+  - If `data` does not contain at least two data points, raise a `ValueError` with the message:  
+    **"data must contain multiple values"**
+
+
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#./test_files/10-main.py
+n: 50 p: 0.606
+n: 50 p: 0.6
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#
+```
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 11. Binomial PMF
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
+Update the class `Binomial`:
+
+- **Instance method:** `def pmf(self, k):`
+  - Calculates the value of the PMF for a given number of “successes”  
+  - `k` is the number of “successes”  
+
+- If `k` is not an integer, convert it to an integer  
+- If `k` is out of range, return 0  
+
+#### Returns:
+- the PMF value for `k`
+
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#./test_files/11-main.py
+P(30): 0.11412829839570347
+P(30): 0.114558552829524
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#
+```
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 12. Binomial CDF
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
+Update the class `Binomial`:
+
+- **Instance method:** `def cdf(self, k):`
+  - Calculates the value of the CDF for a given number of “successes”  
+  - `k` is the number of “successes”  
+
+- If `k` is not an integer, convert it to an integer  
+- If `k` is out of range, return 0  
+
+#### Returns:
+- the CDF value for `k`  
+- **Hint:** Use the `pmf` method
+
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#./test_files/12-main.py
+F(30): 0.5189392017296368
+F(30): 0.5535236207894576
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/probability#
+```
+---
+# 📄 Files
+
+| Task Number | Task Title                   |File                 | Priority                                                             |
+|-------------|------------------------------|---------------------|----------------------------------------------------------------------|
+| 0           | 0. Initialize Poisson        | `poisson.py`   | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 1           | 1. Poisson PMF              | `poisson.py` | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 2           | 2. Poisson CDF                | `poisson.py`     | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 3           | 3. Initialize Exponential     | `exponential.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 4           | 4. Exponential PDF       | `exponential.py`   | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)  |
+| 5           | 5. Exponential CDF       | `exponential.py` | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)    |
+| 6           | 6. Initialize Normal     | `normal.py`     | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)     |
+| 7           | 7. Normalize Normal         | `normal.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)   |
+| 8           | 8. Normal PDF               | `normal.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)   |
+| 9           | 9. Normal CDF               | `normal.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)   |
+| 10          | 10. Initialize Binomial     | `binomial.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 11          | 11. Binomial PMF            | `binomial.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+| 12          | 12. Binomial CDF            | `binomial.py`    | ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen) |
+
+---
+
+# 📊 Project Summary
+
+The goal of this project is to implement and explore key probability distributions using Python. The focus is on four fundamental probability distributions: **Poisson**, **Exponential**, **Normal**, and **Binomial**.
+Through practical Python code, the project demonstrates how these distributions can be generated, visualized, and applied to real-world problems.
+
+---
+
+# ℹ️ Random Information 
+
+- **Repository Name**: holbertonschool-machine_learning 
+- **Description**:  
+  This repository is a comprehensive collection of my machine learning work completed during my time at Holberton School. It demonstrates my practical understanding of key concepts in machine learning, including supervised learning, unsupervised learning, and reinforcement learning.
+
+  Machine learning is a field of study that enables systems to learn from data, identify patterns, and make decisions or predictions with minimal human intervention.
+
+  - `Supervised learning` involves training a system using labeled data, allowing it to learn the relationship between inputs and known outputs.  
+  - `Unsupervised learning` focuses on exploring data without predefined labels, aiming to discover hidden patterns or groupings within the data.  
+  - `Reinforcement learning` centers around learning through interaction with an environment, where a system receives feedback in the form of rewards or penalties to improve its performance over time.
+
+  This repository includes tasks and solutions implemented primarily in Python using libraries like NumPy, serving as a demonstration of my technical ability and understanding of foundational machine learning principles.
+
+- **Repository Link**: [https://github.com/ChaimaBSlima/holbertonschool-machine_learning/](https://github.com/ChaimaBSlima/holbertonschool-machine_learning/)  
+- **Clone Command**:  
+  To clone this repository to your local machine, use the following command in your terminal:
+  ```bash
+  git clone https://github.com/ChaimaBSlima/holbertonschool-machine_learning.git
+  ```
+- **Test Files**:  
+  All test files for this project are located in the `test_files` folder within the repository.
+
+- **Additional Information**:  
+  - All code is written in Python, and it uses numpy for numerical operations.
+  - The repository follows best practices for coding style and includes documentation for each function, class, and module.
+  - The repository is intended for educational purposes and as a reference for learning and practicing machine learning algorithms
+
+---
+
+# 👩‍💻 Authors
+Tasks by [Holberton School](https://www.holbertonschool.com/)
+
+**Chaima Ben Slima** - Holberton School Student, ML Developer
+
+[GitHub](https://github.com/ChaimaBSlima)
+[Linkedin](https://www.linkedin.com/in/chaima-ben-slima-35477120a/)
