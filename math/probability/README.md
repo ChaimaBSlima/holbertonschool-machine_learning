@@ -35,17 +35,6 @@ As references:
 - [erf](https://mathworld.wolfram.com/Erf.html)
 
 
-
----
-
-# 🎯 Learning Objectives
-- Who is Carl Friedrich Gauss?  
-- What is a joint/multivariate distribution?  
-- What is a covariance?  
-- What is a correlation coefficient?  
-- What is a covariance matrix?  
-- What is a multivariate Gaussian distribution?  
-
 ---
 # 🎯 Learning Objectives
 
