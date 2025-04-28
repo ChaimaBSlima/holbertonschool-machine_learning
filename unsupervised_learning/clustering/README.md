@@ -89,12 +89,12 @@ References:
 - All your files must be executable
 - Your code should use the minimum number of operations
 
-## Installing Scikit-Learn 1.5.0
+# 💾 Installing Scikit-Learn 1.5.0
 ```
 pip install --user scikit-learn==1.5.0
 ```
 
-## Installing Scipy 1.11.4
+# 💾 Installing Scipy 1.11.4
 `scipy` should have already been installed with `matplotlib` and `numpy`, but just in case:
 ```
 pip install --user scipy==1.11.4
