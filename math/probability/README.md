@@ -1,7 +1,7 @@
 <h1><p align="center"> Probability </h1></p></font>
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/d71723c9-af7c-4c87-9c1d-cd6f5bd829ff" alt="Image"/>
 </p>
 
 
@@ -49,7 +49,7 @@ As references:
 ---
 # 🎯 Learning Objectives
 
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
+At the end of this project, you are expected to be able to [explain to anyone](https://fs.blog/feynman-learning-technique/), without the help of Google:
 
 ### General
 
@@ -91,10 +91,9 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 For the following tasks, you will have to use various irrational numbers and functions. Since you are not able to import any libraries, please use the following approximations:
 
 - π = 3.1415926536  
-- e = 2.7182818285 
-
-<p align="center">
-  <img src="" alt="Image"/>
+- e = 2.7182818285
+- <p align="left">
+  <img src="https://github.com/user-attachments/assets/8df11ced-6714-4f27-958e-7012e4a528ee" alt="Image"/>
 </p>
 
 ---
@@ -135,7 +134,7 @@ What does the expression P(A ∪ B) represent?
 ### Question #4
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/b0204f3e-ad40-4cd4-87bc-9597aae42912" alt="Image"/>
 </p>
 
 The above image displays the normal distribution of male heights. What is the mode height?
@@ -149,7 +148,7 @@ The above image displays the normal distribution of male heights. What is the mo
 ### Question #5
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/b0204f3e-ad40-4cd4-87bc-9597aae42912" alt="Image"/>
 </p>
 
 The above image displays the normal distribution of male heights. What is the standard deviation?
@@ -162,7 +161,7 @@ The above image displays the normal distribution of male heights. What is the st
 ### Question #6
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/b0204f3e-ad40-4cd4-87bc-9597aae42912" alt="Image"/>
 </p>
 
 The above image displays the normal distribution of male heights. What is the variance?
@@ -175,7 +174,7 @@ The above image displays the normal distribution of male heights. What is the va
 ### Question #7
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/b0204f3e-ad40-4cd4-87bc-9597aae42912" alt="Image"/>
 </p>
 
 The above image displays the normal distribution of male heights. If a man is 6'6", what percentile would he be in?
@@ -188,7 +187,7 @@ The above image displays the normal distribution of male heights. If a man is 6'
 ### Question #8 
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/8ced9886-0bfb-490c-aedd-029720cf427c" alt="Image"/>
 </p>
 
 What type of distribution is displayed above?
@@ -201,7 +200,7 @@ What type of distribution is displayed above?
 ### Question #9
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/07410be9-fd40-41bd-b94e-09713e27071d" alt="Image"/>
 </p>
 
 What type of distribution is displayed above?
