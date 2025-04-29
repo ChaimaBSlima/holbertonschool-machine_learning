@@ -130,12 +130,13 @@ block5_conv2
 1
 True
 ```
+
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/15becce5-44e9-4412-8186-6c3c450cd01b" alt="Image"/>
 </p>
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/70c3d81a-8188-4781-accd-7aaf277cec63" alt="Image"/>
 </p>
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
@@ -233,7 +234,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/neural
 ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/282680ce-82d9-4471-9e50-cbd1ceb05622" alt="Image"/>
 </p>
 
 - See [A Neural Algorithm of Artistic Style](https://browse.arxiv.org/pdf/1508.06576)
@@ -506,7 +507,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/neural
 ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/28802d00-857d-443b-be15-c293b764ba0d" alt="Image"/>
 </p>
 
 - See [A Neural Algorithm of Artistic Style](https://browse.arxiv.org/pdf/1508.06576)
@@ -533,7 +534,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/neural
 ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/e31c68f3-cefd-425e-97b5-2f07bcce36da" alt="Image"/>
 </p>
 
 - See [A Neural Algorithm of Artistic Style](https://browse.arxiv.org/pdf/1508.06576)
@@ -560,7 +561,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/neural
 ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/833c6f98-240a-44ad-8438-9a25cd2b6777" alt="Image"/>
 </p>
 
 - See [A Neural Algorithm of Artistic Style](https://browse.arxiv.org/pdf/1508.06576)
@@ -585,7 +586,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/neural
 ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/4460e0ce-5ff8-4aa3-b272-3385af58dd1c" alt="Image"/>
 </p>
 
 - See [A Neural Algorithm of Artistic Style](https://browse.arxiv.org/pdf/1508.06576)
@@ -752,7 +753,7 @@ Best cost: 1107764.5
 ```
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/61306406-e999-434d-9204-6048b5730ee8" alt="Image"/>
 </p>
 
 **NOTE: Due to floating point errors, your gradients will be slightly off and therefore, so will your image and costs. It should, however, have the same initial cost. The remaining costs should be in the general vicinity of those listed above**
@@ -856,20 +857,20 @@ Best cost: 1881178.2
 **NOTE: Due to floating point errors, your gradients will be slightly off and therefore, so will your image and costs. It should, however, have the same initial cost. The remaining costs should be in the general vicinity of those listed above**
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/93fe78f8-98cd-4755-a68e-6d49f4a1e42d" alt="Image"/>
 </p>
 
 **If you zoom in, you can see the pixel variation has significantly decreased:**
 Without Variational Cost:
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/941281f7-01f2-472d-92c1-433b7efee078" alt="Image"/>
 </p>
 
 With Variational Cost:
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/a7452b9c-0446-4768-b35e-783122884442" alt="Image"/>
 </p>
 
 Replace the content and style images with your own to create your own artwork!
