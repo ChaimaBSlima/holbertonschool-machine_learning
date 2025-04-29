@@ -1,7 +1,7 @@
 <h1><p align="center"> Neural Style Transfer </h1></p></font>
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/a1c67e2a-f936-44de-ab68-11a59830c464" alt="Image"/>
 </p>
 
 
@@ -72,13 +72,13 @@ For the following main files, please use these images:
 - `golden_gate.jpg`:
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/a3371147-210c-466f-930c-0047879bddaf" alt="Image"/>
 </p>
 
 - `starry_night.jpg`: 
 
-<p align="center">
-  <img src="" alt="Image"/>
+<p align ="center">
+  <img src="https://github.com/user-attachments/assets/2252a17d-adc0-4042-ad9b-30c2da7e1066" alt="Image"/>
 </p>
 
 ** exists in the data directory ** 
