@@ -233,7 +233,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/neural
 
 ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
 
-<p align="center">
+<p align="left">
   <img src="https://github.com/user-attachments/assets/282680ce-82d9-4471-9e50-cbd1ceb05622" alt="Image"/>
 </p>
 
@@ -506,7 +506,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/neural
 
 ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
 
-<p align="center">
+<p align="left">
   <img src="https://github.com/user-attachments/assets/28802d00-857d-443b-be15-c293b764ba0d" alt="Image"/>
 </p>
 
@@ -533,7 +533,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/neural
 
 ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
 
-<p align="center">
+<p align="left">
   <img src="https://github.com/user-attachments/assets/e31c68f3-cefd-425e-97b5-2f07bcce36da" alt="Image"/>
 </p>
 
@@ -560,7 +560,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/neural
 
 ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
 
-<p align="center">
+<p align="left">
   <img src="https://github.com/user-attachments/assets/833c6f98-240a-44ad-8438-9a25cd2b6777" alt="Image"/>
 </p>
 
@@ -585,7 +585,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/neural
 
 ![Advanced](https://img.shields.io/badge/advanced-🚀-blueviolet)
 
-<p align="center">
+<p align="left">
   <img src="https://github.com/user-attachments/assets/4460e0ce-5ff8-4aa3-b272-3385af58dd1c" alt="Image"/>
 </p>
 
@@ -861,6 +861,7 @@ Best cost: 1881178.2
 </p>
 
 **If you zoom in, you can see the pixel variation has significantly decreased:**
+
 Without Variational Cost:
 
 <p align="center">
