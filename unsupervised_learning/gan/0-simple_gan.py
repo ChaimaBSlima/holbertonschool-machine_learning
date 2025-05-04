@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-
-
+""" Task 0: 0. Simple GAN"""
 import tensorflow as tf
 from tensorflow import keras
 
@@ -142,8 +141,8 @@ class Simple_GAN(keras.Model):
                 real_pred = self.discriminator(real_batch, training=True)
                 fake_pred = self.discriminator(fake_batch, training=True)
                 d_loss = self.discriminator.loss(real_pred, fake_pred)
-            grads = tape.gradient
-            (d_loss, self.discriminator.trainable_variables)
+            grads = \
+                tape.gradient(d_loss, self.discriminator.trainable_variables)
             self.discriminator.optimizer.apply_gradients(
                 zip(grads, self.discriminator.trainable_variables)
             )
