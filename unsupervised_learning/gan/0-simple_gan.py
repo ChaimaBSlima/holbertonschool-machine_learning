@@ -165,7 +165,7 @@ def visualize_5D(G, show=True, title=None, filename=None, dpi=200):
     elif show:
         plt.show()
 
-## LET'S GO !
+## LET'S GO ! 
 
 set_seeds(0)
 G = example_fully_connected_GAN(WGAN_clip ,four_clouds_example(1000), [2,10,10,5], 16, steps_per_epoch=100, learning_rate=.001)
