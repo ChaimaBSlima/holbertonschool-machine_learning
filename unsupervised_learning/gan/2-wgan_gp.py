@@ -148,7 +148,7 @@ class WGAN_GP(keras.Model):
         if size is None:
             size = self.batch_size
         idx =\
-            f.random.shuffle(tf.range(tf.shape(self.real_examples)[0]))[:size]
+            tf.random.shuffle(tf.range(tf.shape(self.real_examples)[0]))[:size]
         return tf.gather(self.real_examples, idx)
 
     def get_interpolated_sample(self, real_sample, fake_sample):
