@@ -8,8 +8,10 @@ class RNNCell:
     Represents a single RNN cell.
 
     Attributes:
-        Wh (np.ndarray): Weight matrix for hidden state and input, shape (i + h, h).
-        Wy (np.ndarray): Weight matrix for hidden state to output, shape (h, o).
+        Wh (np.ndarray):
+        Weight matrix for hidden state and input, shape (i + h, h).
+        Wy (np.ndarray):
+        Weight matrix for hidden state to output, shape (h, o).
         bh (np.ndarray): Bias for hidden state, shape (1, h).
         by (np.ndarray): Bias for output, shape (1, o).
     """
@@ -54,7 +56,8 @@ class RNNCell:
         y_linear = np.dot(h_next, self.Wy) + self.by
 
         # Apply softmax activation
-        exp_shifted = np.exp(y_linear - np.max(y_linear, axis=1, keepdims=True))
+        exp_shifted =\
+            np.exp(y_linear - np.max(y_linear, axis=1, keepdims=True))
         y = exp_shifted / np.sum(exp_shifted, axis=1, keepdims=True)
 
         return h_next, y
