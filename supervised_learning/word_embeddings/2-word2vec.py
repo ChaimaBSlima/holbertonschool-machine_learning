@@ -44,9 +44,14 @@ def word2vec_model(sentences, size=100, min_count=5, window=5, negative=5,
         sg=0 if cbow else 1,
         negative=negative,
         seed=seed,
-        workers=workers
+        workers=workers,
+        
+        # IMPORTANT: Ensures reproducible vocab order
+        sorted_vocab=1,
+
+        # Just in case it's turned on by default 
+        compute_loss=False 
     )
     model.build_vocab(sentences)
     model.train(sentences, total_examples=model.corpus_count, epochs=iterations)
     return model
-  
