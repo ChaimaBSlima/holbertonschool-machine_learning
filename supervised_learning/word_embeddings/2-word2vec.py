@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ Task 2: 2. Train Word2Vec """
-from gensim.models import Word2Vec
+import gensim
 
 
 def word2vec_model(sentences, size=100, min_count=5, window=5, negative=5,
@@ -37,6 +37,14 @@ def word2vec_model(sentences, size=100, min_count=5, window=5, negative=5,
     Returns:
         gensim.models.Word2Vec: A trained Word2Vec model.
     """
-    return Word2Vec(sentences, size=size, min_count=min_count, window=window,
-                    negative=negative, sg=not cbow, iter=iterations,
-                    seed=seed, workers=workers)
+    return gensim.models.Word2Vec(
+        sentences=sentences,
+        vector_size=size,
+        window=window,
+        min_count=min_count,
+        sg=0 if cbow else 1,
+        negative=negative,
+        epochs=iterations,
+        seed=seed,
+        workers=workers
+    )
