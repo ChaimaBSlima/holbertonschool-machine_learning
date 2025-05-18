@@ -28,6 +28,23 @@ def fasttext_model(sentences, size=100, min_count=5, window=5, negative=5,
     Returns:
         gensim.models.FastText: A trained FastText model.
     """
-    return FastText(sentences, size=size, min_count=min_count, window=window,
-                    negative=negative, sg=not cbow, iter=iterations,
-                    seed=seed, workers=workers)
+    sg = 0 if cbow else 1
+
+    model = gensim.models.FastText(
+        vector_size=vector_size,
+        window=window,
+        min_count=min_count,
+        sg=sg,
+        negative=negative,
+        seed=seed,
+        workers=workers
+    )
+
+    model.build_vocab(sentences)
+    model.train(
+        sentences,
+        total_examples=model.corpus_count,
+        epochs=epochs
+    )
+
+    return model
