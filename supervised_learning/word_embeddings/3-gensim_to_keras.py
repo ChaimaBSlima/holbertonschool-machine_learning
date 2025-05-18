@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """ Task 3: 3. Extract Word2Vec """
-from tensorflow import keras
-
+import tensorflow.keras as keras
 
 def gensim_to_keras(model):
     """
@@ -14,4 +13,19 @@ def gensim_to_keras(model):
         keras.layers.Embedding: A Keras Embedding layer initialized with the
         weights from the Word2Vec model, trainable by default.
     """
-    return model.wv.get_keras_embedding(train_embeddings=True)
+    # Get weight matrix from Gensim Word2Vec model
+    weights = model.wv.vectors
+
+    # Get vocabulary size and embedding dimension
+    vocab_size, vector_size = weights.shape
+
+    # Create a Keras Embedding layer using these weights
+    embedding_layer = keras.layers.Embedding(
+        input_dim=vocab_size,
+        output_dim=vector_size,
+        weights=[weights],
+        trainable=True
+    )
+
+    return embedding_layer
+
