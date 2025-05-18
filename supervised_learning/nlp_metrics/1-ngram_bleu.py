@@ -58,6 +58,68 @@ def ngramify(corpus, n):
     return new_corpus
 
 
+def ngram_bleu(references, sentence, n):
+    """
+    Compute the n-gram BLEU score for a candidate sentence against
+    reference sentences.
+
+    This function calculates a simplified BLEU score using modified
+    n-gram precision and a brevity penalty. The n-gram precision is
+    computed by counting n-gram overlaps between the candidate
+    sentence and references, with clipping to avoid overcounting.
+    The brevity penalty is adjusted to account for n-grams by
+    comparing lengths appropriately.
+
+    Parameters:
+    -----------
+    references : list of list of str
+        A list of reference sentences, where each reference
+        is a list of tokens (words).
+    sentence : list of str
+        The candidate sentence as a list of tokens (words).
+    n : int
+        The n-gram size to use
+        (e.g., 1 for unigram BLEU, 2 for bigram BLEU, etc.).
+
+    Returns:
+    --------
+    float
+        The n-gram BLEU score
+        (modified precision multiplied by brevity penalty).
+    """
+    references = ngramify(references, n)
+    sentence = ngramify(sentence, n)
+    sent_dict = {}
+
+    for gram in sentence:
+        sent_dict[gram] = sent_dict.get(gram, 0) + 1
+
+    max_dict = {}
+    for reference in references:
+        this_ref = {}
+        for gram in reference:
+            this_ref[gram] = this_ref.get(gram, 0) + 1
+        for gram in this_ref:
+            max_dict[gram] = max(max_dict.get(gram, 0), this_ref[gram])
+
+    in_ref = 0
+    for gram in sent_dict:
+        in_ref += min(max_dict.get(gram, 0), sent_dict[gram])
+
+    closest = np.argmin(np.abs([len(ref) - len(sentence)
+                                for ref in references]))
+
+    closest = len(references[closest])
+
+    if len(sentence) >= closest:
+        brevity = 1
+
+    else:
+        brevity = np.exp(1 - (closest + n - 1) / (len(sentence) + n - 1))
+
+    return brevity * in_ref / len(sentence)
+
+
 def uni_bleu(references, sentence):
     """
     Calculate a unigram BLEU-like score for a candidate sentence
