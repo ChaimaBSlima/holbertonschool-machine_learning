@@ -37,14 +37,16 @@ def word2vec_model(sentences, size=100, min_count=5, window=5, negative=5,
     Returns:
         gensim.models.Word2Vec: A trained Word2Vec model.
     """
-    return gensim.models.Word2Vec(
-        sentences=sentences,
+    model = gensim.models.Word2Vec(
         vector_size=size,
         window=window,
         min_count=min_count,
         sg=0 if cbow else 1,
         negative=negative,
-        epochs=iterations,
         seed=seed,
         workers=workers
     )
+    model.build_vocab(sentences)
+    model.train(sentences, total_examples=model.corpus_count, epochs=iterations)
+    return model
+  
