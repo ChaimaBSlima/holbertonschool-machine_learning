@@ -101,6 +101,62 @@ def ngramify(corpus, n):
     return new_corpus
 
 
+def ngram_modscore(references, sentence, n, weight):
+    """
+    Compute the weighted log of modified n-gram precision for a
+    candidate sentence.
+
+    This function calculates the modified n-gram precision
+    by counting how many n-grams in the candidate sentence
+    appear in the reference sentences, using clipped counts
+    to avoid over-counting repeated n-grams. The result is
+    then scaled by a weight and transformed using the natural
+    logarithm, as part of the cumulative BLEU score calculation.
+
+    Parameters:
+    -----------
+    references : list of list of str
+        A list of reference sentences,
+        where each reference is a list of tokens (words).
+    sentence : list of str
+        The candidate sentence as a list of tokens (words).
+    n : int
+        The n-gram size (e.g., 1 for unigrams, 2 for bigrams, etc.).
+    weight : float
+        The weight to apply to the log precision
+        (typically 1/n when aggregating BLEU scores).
+
+    Returns:
+    --------
+    float
+        The weighted logarithm of the modified n-gram precision.
+        Returns negative infinity if no n-gram matches (due to log(0),
+        which is mathematically undefined).
+    """
+    references = ngramify(references, n)
+    sentence = ngramify(sentence, n)
+    sent_dict = {}
+
+    for gram in sentence:
+        sent_dict[gram] = sent_dict.get(gram, 0) + 1
+
+    max_dict = {}
+    for reference in references:
+        this_ref = {}
+
+        for gram in reference:
+            this_ref[gram] = this_ref.get(gram, 0) + 1
+
+        for gram in this_ref:
+            max_dict[gram] = max(max_dict.get(gram, 0), this_ref[gram])
+
+    in_ref = 0
+    for gram in sent_dict:
+        in_ref += min(max_dict.get(gram, 0), sent_dict[gram])
+
+    return weight * np.log(in_ref / len(sentence))
+
+
 def uni_bleu(references, sentence):
     """
     Calculate a unigram BLEU-like score for a candidate sentence
