@@ -2,9 +2,8 @@
 """ Task 2: 2. Train Word2Vec """
 import gensim
 
-
-def word2vec_model(sentences, size=100, min_count=5, window=5, negative=5,
-                   cbow=True, iterations=5, seed=0, workers=1):
+def word2vec_model(sentences, vector_size=100, min_count=5, window=5,
+                   negative=5, cbow=True, epochs=5, seed=0, workers=1):
     """
     Trains a Word2Vec model on the given sentences.
 
@@ -38,20 +37,14 @@ def word2vec_model(sentences, size=100, min_count=5, window=5, negative=5,
         gensim.models.Word2Vec: A trained Word2Vec model.
     """
     model = gensim.models.Word2Vec(
-        vector_size=size,
+        sentences=sentences,
+        vector_size=vector_size,
         window=window,
         min_count=min_count,
         sg=0 if cbow else 1,
         negative=negative,
         seed=seed,
         workers=workers,
-        
-        # IMPORTANT: Ensures reproducible vocab order
-        sorted_vocab=1,
-
-        # Just in case it's turned on by default 
-        compute_loss=False 
+        epochs=epochs
     )
-    model.build_vocab(sentences)
-    model.train(sentences, total_examples=model.corpus_count, epochs=iterations)
     return model
