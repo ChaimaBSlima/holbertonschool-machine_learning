@@ -1,7 +1,7 @@
 <h1><p align="center"> Natural Language Processing - Evaluation Metrics </h1></p></font>
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/7074fbb8-2c03-4d51-a8bc-b212405204ce" alt="Image"/>
 </p>
 
 
