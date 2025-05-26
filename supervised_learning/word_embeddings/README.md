@@ -1,8 +1,9 @@
 <h1><p align="center"> Natural Language Processing - Word Embeddings </h1></p></font>
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/261d4a64-8d55-478f-9761-a244c4435ff" alt="Image"/>
 </p>
+
 
 # 📚 Resources
 
@@ -299,7 +300,7 @@ Write a function `def fasttext_model(sentences, vector_size=100, min_count=5, ne
 - `workers` is the number of worker threads to train the model
 - **Returns:** the trained model
 ```
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/word_embeddings#./test_files/3-main.py
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/word_embeddings#./test_files/4-main.py
 [['human', 'interface', 'computer'], ['survey', 'user', 'computer', 'system', 'response', 'time']]
 [-4.4518875e-04  1.9057443e-04  7.1344204e-04  1.5088863e-04
   7.3785416e-04  2.0828047e-03 -1.4264339e-03 -6.6978252e-04
