@@ -139,7 +139,7 @@ Write the function `def ngram_bleu(references, sentence, n):` that calculates th
 - **Returns:** the n-gram BLEU score  
 
 ```
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/nlp_metrics#./test_files/0-main.py
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/nlp_metrics#./test_files/1-main.py
 0.6140480648084865
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/nlp_metrics#
 ```
@@ -161,7 +161,7 @@ Write the function `def cumulative_bleu(references, sentence, n):` that calculat
 - **Returns:** the cumulative n-gram BLEU score
 
 ```
-root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/nlp_metrics#./test_files/0-main.py
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/nlp_metrics#./test_files/2-main.py
 0.5475182535069453
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/nlp_metrics#
 ```
