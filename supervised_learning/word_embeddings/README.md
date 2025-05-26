@@ -1,7 +1,7 @@
 <h1><p align="center"> Natural Language Processing - Word Embeddings </h1></p></font>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/261d4a64-8d55-478f-9761-a244c4435ff" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/b7de7312-9545-4ff1-9634-99a6faf12310" alt="Image"/>
 </p>
 
 
