@@ -180,7 +180,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/nlp_me
 
 # 📊 Project Summary
 
-This project focuses on key evaluation metrics used in `Natural Language Processing (NLP)` to assess model performance. It covers metrics like `Accuracy`, `Precision`, `Recall`, `F1-Score` for classification; `BLEU` and `ROUGE` for text generation; and Perplexity for language modeling. Through examples and experiments, the project highlights how choosing the right metric is crucial for evaluating different `NLP` tasks effectively.
+This project focuses on key evaluation metrics used in `Natural Language Processing (NLP)` to assess model performance. It covers metrics like `Accuracy`, `Precision`, `Recall`, `F1-Score` for `classification`; `BLEU` and `ROUGE` for text generation; and Perplexity for language modeling. Through examples and experiments, the project highlights how choosing the right metric is crucial for evaluating different `NLP` tasks effectively.
 
 ---
 
