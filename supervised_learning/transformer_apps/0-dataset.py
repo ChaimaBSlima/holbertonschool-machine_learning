@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
-""" Task 0: 0. Dataset """
-import tensorflow.compat.v2 as tf
+"""
+Module that defines the Dataset class for loading and tokenizing
+the TED Talks translation dataset (Portuguese to English).
+"""
 import tensorflow_datasets as tfds
+import transformers
 
 
 class Dataset:
@@ -13,7 +16,7 @@ class Dataset:
     def __init__(self):
         """
         Class constructor. Loads the TED HRLR Portuguese to English dataset
-        and tokenizes it using SubwordTextEncoder.
+        and tokenizes it using a custom vocabulary and Transformers tokenizer.
         """
         self.data_train, self.data_valid = tfds.load(
             'ted_hrlr_translate/pt_to_en',
@@ -33,19 +36,24 @@ class Dataset:
             data: tf.data.Dataset - Dataset containing (pt, en) sentence pairs.
 
         Returns:
-            tokenizer_pt: SubwordTextEncoder for Portuguese.
-            tokenizer_en: SubwordTextEncoder for English.
+            tokenizer_pt: PreTrainedTokenizerFast for Portuguese.
+            tokenizer_en: PreTrainedTokenizerFast for English.
         """
+        pt_corpus = []
+        en_corpus = []
+
+        for pt, en in data.take(10000):  # Limit for memory efficiency
+            pt_corpus.append(pt.numpy().decode('utf-8'))
+            en_corpus.append(en.numpy().decode('utf-8'))
+
         tokenizer_pt =\
-            tfds.deprecated.text.SubwordTextEncoder.build_from_corpus(
-                (pt.numpy() for pt, en in data),
-                target_vocab_size=2 ** 15
+            transformers.PreTrainedTokenizerFast.train_new_from_iterator(
+                pt_corpus, vocab_size=2 ** 15
                 )
 
         tokenizer_en =\
-            tfds.deprecated.text.SubwordTextEncoder.build_from_corpus(
-                (en.numpy() for pt, en in data),
-                target_vocab_size=2 ** 15
+            transformers.PreTrainedTokenizerFast.train_new_from_iterator(
+                en_corpus, vocab_size=2 ** 15
                 )
 
         return tokenizer_pt, tokenizer_en
