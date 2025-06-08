@@ -41,11 +41,11 @@ class Dataset:
         """
         pt_corpus = []
         en_corpus = []
-
+        """
         for pt, en in data.take(10000):  # Limit for memory efficiency
             pt_corpus.append(pt.numpy().decode('utf-8'))
             en_corpus.append(en.numpy().decode('utf-8'))
-
+        """
         tokenizer_pt =\
             transformers.PreTrainedTokenizerFast.train_new_from_iterator(
                 pt_corpus, vocab_size=2 ** 15
