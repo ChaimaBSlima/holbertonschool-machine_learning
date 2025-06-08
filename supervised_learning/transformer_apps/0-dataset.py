@@ -40,10 +40,23 @@ class Dataset:
             tokenizer_pt: PreTrainedTokenizerFast for Portuguese.
             tokenizer_en: PreTrainedTokenizerFast for English.
         """
-        tokenizer_pt = tfds.features.text.SubwordTextEncoder.build_from_corpus(
-            (pt.numpy() for pt, en in data), target_vocab_size=2 ** 13)
+        tokenizer_pt = transformers.AutoTokenizer.from_pretrained(
+            "neuralmind/bert-base-portuguese-cased")
+        tokenizer_en = transformers.AutoTokenizer.from_pretrained(
+            "bert-base-uncased")
 
-        tokenizer_en = tfds.features.text.SubwordTextEncoder.build_from_corpus(
-            (en.numpy() for pt, en in data), target_vocab_size=2 ** 13)
+        def iterate_pt():
+            """Generate Portuguese sentences one at a time from the dataset"""
+            for pt, _ in data:
+                yield pt.numpy().decode('utf-8')
 
+        def iterate_en():
+            """Generate English sentences one at a time from the dataset"""
+            for _, en in data:
+                yield en.numpy().decode('utf-8')
+
+        tokenizer_pt = tokenizer_pt.train_new_from_iterator(
+            iterate_pt(), vocab_size=2**13)
+        tokenizer_en = tokenizer_en.train_new_from_iterator(
+            iterate_en(), vocab_size=2**13)
         return tokenizer_pt, tokenizer_en
