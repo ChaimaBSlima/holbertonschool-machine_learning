@@ -39,21 +39,11 @@ class Dataset:
             tokenizer_pt: PreTrainedTokenizerFast for Portuguese.
             tokenizer_en: PreTrainedTokenizerFast for English.
         """
-        pt_corpus = []
-        en_corpus = []
-        """
-        for pt, en in data.take(10000):  # Limit for memory efficiency
-            pt_corpus.append(pt.numpy().decode('utf-8'))
-            en_corpus.append(en.numpy().decode('utf-8'))
-        """
-        tokenizer_pt =\
-            transformers.PreTrainedTokenizerFast.train_new_from_iterator(
-                pt_corpus, vocab_size=2 ** 15
-                )
+        tokenizer_pt = tfds.features.text.SubwordTextEncoder.build_from_corpus(
+            (pt.numpy() for pt, en in data), target_vocab_size=2 ** 15)
 
-        tokenizer_en =\
-            transformers.PreTrainedTokenizerFast.train_new_from_iterator(
-                en_corpus, vocab_size=2 ** 15
-                )
+        tokenizer_en = tfds.features.text.SubwordTextEncoder.build_from_corpus(
+            (en.numpy() for pt, en in data), target_vocab_size=2 ** 15)
 
         return tokenizer_pt, tokenizer_en
+
