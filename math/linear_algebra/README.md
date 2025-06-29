@@ -4,6 +4,8 @@
 
 *- [Using Vagrant on your personal computer](https://github.com/ChaimaBSlima/Valuable-IT-Concepts/blob/main/Vagrant.md)*
 
+---
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/b05329ca-44ff-4ba5-9988-2f8cae8cd864" alt="Image"/>
 </p>
