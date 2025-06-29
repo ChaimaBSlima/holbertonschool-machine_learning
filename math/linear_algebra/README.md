@@ -607,6 +607,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/linear_algebra#
 # 📊 Project Summary
 
 This project teaches core linear algebra **concepts (vectors, matrices, operations)** using **NumPy**, focusing on efficient array computations. Students implement operations like dot products and matrix multiplication while learning NumPy's broadcasting and vectorization features, following strict Python coding standards.
+
 ---
 
 # ℹ️ Random Information 
