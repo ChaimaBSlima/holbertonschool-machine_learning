@@ -458,8 +458,7 @@ The title of the plot should be `PCA of Iris Dataset`
 
 # 📊 Project Summary
 
-This project teaches core linear algebra **concepts (vectors, matrices, operations)** using **NumPy**, focusing on efficient array computations. Students implement operations like dot products and matrix multiplication while learning NumPy's broadcasting and vectorization features, following strict Python coding standards.
-
+This project introduces data visualization using **Matplotlib**, covering essential plot types like **scatter plots**, **line charts**, **bar graphs**, and **histograms**. learning how to customize plots with **labels**, **titles**, **axis scaling**, and **multi-dataset visualization**, while exploring subplots and 3D plotting. The focus is on practical implementation using **Python’s Matplotlib library**, following best practices in clear and effective data presentation.
 ---
 
 # ℹ️ Random Information 
