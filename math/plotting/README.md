@@ -1,7 +1,7 @@
 <h1><p align="center"> Plotting </h1></p></font>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/5aaf0d3f-9301-481c-b01b-f331d3ef190" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/69721863-060b-477e-b524-79243f8035bf" alt="Image"/>
 </p>
 
 
@@ -405,7 +405,7 @@ Principle Component Analysis (PCA) is a vital procedure used in data science for
 
 For this task, you will be visualizing [the Iris flower data set](https://en.wikipedia.org/wiki/Iris_flower_data_set):
 
-- You will need to download the file `pca.npz` to test your code
+- You will need to download the file [`pca.npz`](https://drive.google.com/file/d/1qnhN-_Rhz0NrmdlzvkhOdC8Qusoz1t6c/view?usp=drive_link) to test your code
 - You do not need to push this dataset to github
 - Complete the following source code to visualize the data in 3D
 
