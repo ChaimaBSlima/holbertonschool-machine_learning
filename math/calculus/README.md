@@ -2,7 +2,7 @@
 
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/2754fea4-b4a4-4acf-a7d1-cea0e3a9c222" alt="Image"/>
 </p>
 
 
@@ -108,8 +108,9 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/calculus#
 
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
+
 <p align="left">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/9965b5ba-408e-442d-9d3c-f7d5fc30c2ff" alt="Image"/>
 </p>
 
 - `1` 3 + 4 + 5
@@ -123,8 +124,9 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/calculus#
 
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
+
 <p align="left">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/ddc6df43-b08a-469b-b9d0-979d6b308d77" alt="Image"/>
 </p>
 
 - `1` 90 - 20
@@ -135,10 +137,11 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/calculus#
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
 ### 2. Pi is for Product
+
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
 <p align="left">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/1dff111d-f002-477c-82a5-51890edc1aea" alt="Image"/>
 </p>
 
 - `1` (m - 1)!
@@ -151,9 +154,9 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/calculus#
 ### 3. The Greeks pronounce it pEE
 
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
-
+D
 <p align="left">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/d926a32e-3dde-42b7-b692-f1488cbfb172" alt="Image"/>
 </p>
 
 - `1` 10!
@@ -168,7 +171,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/calculus#
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
 <p align="left">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/edc072f1-66c8-4181-8294-08861d7cd320" alt="Image"/>
 </p>
 
 
@@ -179,7 +182,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/calculus#
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
 <p align="left">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/cb9a042d-4348-4db3-8154-70847fdb3a2c" alt="Image"/>
 </p>
 
 
@@ -190,7 +193,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/calculus#
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
 <p align="left">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/4cd0d699-0152-4aa4-ad95-d9e7b5048ca8" alt="Image"/>
 </p>
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
@@ -200,7 +203,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/calculus#
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
 <p align="left">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/1e6755dc-5033-46c1-bbbe-c019cef269a3" alt="Image"/>
 </p>
 
 
@@ -211,7 +214,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/calculus#
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
 <p align="left">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/4c53fd0d-4b27-451f-9d57-0ef742031c13" alt="Image"/>
 </p>
 
 
@@ -224,7 +227,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/calculus#
 Write a function `def summation_i_squared(n):` that calculates
 
 <p align="left">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/0b3423ed-4ce5-4b31-9b2f-00e4b9da646a" alt="Image"/>
 </p>
 
 - `n` is the stopping condition
@@ -267,7 +270,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/calculus#
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
 <p align="left">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/b6496d79-e255-4247-8af6-d51ca426a8ff" alt="Image"/>
 </p>
 
 
@@ -279,7 +282,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/calculus#
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
 <p align="left">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/f2d3f5cd-a4ff-4c45-b8ab-4e0bb8b020b8" alt="Image"/>
 </p>
 
 
@@ -290,7 +293,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/calculus#
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
 <p align="left">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/2bf79246-46e3-48de-b36a-87815520c059" alt="Image"/>
 </p>
 
 - `1` 3
@@ -305,7 +308,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/calculus#
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
 <p align="left">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/ba3a9417-0058-43cb-a522-f463d67db36e" alt="Image"/>
 </p>
 
 - `1` -1
@@ -320,7 +323,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/calculus#
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
 <p align="left">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/21c73356-1b34-4677-9bb7-94dba4dd7129" alt="Image"/>
 </p>
 
 - `1` 5
@@ -335,7 +338,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/calculus#
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
 <p align="left">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/69e35766-cc61-4eb5-89b9-d61bb5a0cc91" alt="Image"/>
 </p>
 
 - `1` 9ln(2)
