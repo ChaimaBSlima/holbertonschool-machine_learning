@@ -11,7 +11,7 @@
 Read or watch:
 
 - [Sigma Notation](https://www.youtube.com/watch?v=TjMLzklnn2c) *(starting at 0:32)*
-- [Π Product Notation](https://www.youtube.com/watch?v=sP1-EQJKSgk) * (up to 0:20)*
+- [Π Product Notation](https://www.youtube.com/watch?v=sP1-EQJKSgk) *(up to 0:20)*
 - [Sigma and Pi Notation](https://mathmaine.com/2010/04/01/sigma-and-pi-notation/)
 - [What is a Series?](https://virtualnerd.com/algebra-2/sequences-series/define/defining-series/series-definition)
 - [What is a Mathematical Series?](https://www.quickanddirtytips.com/)
