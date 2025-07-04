@@ -149,7 +149,8 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/plotting# ./test_file
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/f0097968-3e53-4d0d-842b-ea00ee1d2d59" alt="Image"/>
-</p
+</p>
+
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
@@ -184,7 +185,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/plotting# ./test_file
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/c4489145-5b12-4bd2-9ebd-6746e685841f" alt="Image"/>
-</p
+</p>
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
@@ -225,7 +226,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/plotting# ./test_file
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/f860e2ee-630c-40dc-9651-5b1fae5b2cd0" alt="Image"/>
-</p
+</p>
 
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
@@ -259,7 +260,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/plotting# ./test_file
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/e21e07bf-8364-4b4a-87e2-0e680ad56e42" alt="Image"/>
-</p
+</p>
 
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
@@ -312,7 +313,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/plotting# ./test_file
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/13094ce8-3cde-4aa2-a0d3-1172e65ea30e" alt="Image"/>
-</p
+</p>
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
@@ -356,7 +357,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/plotting# ./test_file
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/0b3ea6b3-5a68-4e0e-b383-aa2190a2d64d" alt="Image"/>
-</p
+</p>
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
@@ -393,7 +394,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/math/plotting# ./test_file
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/94705632-3eb7-424e-a4b3-e21b1745996c" alt="Image"/>
-</p
+</p>
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
@@ -444,7 +445,7 @@ The title of the plot should be `PCA of Iris Dataset`
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/0f2beb60-6842-4642-af2c-504714d860ce" alt="Image"/>
-</p
+</p>
 
 
 ---
