@@ -571,7 +571,7 @@ def update_predict(self) :
             leaf.update_indicator()          
         self.predict = lambda A: #<--- To be filled
 ```
-In this concept page: DecisionTree.pred vs DecisionTree.predict, we introduced an additional approach for implementing a prediction function known as `Decision_Tree.pred`.
+In this concept page: [DecisionTree.pred vs DecisionTree.predict](https://github.com/ChaimaBSlima/Valuable-IT-Concepts/blob/main/decision_tree_predVSpredict.md), we introduced an additional approach for implementing a prediction function known as `Decision_Tree.pred`.
 
 As part of the testing process, insert the following methods into their respective classes:
 
@@ -641,7 +641,7 @@ T.predict(A) :
 Predictions are the same on the explanatory array A : True
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/decision_tree# 
 ```
-**NOTE:** Read the concept page DecisionTree.pred vs DecisionTree.predict to understand how `Decision_Tree.predict` is better than `Decision_Tree.pred` when it comes to computational efficiency.
+**NOTE:** Read the concept page [DecisionTree.pred vs DecisionTree.predict](https://github.com/ChaimaBSlima/Valuable-IT-Concepts/blob/main/decision_tree_predVSpredict.md) to understand how `Decision_Tree.predict` is better than `Decision_Tree.pred` when it comes to computational efficiency.
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
 
