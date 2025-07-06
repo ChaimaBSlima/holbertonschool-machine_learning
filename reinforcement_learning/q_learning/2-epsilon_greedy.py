@@ -24,8 +24,6 @@ def epsilon_greedy(Q, state, epsilon):
     # print (state, epsilon)
 
     if np.random.uniform(0, 1) < epsilon:
-        movement = np.random.randint(Q.shape[1])
+        return int(np.random.randint(Q.shape[1]))
     else:
-        movement = np.argmax(Q[state])
-
-    return movement
+        return int(np.argmax(Q[state]))
