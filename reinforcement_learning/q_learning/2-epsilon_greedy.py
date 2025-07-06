@@ -6,12 +6,12 @@ import numpy as np
 def epsilon_greedy(Q, state, epsilon):
     """
         Selects the next action using the epsilon-greedy policy.
-    
+
     Args:
         Q (numpy.ndarray): Q-table of shape (states, actions)
         state (int): current state
         epsilon (float): probability of choosing a random action (exploration)
-    
+
     Returns:
         int: index of the action selected
     """
