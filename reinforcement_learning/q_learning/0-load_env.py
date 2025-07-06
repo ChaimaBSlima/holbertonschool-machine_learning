@@ -24,10 +24,10 @@ def load_frozen_lake(desc=None, map_name=None, is_slippery=False):
     # If you would like to visualize the current state, type the following:
     # env.render()
 
-    env = gym.make("FrozenLake-v1",
+    env = gym.make("FrozenLake-v0",
                    desc=desc,
                    map_name=map_name,
-                   is_slippery=is_slippery
+                   is_slippery=is_slippery,
                    render_mode="ansi")
     env.reset()
     return env
