@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """ Task 0: 0. Load the FrozenLake environment"""
-import gym
-import numpy as np
-import random
+import gymnasium as gym
 
 
 def load_frozen_lake(desc=None, map_name=None, is_slippery=False):
