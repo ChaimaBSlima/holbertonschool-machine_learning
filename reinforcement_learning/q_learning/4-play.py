@@ -18,17 +18,13 @@ def play(env, Q, max_steps=100):
     state, _ = env.reset()
     done = False
     total_reward = 0
-    renders = []
-
-    # Capture initial render
-    renders.append(env.render())
+    renders = [env.render()]  # Capture initial state
 
     for _ in range(max_steps):
-        action = np.argmax(Q[state])  # Exploit Q-table
+        action = np.argmax(Q[state])
         state, reward, terminated, truncated, _ = env.step(action)
         total_reward += reward
         renders.append(env.render())
-
         if terminated or truncated:
             break
 
