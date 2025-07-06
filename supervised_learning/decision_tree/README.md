@@ -2,8 +2,8 @@
 
 *For this project, we expect you to look at this concept:*
 
-*- [What is a decision tree?](https://github.com/ChaimaBSlima/Valuable-IT-Concepts/blob/main/decision_tree_predVSpredict.md)*
-*- [Decision_Tree.pred vs Decision_Tree.predict](https://github.com/ChaimaBSlima/Valuable-IT-Concepts/blob/main/decision_tree.md)*
+- *[What is a decision tree?](https://github.com/ChaimaBSlima/Valuable-IT-Concepts/blob/main/decision_tree_predVSpredict.md)*
+- *[Decision_Tree.pred vs Decision_Tree.predict](https://github.com/ChaimaBSlima/Valuable-IT-Concepts/blob/main/decision_tree.md)*
 
 ---
 
