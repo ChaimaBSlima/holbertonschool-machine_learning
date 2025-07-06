@@ -8,7 +8,7 @@
 ---
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/b05329ca-44ff-4ba5-9988-2f8cae8cd864" alt="Image"/>
+  <img src="" alt="Image"/>
 </p>
 
 
@@ -152,7 +152,7 @@ All the nodes of a decision tree have their `depth` attribute. The depth of the 
 
 Down below is the content of the file `0-build_decision_tree.py`.
 
-```
+```python
 #!/usr/bin/env python3
 
 import numpy as np
@@ -246,13 +246,13 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/decisi
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
 In this task, we give you the `def __str__(self) :` method for the `Decision_Tree` class :
-```
+```python
 def __str__(self):
     return self.root.__str__()
 ```
 and the `def __str__(self) :` method for the `Leaf` class :
 
-```
+```python
 def __str__(self):
     return (f"-> lef [value={self.value}]")
 ```
@@ -261,7 +261,7 @@ def __str__(self):
 **Hint 1:** You might need some functions `def left_child_add_prefix(text):` and `def right_child_add_prefix(text):` at some point.
 **Hint 2:** In order to help you in this task, we gave you the function `def left_child_add_prefix(text):` and now your mission is to add the function `def right_child_add_prefix(text):` to be able to implement the method `def __str__(self)/`
 
-```
+```python
 def left_child_add_prefix(self,text):
     lines=text.split("\n")
     new_text="    +--"+lines[0]+"\n"
@@ -322,14 +322,14 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/decisi
 Task: Insert the following declarations in their respective classes, and update the class `Node` by adding the method `def get_leaves_below(self) :` that returns the list of all leaves of the tree.
 
  - Add in class `Leaf`:
-```
+```python
 def get_leaves_below(self) :
     return [self]
 
 ```
  - Add in class Decision_Tree:
 
-```
+```python
 def get_leaves(self) :
     return self.root.get_leaves_below()
 ```
@@ -368,17 +368,17 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/decisi
 - The keys in the dictionary represent the features.
 
 - Add in class `Leaf`:
-```
+```python
     def update_bounds_below(self) :
         pass 
 ```
 - Add in class  `Decision_Tree`:
-```
+```python
     def update_bounds(self) :
         self.root.update_bounds_below() 
 ```
 - Fill in `def update_bounds_below(self) :` in class `Node`:
-```
+```python
     def update_bounds_below(self) :
         if self.is_root : 
             self.upper = { 0:np.inf }
@@ -492,7 +492,7 @@ Consider the indicator function for a given node, denoted as "n." This function 
 
 Fill in `def update_indicator(self):` in class `Node`:
 
-```
+```python
 def update_indicator(self) :
 
         def is_large_enough(x):
@@ -563,7 +563,7 @@ We are now in a position to write our efficient `Decision_Tree.predict` function
 
 Fill in `def update_predict(self):` in class `Decision_Tree`:
 
-```
+```python
 def update_predict(self) :
         self.update_bounds()
         leaves=self.get_leaves()
@@ -576,15 +576,20 @@ In this concept page: DecisionTree.pred vs DecisionTree.predict, we introduced a
 As part of the testing process, insert the following methods into their respective classes:
 
 - Add `def pred(self, x):` in class `Leaf`:
-```
+```python
    def pred(self,x) :
         return self.value
 ```
 - add `def pred(self,x):` in class `Node`:
-```
+```python
+    def pred(self,x) :
+        if x[self.feature]>self.threshold :
+            return self.left_child.pred(x)
+        else :
+            return self.right_child.pred(x)
 ```
 - add def `pred(self,x):` in class `Decision_Tree`:
-```
+```python
     def pred(self,x) :
             return self.root.pred(x)
 ```
