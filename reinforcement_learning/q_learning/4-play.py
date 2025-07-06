@@ -14,19 +14,22 @@ def play(env, Q, max_steps=100):
     You should always exploit the Q-table
     Returns: the total rewards for the episode
     """
-    # Reset the enviroment
-    state = env.reset()
-
-    # Finished game ?
+    # Reset environment and get initial state
+    state, _ = env.reset()
     done = False
-    env.render()
-    for _ in range(max_steps):
-        call_to_action = np.argmax(Q[state, :])
-        new_state, reward, done, info = env.step(call_to_action)
-        env.render()
+    total_reward = 0
+    renders = []
 
-        if (reward and done):
-            print(reward)
+    # Capture initial render
+    renders.append(env.render())
+
+    for _ in range(max_steps):
+        action = np.argmax(Q[state])  # Exploit Q-table
+        state, reward, terminated, truncated, _ = env.step(action)
+        total_reward += reward
+        renders.append(env.render())
+
+        if terminated or truncated:
             break
-        state = new_state
-    env.close()
+
+    return total_reward, renders
