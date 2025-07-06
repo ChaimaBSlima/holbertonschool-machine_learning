@@ -21,7 +21,7 @@ def load_frozen_lake(desc=None, map_name=None, is_slippery=False):
     # load the very basic taxi environment.
     # env = gym.make("Taxi-v2")
 
-    enviroment_name = 'FrozenLake-v1'
+    enviroment_name = 'FrozenLakeEnv'
     env = gym.make(enviroment_name,
                    desc=desc,
                    map_name=map_name,
