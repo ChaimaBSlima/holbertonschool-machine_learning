@@ -1,23 +1,32 @@
 #!/usr/bin/env python3
-"""Performs the Monte Carlo algorithm"""
-import numpy as np
+"""Monte Carlo every-visit policy evaluation for FrozenLake."""
 
+def monte_carlo(env, V, policy, episodes=5000, max_steps=100, alpha=0.1, gamma=0.99):
+    """
+    Monte Carlo every-visit policy evaluation.
 
-def monte_carlo(env, V, policy, episodes=5000, max_steps=100,
-                alpha=0.1, gamma=0.99):
-    """Monte Carlo every-visit algorithm"""
-
+    Args:
+        env: gym environment
+        V: np.array of shape (env.nS,)
+        policy: function(state) -> action
+        episodes: int
+        max_steps: int
+        alpha: float learning rate
+        gamma: float discount factor
+    Returns:
+        Updated V
+    """
     for _ in range(episodes):
         state, _ = env.reset()
         episode = []
 
         for _ in range(max_steps):
-            action = policy(state)  # Uses the main's policy(), which depends on np.random
+            action = policy(state)
             next_state, reward, terminated, truncated, _ = env.step(action)
             episode.append((state, reward))
+            state = next_state
             if terminated or truncated:
                 break
-            state = next_state
 
         G = 0
         visited = set()
