@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Module that implements Monte Carlo value estimation
+Monte Carlo first-visit prediction for FrozenLake.
 """
 
 import numpy as np
@@ -9,19 +9,19 @@ import numpy as np
 def monte_carlo(env, V, policy, episodes=5000, max_steps=100,
                 alpha=0.1, gamma=0.99):
     """
-    Performs Monte Carlo prediction to estimate the value function V.
+    Perform first-visit Monte Carlo prediction.
 
     Args:
-        env: The OpenAI Gym environment instance.
-        V: numpy.ndarray of shape (s,) containing the value estimate.
-        policy: function(state) -> action to take.
-        episodes: number of episodes to sample.
+        env: OpenAI Gym environment instance.
+        V: numpy.ndarray of shape (s,) containing value estimates.
+        policy: function(state) -> action.
+        episodes: total number of episodes to sample.
         max_steps: max steps per episode.
         alpha: learning rate.
         gamma: discount factor.
 
     Returns:
-        V: Updated value estimate.
+        Updated V with value estimates.
     """
     for _ in range(episodes):
         state, _ = env.reset()
@@ -35,10 +35,10 @@ def monte_carlo(env, V, policy, episodes=5000, max_steps=100,
                 break
 
         G = 0
-        visited = set()
+        visited_states = set()
         for state, reward in reversed(episode):
             G = gamma * G + reward
-            if state not in visited:
-                visited.add(state)
+            if state not in visited_states:
+                visited_states.add(state)
                 V[state] = V[state] + alpha * (G - V[state])
     return V
