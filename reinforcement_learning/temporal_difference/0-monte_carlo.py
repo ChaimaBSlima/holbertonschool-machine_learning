@@ -1,36 +1,34 @@
 #!/usr/bin/env python3
-"""Program that performs the Monte Carlo algorithm"""
+"""Monte Carlo algorithm implementation"""
 import numpy as np
 
 
 def episode_gen(env, policy, max_steps):
-    """Function that generates an episode"""
-    episode = [[], []]
+    """Generates an episode: list of (state, reward) pairs"""
+    episode = []
     state = env.reset()
-    for i in range(max_steps):
+    for _ in range(max_steps):
         action = policy(state)
-        new_state, reward, done, info = env.step(action)
-        episode[0].append(state)
-        if env.desc.reshape(env.observation_space.n)[new_state] == b'H':
-            episode[1].append(-1)
-            return episode
-        if env.desc.reshape(env.observation_space.n)[new_state] == b'G':
-            episode[1].append(1)
-            return episode
-        episode[1].append(reward)
-        state = new_state
+        next_state, reward, done, _ = env.step(action)
+        episode.append((state, reward))
+        if done:
+            break
+        state = next_state
     return episode
 
 
-def monte_carlo(env, V, policy, episodes=5000, max_steps=100, alpha=0.1,
-                gamma=0.99):
-    """Function that performs the Monte Carlo algorithm"""
-    discounts = [gamma ** i for i in range(max_steps)]
+def monte_carlo(env, V, policy, episodes=5000,
+                max_steps=100, alpha=0.1, gamma=0.99):
+    """Performs the Monte Carlo algorithm using
+    Every-Visit approach"""
     for ep in range(episodes):
         episode = episode_gen(env, policy, max_steps)
-        for i in range(len(episode[0])):
-            Gt = sum(np.array(episode[1][i:]) *
-                     np.array(discounts[:len(episode[1][i:])]))
-            V[episode[0][i]] = V[episode[0][i]] +\
-                alpha * (Gt - V[episode[0][i]])
+        for i, (state, _) in enumerate(episode):
+            # Gt is return from time t
+            Gt = sum(
+                (gamma ** t) * reward for t, (_, reward)
+                in enumerate(episode[i:])
+            )
+            # Every-Visit Monte Carlo update
+            V[state] += alpha * (Gt - V[state])
     return V
