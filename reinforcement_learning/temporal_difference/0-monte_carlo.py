@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Monte Carlo first-visit prediction for FrozenLake.
+Monte Carlo first-visit prediction algorithm.
 """
 
 import numpy as np
@@ -15,13 +15,13 @@ def monte_carlo(env, V, policy, episodes=5000, max_steps=100,
         env: OpenAI Gym environment instance.
         V: numpy.ndarray of shape (s,) containing value estimates.
         policy: function(state) -> action.
-        episodes: total number of episodes to sample.
+        episodes: number of episodes to sample.
         max_steps: max steps per episode.
         alpha: learning rate.
         gamma: discount factor.
 
     Returns:
-        Updated V with value estimates.
+        Updated value function V.
     """
     for _ in range(episodes):
         state, _ = env.reset()
@@ -35,10 +35,11 @@ def monte_carlo(env, V, policy, episodes=5000, max_steps=100,
                 break
 
         G = 0
-        visited_states = set()
+        visited = set()
         for state, reward in reversed(episode):
             G = gamma * G + reward
-            if state not in visited_states:
-                visited_states.add(state)
-                V[state] = V[state] + alpha * (G - V[state])
+            if state not in visited:
+                visited.add(state)
+                V[state] += alpha * (G - V[state])
+
     return V
