@@ -4,14 +4,14 @@ import numpy as np
 
 
 def episode_gen(env, policy, max_steps):
-    """Generates an episode: list of (state, reward) pairs"""
+    """Generates an episode as list of (state, reward) tuples"""
     episode = []
     state, _ = env.reset()
     for _ in range(max_steps):
         action = policy(state)
-        next_state, reward, done, truncated, _ = env.step(action)
+        next_state, reward, terminated, truncated, _ = env.step(action)
         episode.append((state, reward))
-        if done or truncated:
+        if terminated or truncated:
             break
         state = next_state
     return episode
@@ -19,24 +19,21 @@ def episode_gen(env, policy, max_steps):
 
 def monte_carlo(env, V, policy, episodes=5000,
                 max_steps=100, alpha=0.1, gamma=0.99):
-    """Monte Carlo every-visit value estimation"""
+    """Performs Monte Carlo every-visit algorithm updating V in-place"""
     for _ in range(episodes):
         episode = episode_gen(env, policy, max_steps)
 
-        # Compute returns for each state
         G = 0
-        visited = set()
-        for i in reversed(range(len(episode))):
-            state, reward = episode[i]
+        # Walk backward through the episode to compute returns
+        for t in reversed(range(len(episode))):
+            state, reward = episode[t]
             G = reward + gamma * G
 
-            if state in visited:
-                continue
-            visited.add(state)
-
-            if V[state] == -1:  # skip holes
+            # Skip holes (V[state] is initially -1) or goal (1.0)
+            if V[state] in (-1.0, 1.0):
                 continue
 
+            # Every-visit MC: update every occurrence
             V[state] += alpha * (G - V[state])
 
     return V
