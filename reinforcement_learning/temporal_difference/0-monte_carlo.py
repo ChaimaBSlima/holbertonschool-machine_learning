@@ -4,8 +4,9 @@ import numpy as np
 
 
 def episode_gen(env, policy, max_steps):
-    """Generates an episode as a list of (state, reward) pairs"""
+    """Generates an episode as list of (state, reward)"""
     episode = []
+    visited = set()
     state, _ = env.reset()
     for _ in range(max_steps):
         action = policy(state)
@@ -19,15 +20,17 @@ def episode_gen(env, policy, max_steps):
 
 def monte_carlo(env, V, policy, episodes=5000,
                 max_steps=100, alpha=0.1, gamma=0.99):
-    """Monte Carlo every-visit value estimation with alpha update"""
+    """Performs the Monte Carlo algorithm with first-visit updates"""
     for _ in range(episodes):
         episode = episode_gen(env, policy, max_steps)
-        for i in range(len(episode)):
-            state, _ = episode[i]
-            if V[state] == -1:  # Don't update holes
-                continue
-            G = 0
-            for j, (_, reward) in enumerate(episode[i:]):
-                G += (gamma ** j) * reward
-            V[state] += alpha * (G - V[state])
+        visited = set()
+        G = 0
+        for i in reversed(range(len(episode))):
+            state, reward = episode[i]
+            G = reward + gamma * G
+            if state not in visited:
+                visited.add(state)
+                if V[state] == -1:  # Don't update hole states
+                    continue
+                V[state] += alpha * (G - V[state])
     return V
