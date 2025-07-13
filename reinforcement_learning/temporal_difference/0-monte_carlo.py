@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Program that performs the Monte Carlo algorithm"""
 import numpy as np
-import gym
 
 
 def episode_gen(env, policy, max_steps):
