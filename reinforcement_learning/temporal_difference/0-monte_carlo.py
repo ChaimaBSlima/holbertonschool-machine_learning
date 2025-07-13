@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Monte Carlo algorithm implementation"""
+"""Performs the Monte Carlo algorithm"""
 import numpy as np
 
 
 def episode_gen(env, policy, max_steps):
-    """Generates an episode as list of (state, reward) pairs"""
+    """Generate an episode using the given policy"""
     episode = []
     state, _ = env.reset()
     for _ in range(max_steps):
@@ -19,23 +19,17 @@ def episode_gen(env, policy, max_steps):
 
 def monte_carlo(env, V, policy, episodes=5000, max_steps=100,
                 alpha=0.1, gamma=0.99):
-    """Performs the Monte Carlo algorithm (every-visit)"""
-    terminal_states = set()
+    """Performs the Monte Carlo algorithm"""
     desc = env.unwrapped.desc.reshape(-1)
-
-    for idx, val in enumerate(desc):
-        if val in (b'H', b'G'):
-            terminal_states.add(idx)
 
     for _ in range(episodes):
         episode = episode_gen(env, policy, max_steps)
         G = 0
         visited = set()
-
         for t in reversed(range(len(episode))):
             state, reward = episode[t]
             G = reward + gamma * G
-            if state in visited or state in terminal_states:
+            if state in visited or desc[state] in (b'H', b'G'):
                 continue
             visited.add(state)
             V[state] += alpha * (G - V[state])
