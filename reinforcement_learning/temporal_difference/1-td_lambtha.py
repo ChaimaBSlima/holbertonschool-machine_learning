@@ -3,7 +3,8 @@
 import numpy as np
 
 
-def td_lambtha(env, V, policy, lambtha, episodes=5000, max_steps=100,
+def td_lambtha(env, V, policy, lambtha, episodes=5000,
+               max_steps=100,
                alpha=0.1, gamma=0.99):
     """Function that performs the TD(λ) algorithm"""
     Et = [0 for i in range(env.observation_space.n)]
