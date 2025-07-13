@@ -37,7 +37,7 @@ def monte_carlo(env, V, policy, episodes=5000, max_steps=100,
         G = 0
         visited = set()
         for state, reward in reversed(episode):
-            G = gamma * G + reward
+            G = reward + gamma * G
             if state not in visited:
                 visited.add(state)
                 V[state] += alpha * (G - V[state])
