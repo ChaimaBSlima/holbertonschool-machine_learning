@@ -6,14 +6,13 @@ import numpy as np
 def monte_carlo(env, V, policy, episodes=5000, max_steps=100,
                 alpha=0.1, gamma=0.99):
     """Monte Carlo every-visit algorithm"""
-    desc = env.unwrapped.desc.reshape(-1)
 
     for _ in range(episodes):
         state, _ = env.reset()
         episode = []
 
         for _ in range(max_steps):
-            action = policy(state)
+            action = policy(state)  # Uses the main's policy(), which depends on np.random
             next_state, reward, terminated, truncated, _ = env.step(action)
             episode.append((state, reward))
             if terminated or truncated:
@@ -23,11 +22,10 @@ def monte_carlo(env, V, policy, episodes=5000, max_steps=100,
         G = 0
         visited = set()
         for t in reversed(range(len(episode))):
-            state, reward = episode[t]
-            G = reward + gamma * G
-            if state in visited or desc[state] in (b'H', b'G'):
-                continue
-            visited.add(state)
-            V[state] += alpha * (G - V[state])
+            s, r = episode[t]
+            G = r + gamma * G
+            if s not in visited:
+                visited.add(s)
+                V[s] += alpha * (G - V[s])
 
     return V
