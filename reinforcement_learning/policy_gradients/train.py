@@ -3,6 +3,7 @@
 Simple Policy function
 """
 import numpy as np
+policy_gradient = __import__('policy_gradient').policy_gradient
 
 
 def softmax(x):
