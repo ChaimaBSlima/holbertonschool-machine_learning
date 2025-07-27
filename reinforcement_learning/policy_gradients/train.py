@@ -16,7 +16,7 @@ def train(env, nb_episodes, alpha=0.000045, gamma=0.98, show_result=False):
         gamma: the discount factor
         show_result: whether to show the result of the training
     Returns:
-        all values of the score (sum of all rewards during one episode loop)
+        all values of the score (sum of all rewards during  one episode loop)
     """
     weights = np.random.rand(
         env.observation_space.shape[0],
