@@ -1,11 +1,23 @@
 #!/usr/bin/env python3
+"""
+Module that contains a function to convert DataFrame columns to numpy array
+"""
 
-import pandas as pd
-import numpy as np
-from_file = __import__('2-from_file').from_file
 
-df = from_file('coinbaseUSD_1-min_data_2014-12-01_to_2019-01-09.csv', ',')
+def array(df):
+    """
+    Takes a pd.DataFrame as input and performs the following:
+    - Selects the last 10 rows of the High and Close columns
+    - Converts these selected values into a numpy.ndarray
 
-A = np.asfarray(df[["High", "Low"]].tail(10))
+    Args:
+        df: pd.DataFrame containing columns named High and Close
 
-print(A)
+    Returns:
+        numpy.ndarray: the last 10 rows of High and Close columns
+    """
+    # Select the last 10 rows of High and Close columns
+    last_10_rows = df[["High", "Close"]].tail(10)
+
+    # Convert to numpy array
+    return last_10_rows.to_numpy()
