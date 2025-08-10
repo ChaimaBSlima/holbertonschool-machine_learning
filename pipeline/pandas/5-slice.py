@@ -24,4 +24,3 @@ def slice(df):
     df_sliced = df_extracted.iloc[::60]
 
     return df_sliced
-

@@ -19,4 +19,3 @@ def high(df):
     df_sorted = df.sort_values(by="High", ascending=False)
 
     return df_sorted
-

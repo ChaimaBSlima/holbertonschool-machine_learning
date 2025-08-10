@@ -19,4 +19,3 @@ def prune(df):
     df_pruned = df.dropna(subset=["Close"])
 
     return df_pruned
-
