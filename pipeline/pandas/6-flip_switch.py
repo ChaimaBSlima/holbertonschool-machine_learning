@@ -24,4 +24,3 @@ def flip_switch(df):
     df_transposed = df_sorted.T
 
     return df_transposed
-
