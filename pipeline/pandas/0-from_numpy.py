@@ -26,4 +26,3 @@ def from_numpy(array):
 
     # Create and return the DataFrame
     return pd.DataFrame(array, columns=columns)
-
