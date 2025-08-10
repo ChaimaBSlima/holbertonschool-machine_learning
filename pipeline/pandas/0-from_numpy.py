@@ -1,15 +1,29 @@
 #!/usr/bin/env python3
-""" Pandas function that convert a numpy array to a dataframe """
+"""
+Module that contains a function to create a pandas DataFrame from a numpy array
+"""
+
 import pandas as pd
 
 
 def from_numpy(array):
-    """ Convert an np array to a dataframe
+    """
+    Creates a pd.DataFrame from a np.ndarray
 
     Args:
-        array (numpy array): input array
+        array: the np.ndarray from which to create the pd.DataFrame
 
     Returns:
-        pandas dataframe
+        pd.DataFrame: the newly created DataFrame with alphabetically ordered,
+                     capitalized column labels
     """
-    return pd.DataFrame(array)
+    # Get the number of columns from the array shape
+    num_cols = array.shape[1] if len(array.shape) > 1 else 1
+
+    # Generate column labels: A, B, C, ... up to the number of columns
+    # Using chr() and ord() to generate uppercase letters
+    columns = [chr(ord('A') + i) for i in range(num_cols)]
+
+    # Create and return the DataFrame
+    return pd.DataFrame(array, columns=columns)
+
