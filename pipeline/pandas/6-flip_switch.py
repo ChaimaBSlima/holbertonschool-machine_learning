@@ -1,10 +1,27 @@
 #!/usr/bin/env python3
+"""
+Module that contains a function to flip and switch a DataFrame
+"""
 
-import pandas as pd
-from_file = __import__('2-from_file').from_file
 
-df = from_file('coinbaseUSD_1-min_data_2014-12-01_to_2019-01-09.csv', ',')
+def flip_switch(df):
+    """
+    Takes a pd.DataFrame and:
+    - Sorts the data in reverse chronological order
+    - Transposes the sorted dataframe
 
-df = df.T.iloc[:, ::-1]
+    Args:
+        df: pd.DataFrame to transform
 
-print(df.tail(8))
+    Returns:
+        pd.DataFrame: the transformed DataFrame
+    """
+    # Sort the data in reverse chronological order (descending by index)
+    # Since the data is already in chronological order, we reverse it
+    df_sorted = df.sort_index(ascending=False)
+
+    # Transpose the sorted dataframe
+    df_transposed = df_sorted.T
+
+    return df_transposed
+

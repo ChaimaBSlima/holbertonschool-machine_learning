@@ -1,10 +1,27 @@
 #!/usr/bin/env python3
+"""
+Module that contains a function to slice a DataFrame
+"""
 
-import pandas as pd
-from_file = __import__('2-from_file').from_file
 
-df = from_file('coinbaseUSD_1-min_data_2014-12-01_to_2019-01-09.csv', ',')
+def slice(df):
+    """
+    Takes a pd.DataFrame and:
+    - Extracts the columns High, Low, Close, and Volume_(BTC)
+    - Selects every 60th row from these columns
 
-df = df.iloc[::60, 2:6]
+    Args:
+        df: pd.DataFrame to slice
 
-print(df.tail())
+    Returns:
+        pd.DataFrame: the sliced DataFrame
+    """
+    # Extract the specified columns
+    columns_to_extract = ["High", "Low", "Close", "Volume_(BTC)"]
+    df_extracted = df[columns_to_extract]
+
+    # Select every 60th row (starting from index 0, then 60, 120, etc.)
+    df_sliced = df_extracted.iloc[::60]
+
+    return df_sliced
+
