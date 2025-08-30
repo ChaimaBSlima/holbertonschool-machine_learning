@@ -1197,7 +1197,9 @@ This main should show the following plots.
 **Warning:** Duplicates in dataset can cause the programs below to enter infinite loops. It is therefore important to check first that there are none.
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
+
 ---
+
 # 📄 Files
 
 | Task Number | Task Title                   |File                 | Priority                                                             |
