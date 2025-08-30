@@ -645,6 +645,555 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/decisi
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
 
+### 7. Training decision trees
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
+Now we want to make our trees trainable, so we will write a method `Decision_Tree.fit` so that, when given
+
+  - a 2D numpy array `explanatory` of shape `(number of individuals, number of features)`.
+  - a 1D numpy array `target` of size `number of individuals`.
+
+and evaluating the code below, should return a decision tree to make predictions.
+```python
+T=Decision_Tree()
+T.fit(explanatory,target)
+```
+#### The `fit` function
+The code below showcases the fit function. As you can observe, we assign a value to the attribute `self.root.sub_population`. During the training, each node we build will have this attribute assigned with a 1D numpy array of booleans of size `target.size` (which is the number of individuals in the training set). The `i`-th value of this array is `True` if and only if the `i`-th individual visits the node (so for the root, all the values are `True` as you can see).
+  - To be added in the `Decision_Tree` class :
+
+```python
+def fit(self,explanatory, target,verbose=0) :
+        if self.split_criterion == "random" : 
+                self.split_criterion = self.random_split_criterion
+        else : 
+                self.split_criterion = self.Gini_split_criterion     <--- to be defined later
+        self.explanatory = explanatory
+        self.target      = target
+        self.root.sub_population = np.ones_like(self.target,dtype='bool')
+
+        self.fit_node(self.root)     <--- to be defined later
+
+        self.update_predict()     <--- defined in the previous task
+
+        if verbose==1 :
+                print(f"""  Training finished.
+- Depth                     : { self.depth()       }
+- Number of nodes           : { self.count_nodes() }
+- Number of leaves          : { self.count_nodes(only_leaves=True) }
+- Accuracy on training data : { self.accuracy(self.explanatory,self.target)    }""")     <--- to be defined later
+```
+#### The `split` function
+The training procedure consists in iteratively choosing splits from the root on, and the procedure to choose the splits depend on the situation, so, as you can see above, our training method will depend on an attribute `Decision_Tree.split_criterion`. For now, we will use a completely random way to split our nodes :
+ - To be added in the `Decision_Tree` class :
+```python
+    def np_extrema(self,arr):
+        return np.min(arr), np.max(arr)
+
+    def random_split_criterion(self,node) :
+        diff=0
+        while diff==0 :
+            feature=self.rng.integers(0,self.explanatory.shape[1])
+            feature_min,feature_max=self.np_extrema(self.explanatory[:,feature][node.sub_population])
+            diff=feature_max-feature_min
+        x=self.rng.uniform()
+        threshold= (1-x)*feature_min + x*feature_max
+        return feature,threshold
+```
+`Note:` As surprising as it may be, and as we will check, this randomized procedure already has an interesting predicting power.
+#### Task
+Finally, as you see, the fit method just initializes some attributes of the tree and then calls a new method `Decision_Tree.fit_node` on the root. Your task is to update the class `Decision_Tree` by adding and completing the method `def fit_node(self,node) :`
+
+- A node is a leaf if either it contains less than `min_pop` individuals, or its depth equals `max_depth` or all the individuals of the training set that come to this node are in the same class (i.e. have the same `target` value)
+- The value to be computed for a leaf is the most represented class among the individuals that finish their trip in this leaf.
+- At a node, the splitting criterion furnishes a feature index and a threshold. If the value of the selected feature on an individual that crosses this node is greater (strictly) than the threshold, then the individual goes in the left child, otherwise it goes in the right child.
+- No for loop on the individuals should appear in your code. Use numpy functions everywhere to get an efficient program.
+
+```python
+def fit_node(self,node) :
+        node.feature, node.threshold = self.split_criterion(node)
+
+        left_population  =      <--- to be filled
+        right_population =      <--- to be filled
+
+        # Is left node a leaf ?
+        is_left_leaf =    <--- to be filled
+
+        if is_left_leaf :
+                node.left_child = self.get_leaf_child(node,left_population)                                                         
+        else :
+                node.left_child = self.get_node_child(node,left_population)
+                self.fit_node(node.left_child)
+
+        # Is right node a leaf ?
+        is_right_leaf =    <--- to be filled
+
+        if is_right_leaf :
+                node.right_child = self.get_leaf_child(node,right_population)
+        else :
+                node.right_child = self.get_node_child(node,right_population)
+                self.fit_node(node.right_child)    
+
+def get_leaf_child(self, node, sub_population) :        
+        value =    <-- to be filled
+        leaf_child= Leaf( value )
+        leaf_child.depth=node.depth+1
+        leaf_child.subpopulation=sub_population
+        return leaf_child
+
+def get_node_child(self, node, sub_population) :        
+        n= Node()
+        n.depth=node.depth+1
+        n.sub_population=sub_population
+        return n
+
+def accuracy(self, test_explanatory , test_target) :
+        return np.sum(np.equal(self.predict(test_explanatory), test_target))/test_target.size
+```
+#### Main to test your work
+`Main 1`
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/decision_tree#./test_files/7-main_1.py
+----------------------------------------------------
+circle of clouds :
+  Training finished.
+    - Depth                     : 10
+    - Number of nodes           : 81
+    - Number of leaves          : 41
+    - Accuracy on training data : 1.0
+    - Accuracy on test          : 0.9666666666666667
+----------------------------------------------------
+iris dataset :
+  Training finished.
+    - Depth                     : 15
+    - Number of nodes           : 43
+    - Number of leaves          : 22
+    - Accuracy on training data : 1.0
+    - Accuracy on test          : 0.9333333333333333
+----------------------------------------------------
+wine dataset :
+  Training finished.
+    - Depth                     : 17
+    - Number of nodes           : 137
+    - Number of leaves          : 69
+    - Accuracy on training data : 1.0
+    - Accuracy on test          : 0.7058823529411765
+----------------------------------------------------
+```
+`Main 2`
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/decision_tree#./test_files/7-main_2.py
+```
+Main 2 should show the following plots.
+<p align="center">
+  <img src="" alt="Image"/>
+</p>
+
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 8. Using Gini impurity function as a splitting criterion
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
+
+For a node `N` containing a population `P` that is partitioned in `k + 1` classes : `P = P0 ∪ P1 ∪ ... ∪ Pk`, the Gini impurity of `N` is defined as
+
+<p align="center">
+  <img src="" alt="Image"/>
+</p>
+
+The idea behind this definition is that
+
+- if the population of a node is equally partitioned into many classes, the Gini impurity will be large
+- if the population of a node comes mainly from one class, the Gini impurity will be small
+So
+
+- if the Gini impurity of a leaf is large, we cannot be very confident in the prediction function of this node
+- if the Gini impurity of a leaf is small, we can have more confidence in the prediction function of this node
+Hence the idea to split a node is to choose the feature and the threshold for which the average of the Gini impurities of the corresponding children is the smallest.
+
+<p align="center">
+  <img src="" alt="Image"/>
+</p>
+
+**Task:** To find this value :
+
+- Update the the `Decision_Tree` class by adding the new methods down below.
+- Fill in the gap in the method `def Gini_split_criterion_one_feature(self,node,feature) :`.
+- No for or while loop allowed !
+
+```python
+def possible_thresholds(self,node,feature) :
+        values = np.unique((self.explanatory[:,feature])[node.sub_population])
+        return (values[1:]+values[:-1])/2
+
+def Gini_split_criterion_one_feature(self,node,feature) :
+        # Compute a numpy array of booleans Left_F of shape (n,t,c) where
+        #    -> n is the number of individuals in the sub_population corresponding to node
+        #    -> t is the number of possible thresholds
+        #    -> c is the number of classes represented in node
+        # such that Left_F[ i , j , k] is true iff 
+        #    -> the i-th individual in node is of class k 
+        #    -> the value of the chosen feature on the i-th individual 
+        #                              is greater than the t-th possible threshold
+        # then by squaring and summing along 2 of the axes of Left_F[ i , j , k], 
+        #                     you can get the Gini impurities of the putative left childs
+        #                    as a 1D numpy array of size t 
+        #
+        # Then do the same with the right child
+        # Then compute the average sum of these Gini impurities
+        #
+        # Then  return the threshold and the Gini average  for which the Gini average is the smallest
+
+def Gini_split_criterion(self,node) :
+        X=np.array([self.Gini_split_criterion_one_feature(node,i) for i in range(self.explanatory.shape[1])])
+        i =np.argmin(X[:,1])
+        return i, X[i,0]
+```
+**Main to test your work**
+`Main 1`
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/decision_tree#./test_files/8-main_1.py
+----------------------------------------------------
+circle of clouds :
+  Training finished.
+    - Depth                     : 5
+    - Number of nodes           : 19
+    - Number of leaves          : 10
+    - Accuracy on training data : 1.0
+    - Accuracy on test          : 1.0
+----------------------------------------------------
+iris dataset :
+  Training finished.
+    - Depth                     : 5
+    - Number of nodes           : 13
+    - Number of leaves          : 7
+    - Accuracy on training data : 1.0
+    - Accuracy on test          : 0.9333333333333333
+----------------------------------------------------
+wine dataset :
+  Training finished.
+    - Depth                     : 5
+    - Number of nodes           : 21
+    - Number of leaves          : 11
+    - Accuracy on training data : 1.0
+    - Accuracy on test          : 0.9411764705882353
+----------------------------------------------------
+```
+`Main 2`
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/decision_tree#./test_files/8-main_2.py
+```
+Main 2 should show the following plots.
+<p align="center">
+  <img src="" alt="Image"/>
+</p>
+**NOTE:** We observe that the decision trees constructed with the `Gini_split_criterion` are less prone to overfitting and have a smaller depth than the ones obtained with the `random_split_criterion`.
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### 9. Random forests
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
+In this task, we will create a new class `Random_Forest`.
+
+When training an object of this class on a dataset, it will build a large list of decision trees with random splitting criterion. Then to predict the class of an individual, it will ask each of those trees its prediction, and will choose the prediction that is the most frequent.
+
+**Pros :** this method has advantages over the use of the Gini criterion - when the training dataset is large : it can save CPU usage, - in terms of stability : the result of this method should be almost the same on the various training subsets of a cross-validation procedure while the Gini based decision trees can be very different for each of these training subsets.
+
+**Cons :** The Gini-based decision tree furnishes a model that has a clear, elementary interpretation. This interpretation can be used, once the decision tree, to further understand (in a human sense) the dependence between the explanatory data and the target.
+
+**Task:** In the class `Random_Forest` :
+
+- Insert the below declarations
+- Add the method `def predict(self, explanatory)`:
+- You should use the following import:
+        - `Decision_Tree = __import__('8-build_decision_tree').Decision_Tree`
+        - `import numpy as np`
+
+```python
+class Random_Forest() :
+    def __init__(self, n_trees=100, max_depth=10, min_pop=1, seed=0) :
+        self.numpy_predicts  = []
+        self.target          = None
+        self.numpy_preds     = None
+        self.n_trees         = n_trees
+        self.max_depth       = max_depth
+        self.min_pop         = min_pop
+        self.seed            = seed
+
+    def predict(self, explanatory):            <--    to be filled
+
+        # Initialize an empty list to store predictions from individual trees
+
+        # Generate predictions for each tree in the forest
+
+        # Calculate the mode (most frequent) prediction for each example
+
+    def fit(self,explanatory,target,n_trees=100,verbose=0) :
+        self.target      = target
+        self.explanatory = explanatory
+        self.numpy_preds = []
+        depths           = [] 
+        nodes            = [] 
+        leaves           = []
+        accuracies =[]
+        for i in range(n_trees) :
+            T = Decision_Tree(max_depth=self.max_depth, min_pop=self.min_pop,seed=self.seed+i)
+            T.fit(explanatory,target)
+            self.numpy_preds.append(T.predict)
+            depths.append(    T.depth()                         )
+            nodes.append(     T.count_nodes()                   )
+            leaves.append(    T.count_nodes(only_leaves=True)   )
+            accuracies.append(T.accuracy(T.explanatory,T.target))
+        if verbose==1 :
+            print(f"""  Training finished.
+    - Mean depth                     : { np.array(depths).mean()      }
+    - Mean number of nodes           : { np.array(nodes).mean()       }
+    - Mean number of leaves          : { np.array(leaves).mean()      }
+    - Mean accuracy on training data : { np.array(accuracies).mean()  }
+    - Accuracy of the forest on td   : {self.accuracy(self.explanatory,self.target)}""")
+
+    def accuracy(self, test_explanatory , test_target) :
+        return np.sum(np.equal(self.predict(test_explanatory), test_target))/test_target.size
+```
+#### Main to test your work
+`Main 1`
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/decision_tree#./test_files/9-main_1.py
+----------------------------------------------------
+circle of clouds :
+  Training finished.
+    - Mean depth                     : 6.0
+    - Mean number of nodes           : 50.92
+    - Mean number of leaves          : 25.96
+    - Mean accuracy on training data : 0.8364814814814814
+    - Accuracy of the forest on td   : 1.0
+    - Accuracy on test          : 1.0
+----------------------------------------------------
+iris dataset :
+  Training finished.
+    - Mean depth                     : 6.0
+    - Mean number of nodes           : 26.56
+    - Mean number of leaves          : 13.78
+    - Mean accuracy on training data : 0.884074074074074
+    - Accuracy of the forest on td   : 0.9777777777777777
+    - Accuracy on test          : 0.8666666666666667
+----------------------------------------------------
+wine dataset :
+  Training finished.
+    - Mean depth                     : 6.0
+    - Mean number of nodes           : 37.08
+    - Mean number of leaves          : 19.04
+    - Mean accuracy on training data : 0.7626086956521739
+    - Accuracy of the forest on td   : 1.0
+    - Accuracy on test          : 0.9411764705882353
+----------------------------------------------------
+```
+`Main 2`
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/decision_tree#./test_files/9-main_2.py
+```
+Main 2 should show the following plots.
+
+<p align="center">
+  <img src="" alt="Image"/>
+</p>
+
+**NOTE:** Once again, we obtain very good results.
+
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+### IRF 1 : isolation random trees
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
+A useful application that shares similar concepts involves utilizing random forests for detecting outliers.
+
+Here we don’t have any target, just an array `A` of explanatory features describing a set of individuals. To identify the individuals that are the more likely to be outliers, we will train a random forest, but this time (since there isn’t any class) we won’t stop the splitting process when all the individuals in the node are in the same class. Instead we will rely on the `max_depth` attribute to stop the training. Once trained, the predict function of a random tree applied to an individual will return the depth of the leaf it falled into. Outliers are likely to finish their trip alone in a leaf that has a small depth, so, averaging these predictions on a forest, the individuals that minimize the mean depth will be our suspects.
+
+**Task:** Implement the `Isolation_Random_Tree` class following the above directions.
+
+  - **NOTE:** When completing the gap in the above declaration , it’s important to observe that the same implementation will be employed in certain methods, akin to the approach adopted in the Decision_Tree class while different implementations will be applied to other methods.
+  - You should use the following imports:
+      - `Node = __import__('8-build_decision_tree').Node`
+      - `Leaf = __import__('8-build_decision_tree').Leaf`
+      - `import numpy as np`
+```python
+class Isolation_Random_Tree() :
+    def __init__(self, max_depth=10, seed=0, root=None) :
+        self.rng               = np.random.default_rng(seed)
+        if root :
+            self.root          = root
+        else :
+            self.root          = Node(is_root=True)
+        self.explanatory       = None
+        self.max_depth         = max_depth
+        self.predict           = None
+        self.min_pop=1
+
+    def __str__(self) :
+        pass           <--- same as in Decision_Tree
+
+    def depth(self) :
+        pass           <--- same as in Decision_Tree
+
+    def count_nodes(self, only_leaves=False) :
+        pass           <--- same as in Decision_Tree
+
+    def update_bounds(self) :
+        pass           <--- same as in Decision_Tree
+
+    def get_leaves(self) :
+        pass           <--- same as in Decision_Tree
+
+    def update_predict(self) :
+        pass           <--- same as in Decision_Tree
+
+    def np_extrema(self,arr):
+        return np.min(arr), np.max(arr)             
+
+    def random_split_criterion(self,node) :
+       pass           <--- same as in Decision_Tree
+
+    def get_leaf_child(self, node, sub_population) :        
+        leaf_child =          <--- to be filled (different from Decision_Tree)
+        leaf_child.depth=node.depth+1
+        leaf_child.subpopulation=sub_population
+        return leaf_child
+
+    def get_node_child(self, node, sub_population) :        
+        pass           <--- same as in Decision_Tree
+
+    def fit_node(self,node) :
+        node.feature, node.threshold = self.random_split_criterion(node)
+
+        left_population =          <--- to be filled (same as in Decision_Tree)
+        right_population =          <--- to be filled (same as in Decision_Tree)
+
+        # Is left node a leaf ?
+        is_left_leaf =           <--- to be filled (different from Decision_Tree) 
+
+        if is_left_leaf :
+            node.left_child = self.get_leaf_child(node,left_population)                                                         
+        else :
+            node.left_child = self.get_node_child(node,left_population)
+            self.fit_node(node.left_child)
+
+        # Is right node a leaf ?
+        is_right_leaf =           <--- to be filled (different from Decision_Tree) 
+
+        if is_right_leaf :
+            node.right_child = self.get_leaf_child(node,right_population)
+        else :
+            node.right_child = self.get_node_child(node,right_population)
+            self.fit_node(node.right_child)
+
+
+    def fit(self,explanatory,verbose=0) :
+
+        self.split_criterion = self.random_split_criterion
+        self.explanatory = explanatory
+        self.root.sub_population=np.ones_like(explanatory.shape[0],dtype='bool')
+
+        self.fit_node(self.root)
+        self.update_predict()
+
+        if verbose==1 :
+            print(f"""  Training finished.
+    - Depth                     : { self.depth()       }
+    - Number of nodes           : { self.count_nodes() }
+    - Number of leaves          : { self.count_nodes(only_leaves=True) }""")
+```
+#### Main to test your work
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/decision_tree#./test_files/10-main.py
+```
+This main should show the following plots.
+
+<p align="center">
+  <img src="" alt="Image"/>
+</p>
+
+**NOTE:** The cmap used in the pictures above is RdBU : leaves with small values are colored in red, leaves with high values are colored in blue. We observe that the outlier is is always in a leaf with a low value if not in the leaf with the lowest value.
+
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
+
+
+### IRF 2 : isolation random trees
+
+
+![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
+
+Now we are in good position to implement the class `Isolation_Forest` following the above directions. :
+
+ - Complete the method `def suspects(self,explanatory,n_suspects):`
+ - You should use the following imports:
+      - `Isolation_Random_Tree = __import__('10-isolation_tree').Isolation_Random_Tree`
+      - `import numpy as np`
+
+```python
+class Isolation_Random_Forest() :
+    def __init__(self, n_trees=100, max_depth=10, min_pop=1, seed=0) :
+        self.numpy_predicts  = []
+        self.target          = None
+        self.numpy_preds     = None
+        self.n_trees         = n_trees
+        self.max_depth       = max_depth
+        self.seed            = seed
+
+    def predict(self, explanatory):
+        predictions = np.array([f(explanatory) for f in self.numpy_preds])
+        return predictions.mean(axis=0)
+
+    def fit(self,explanatory,n_trees=100,verbose=0) :
+        self.explanatory = explanatory
+        self.numpy_preds = []
+        depths           = [] 
+        nodes            = [] 
+        leaves           = []
+        for i in range(n_trees) :
+            T = Isolation_Random_Tree(max_depth=self.max_depth,seed=self.seed+i)
+            T.fit(explanatory)
+            self.numpy_preds.append(T.predict)
+            depths.append(    T.depth()                         )
+            nodes.append(     T.count_nodes()                   )
+            leaves.append(    T.count_nodes(only_leaves=True)   )
+        if verbose==1 :
+            print(f"""  Training finished.
+    - Mean depth                     : { np.array(depths).mean()      }
+    - Mean number of nodes           : { np.array(nodes).mean()       }
+    - Mean number of leaves          : { np.array(leaves).mean()      }""")
+
+    def suspects(self,explanatory,n_suspects) :
+                """ returns the n_suspects rows in explanatory that have the smallest mean depth """
+        depths=self.predict(explanatory)
+                pass          <--- to be filled
+```
+
+### Main to test your work
+
+```
+root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/decision_tree#./test_files/11-main.py
+  Training finished.
+    - Mean depth                     : 15.0
+    - Mean number of nodes           : 550.1
+    - Mean number of leaves          : 275.55
+suspects : [[ 0.09754323  1.33996024]
+ [-0.95592937  1.23922096]
+ [-0.36715428 -1.38766761]]
+depths of suspects : [4.84 6.02 6.12]
+```
+This main should show the following plots.
+
+<p align="center">
+  <img src="" alt="Image"/>
+</p>
+
+**Warning:** Duplicates in dataset can cause the programs below to enter infinite loops. It is therefore important to check first that there are none.
+
+<p align="center">⭐⭐⭐⭐⭐⭐</p>
 ---
 # 📄 Files
 
