@@ -68,7 +68,7 @@ At the end of this project, you are expected to be able to [explain to anyone](h
 - What is broadcasting?  
 
 ---
-# 🧪 Tasks
+# ⚙️ Tasks
 
 We will progressively add methods in the following 3 classes:
 
@@ -786,8 +786,9 @@ wine dataset :
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/decision_tree#./test_files/7-main_2.py
 ```
 Main 2 should show the following plots.
+
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/bf4ac4ca-d61b-40b2-9447-97951d5a488e" alt="Image"/>
 </p>
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
@@ -800,7 +801,7 @@ Main 2 should show the following plots.
 For a node `N` containing a population `P` that is partitioned in `k + 1` classes : `P = P0 ∪ P1 ∪ ... ∪ Pk`, the Gini impurity of `N` is defined as
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/345fdbc6-28d9-46d8-a4d1-086c07652b6e" alt="Image"/>
 </p>
 
 The idea behind this definition is that
@@ -814,7 +815,7 @@ So
 Hence the idea to split a node is to choose the feature and the threshold for which the average of the Gini impurities of the corresponding children is the smallest.
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/49779a3d-f49d-4c3b-a58d-28c511b01628" alt="Image"/>
 </p>
 
 **Task:** To find this value :
@@ -886,9 +887,11 @@ wine dataset :
 root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/decision_tree#./test_files/8-main_2.py
 ```
 Main 2 should show the following plots.
+
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/c1e39f31-ba11-48ea-9ec1-47b1325f553a" alt="Image"/>
 </p>
+
 **NOTE:** We observe that the decision trees constructed with the `Gini_split_criterion` are less prone to overfitting and have a smaller depth than the ones obtained with the `random_split_criterion`.
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
@@ -998,14 +1001,14 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/decisi
 Main 2 should show the following plots.
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/15859062-f0fd-44cb-bb55-1488c0540e9a" alt="Image"/>
 </p>
 
 **NOTE:** Once again, we obtain very good results.
 
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
-### IRF 1 : isolation random trees
+### 10. IRF 1 : isolation random trees
 
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
 
@@ -1113,7 +1116,7 @@ root@CHAIMA-LAPTOP:~/holbertonschool-machine_learning/supervised_learning/decisi
 This main should show the following plots.
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/bf557767-512c-44a0-ac25-9a2f8c5ec2dc" alt="Image"/>
 </p>
 
 **NOTE:** The cmap used in the pictures above is RdBU : leaves with small values are colored in red, leaves with high values are colored in blue. We observe that the outlier is is always in a leaf with a low value if not in the leaf with the lowest value.
@@ -1121,7 +1124,7 @@ This main should show the following plots.
 <p align="center">⭐⭐⭐⭐⭐⭐</p>
 
 
-### IRF 2 : isolation random trees
+### 11.IRF 2 : isolation random trees
 
 
 ![Mandatory](https://img.shields.io/badge/mandatory-✅-brightgreen)
@@ -1188,7 +1191,7 @@ depths of suspects : [4.84 6.02 6.12]
 This main should show the following plots.
 
 <p align="center">
-  <img src="" alt="Image"/>
+  <img src="https://github.com/user-attachments/assets/e7981501-7ccf-4403-9f9f-b54263cd02ba" alt="Image"/>
 </p>
 
 **Warning:** Duplicates in dataset can cause the programs below to enter infinite loops. It is therefore important to check first that there are none.
